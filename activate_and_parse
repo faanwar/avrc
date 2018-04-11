@@ -1,0 +1,17 @@
+#!/bin/bash
+#This is a shell script that is called by incrontab when a new file is uploaded to the directory redcross_uploads
+#It activates the appropriate python environment. Once the environment is activated, it runs rc_parse on the file.
+
+cd /home/databot
+source /opt/earlytestv3.0/env/bin/activate
+end=$((SECONDS + 3600))
+while (( SECONDS < end)) && [ -f $1 ]; do
+  # If the db is locked for sync retry until you succeed for 1 hour with 10 minute sleep time
+  /opt/earlytestv3.0/env/bin/rc_parse -c /opt/earlytestv3.0/avrc.redcross/avrc_nat_settings.ini $1
+  echo "File Still present"
+  sleep 600
+done
+
+
+# Back the sql db only when new results are added
+zip -j "/opt/earlytestv3.0/avrc.redcross/db_backups/avrc_sqlite-`date '+%Y_%m_%d-%H_%M_%S'`.zip" /opt/earlytestv3.0/avrc.redcross/avrc_sqlite.db

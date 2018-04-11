@@ -1,0 +1,596 @@
+# English translations for aeh.earlytest.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the aeh.earlytest
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: aeh.earlytest 0.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2014-02-19 13:15-0800\n"
+"PO-Revision-Date: 2014-02-19 13:15-0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#. Default: The Early Test
+#: src/aeh/earlytest/templates/master.pt:52
+#: src/aeh/earlytest/templates/pages/home.pt:6
+msgid "the_early_test"
+msgstr ""
+
+#. Default: About
+#: src/aeh/earlytest/templates/master.pt:62
+msgid "about"
+msgstr ""
+
+#. Default: FAQs
+#: src/aeh/earlytest/templates/master.pt:68
+msgid "faqs"
+msgstr ""
+
+#. Default: Results
+#: src/aeh/earlytest/templates/master.pt:74
+msgid "results"
+msgstr ""
+
+#. Default: Locations &#38; Hours
+#: src/aeh/earlytest/templates/master.pt:80
+msgid "location_and_hours"
+msgstr ""
+
+#. Default: Language
+#: src/aeh/earlytest/templates/master.pt:88
+msgid "language"
+msgstr ""
+
+#. Default: Contact Us
+#: src/aeh/earlytest/templates/master.pt:102
+msgid "contact_us"
+msgstr ""
+
+#. Default: Back to top
+#: src/aeh/earlytest/templates/master.pt:151
+msgid "back_to_top"
+msgstr ""
+
+#. Default: A Program of the UC San Diego AntiViral Research Center, San Diego,
+#. CA
+#: src/aeh/earlytest/templates/master.pt:155
+msgid "footer"
+msgstr ""
+
+#. Default: You Don't Need To Wait To Get Tested For HIV Anymore
+#: src/aeh/earlytest/templates/pages/home.pt:7
+msgid "dont_wait"
+msgstr ""
+
+#. Default: About The Early Test
+#: src/aeh/earlytest/templates/pages/home.pt:23
+msgid "about_the_early_test"
+msgstr ""
+
+#. Default: Specialized testing for HIV infection as early as one week after
+#. exposure.
+#: src/aeh/earlytest/templates/pages/home.pt:26
+msgid "about_the_early_test_1"
+msgstr ""
+
+#. Default: After becoming HIV infected, it typically takes up to 3 months to
+#. develop a positive antibody test result. In rare cases, it may take even
+#. longer.
+#. During this "window period" when the HIV antibody test is negative, a
+#. different
+#. type of test - a type of 'viral load' test - can detect the presence of HIV.
+#: src/aeh/earlytest/templates/pages/home.pt:27
+msgid "about_the_early_test_2"
+msgstr ""
+
+#. Default: This type of test is not typically offered at HIV testing sites and
+#. health insurance does not usually cover viral load tests for HIV screening.
+#: src/aeh/earlytest/templates/pages/home.pt:29
+msgid "about_the_early_test_3"
+msgstr ""
+
+#. Default: If you test negative for the standard HIV antibody test, you will
+#. get a
+#. free viral load to test to detect very early infection as early as one week
+#. after a potential HIV exposure.
+#: src/aeh/earlytest/templates/pages/home.pt:30
+msgid "about_the_early_test_4"
+msgstr ""
+
+#. Default: With the Early Test there’s no need to return to the test location
+#. for
+#. your results. In two weeks simply log into our automated results system to
+#. get
+#. your negative results.
+#: src/aeh/earlytest/templates/pages/home.pt:31
+msgid "about_the_early_test_5"
+msgstr ""
+
+#. Default: Your confidentiality is assured. While we do ask for some personal
+#. information (such as your name), your results will not be given to anyone
+#. else
+#. without your written permission.
+#: src/aeh/earlytest/templates/pages/home.pt:32
+msgid "about_the_early_test_6"
+msgstr ""
+
+#. Default: What If I Test Positive?
+#: src/aeh/earlytest/templates/pages/home.pt:41
+msgid "test_positive"
+msgstr ""
+
+#. Default: For those who test HIV positive, the Antiviral Research Center
+#. (AVRC)
+#. can help you in several ways. Whether or not you have health insurance, we
+#. can
+#. help you find an HIV specialist.
+#: src/aeh/earlytest/templates/pages/home.pt:42
+msgid "test_positive_1"
+msgstr ""
+
+#. Default: If you are identified as having early HIV infection through this
+#. specialized testing program, you will be offered opportunities to
+#. participate in
+#. early infection research studies. If you are able to participate, you will
+#. receive free counseling and free diagnostic tests.
+#: src/aeh/earlytest/templates/pages/home.pt:46
+msgid "test_positive_2"
+msgstr ""
+
+#. Default: In addition, the AVRC will help you by providing Partner
+#. Notification
+#. Services if you want help telling your sex partners that they have been
+#. exposed
+#. to HIV. Talking to partners about HIV is not easy and wondering if you might
+#. have infected someone else may weigh heavily on your mind.
+#: src/aeh/earlytest/templates/pages/home.pt:50
+msgid "test_positive_3"
+msgstr ""
+
+#. Default: The UCSD First Choice Program has specialists who can help you tell
+#. your partners that they have been exposed to HIV or they can tell your
+#. partners
+#. for you. Your name and other identifying information will be kept
+#. confidential
+#. throughout the process. No one is here to judge or lecture you. We are just
+#. here
+#. to help. For you, and for everyone you’ve had sex with, and for anyone you
+#. will
+#. have sex with - Know Your Status Now!
+#: src/aeh/earlytest/templates/pages/home.pt:54
+msgid "test_positive_4"
+msgstr ""
+
+#. Default: Advantages of Knowing your HIV Status Sooner
+#: src/aeh/earlytest/templates/pages/home.pt:62
+msgid "advantages_of_knowing"
+msgstr ""
+
+#. Default: Getting your results quicker will help decrease the anxiety you
+#. feel
+#. while waiting for test results.
+#: src/aeh/earlytest/templates/pages/home.pt:66
+msgid "advantages_of_knowing_1"
+msgstr ""
+
+#. Default: Knowing your status sooner can help you make more responsible
+#. decisions
+#. to protect you and your partners.
+#: src/aeh/earlytest/templates/pages/home.pt:67
+msgid "advantages_of_knowing_2"
+msgstr ""
+
+#. Default: There are treatment advantages for those who are identified soon
+#. after
+#. infection. You may qualify for one of our many cutting-edge research
+#. studies.
+#: src/aeh/earlytest/templates/pages/home.pt:68
+msgid "advantages_of_knowing_3"
+msgstr ""
+
+#. Default: If you wish, we can notify at-risk partners. If notified in time,
+#. they
+#. can potentially avoid HIV infection!
+#: src/aeh/earlytest/templates/pages/home.pt:69
+msgid "advantages_of_knowing_4"
+msgstr ""
+
+#. Default: Studies have proven that the earlier HIV is diagnosed, the better
+#. the
+#. long-term prognosis and quality of life.
+#: src/aeh/earlytest/templates/pages/home.pt:70
+msgid "advantages_of_knowing_5"
+msgstr ""
+
+#. Default: Frequently Asked Questions
+#: src/aeh/earlytest/templates/pages/home.pt:83
+msgid "frequently_asked_questions"
+msgstr ""
+
+#. Default: What is the difference between the Early Test and the standard HIV
+#. antibody test?
+#: src/aeh/earlytest/templates/pages/home.pt:90
+msgid "what_is_the_diff_tests"
+msgstr ""
+
+#. Default: A standard HIV test detects antibodies that the person's immune
+#. system
+#. makes to fight HIV after infection and it could take up to six weeks or more
+#. for
+#. antibodies to develop. On the other hand, The Early Test detects the HIV
+#. virus,
+#. not the antibodies. The Early Test can detect HIV infection as early as one
+#. week
+#. after exposure.
+#. Default: Although the use of Early Test methods are used to screen the blood
+#. supply it is not standard of care for routine HIV testing. The Early Test is
+#. being provided as a part of a research study that wants to learn about
+#. finding
+#. individuals that are in the earliest stages of HIV infection. To be part of
+#. this
+#. study you need to be 18 or older and give informed consent.
+#: src/aeh/earlytest/templates/pages/home.pt:97
+#: src/aeh/earlytest/templates/pages/home.pt:101
+msgid "what_is_the_diff_tests_1"
+msgstr ""
+
+#. Default: What is involved if I participate in the Early Test study?
+#: src/aeh/earlytest/templates/pages/home.pt:113
+msgid "what_is_involved"
+msgstr ""
+
+#. Default: You will be asked about your sexual activity, drug use history and
+#. other factors that are related to your risk of HIV. Your personal
+#. information
+#. such as name and phone numbers will be collected so that we can contact you
+#. with
+#. test results if needed. You will have 3-4 tablespoons of blood taken. A
+#. standard
+#. HIV test will be taken, usually it will be possible to do this from oral
+#. fluid.
+#: src/aeh/earlytest/templates/pages/home.pt:120
+msgid "what_is_involved_1"
+msgstr ""
+
+#. Default: If the standard HIV test is negative your blood will be sent for
+#. the
+#. Early Test. If the standard HIV test is preliminary positive, your blood
+#. will be
+#. sent for further tests which are necessary to confirm whether you have HIV.
+#. Some
+#. of the blood will also be tested to determine if your HIV infection is very
+#. recent. Some of the blood will be stored so that it is available for
+#. additional
+#. tests if needed. If blood is left over it may be used for research on your
+#. genes
+#. that predict response to HIV and it’s treatment.
+#: src/aeh/earlytest/templates/pages/home.pt:125
+msgid "what_is_involved_2"
+msgstr ""
+
+#. Default: How long will it take to get my Early Test results?
+#: src/aeh/earlytest/templates/pages/home.pt:139
+msgid "how_long"
+msgstr ""
+
+#. Default: You will take a rapid antibody test first and get those results
+#. during
+#. your Early Test visit. If you test negative on the rapid test, we will draw
+#. blood to send to the lab that performs the Early Test. If your Early Test
+#. result
+#. is negative, then you will be able to access your negative result through a
+#. secure website or on a toll-free phone line two weeks after you have taken
+#. the
+#. test. If your Early Test result is positive, UCSD study personnel will
+#. contact
+#. you within two weeks using the contact information you provide.
+#: src/aeh/earlytest/templates/pages/home.pt:146
+msgid "how_long_1"
+msgstr ""
+
+#. Default: What if I am HIV infected?
+#: src/aeh/earlytest/templates/pages/home.pt:159
+msgid "what_if_infected"
+msgstr ""
+
+#. Default: If your HIV test is positive, one of the staff members will talk
+#. with
+#. you about your options and where you can receive medical care and other
+#. services
+#. for your HIV infection.
+#: src/aeh/earlytest/templates/pages/home.pt:166
+msgid "what_if_infected_1"
+msgstr ""
+
+#. Default: Is there any other way that I might know that I got infected with
+#. HIV
+#. other than taking a test?
+#: src/aeh/earlytest/templates/pages/home.pt:176
+msgid "other_way_to_know"
+msgstr ""
+
+#. Default: Taking a test is the only conclusive way to determine if you are
+#. infected. Many people have symptoms of fever, headache, rash, diarrhea, or
+#. other
+#. flu-like symptoms one to two weeks after being exposed to HIV. However, the
+#. symptoms are so similar to a flu that most people do not recognize that they
+#. have been infected by HIV.
+#: src/aeh/earlytest/templates/pages/home.pt:183
+msgid "other_way_to_know_1"
+msgstr ""
+
+#. Default: Why do I need to know my HIV status right away?
+#: src/aeh/earlytest/templates/pages/home.pt:195
+msgid "why_know_now"
+msgstr ""
+
+#. Default: You are extremely infectious during the first few months after
+#. contracting the virus. It is very important that you know your status as
+#. soon as
+#. possible after being infected so that you can protect others from being
+#. infected. Also, many studies have proven that the earlier HIV is diagnosed,
+#. the
+#. better your long-term prognosis and quality of life.
+#: src/aeh/earlytest/templates/pages/home.pt:202
+msgid "why_know_now_1"
+msgstr ""
+
+#. Default: Do I have to participate in the Early Test? What are the
+#. alternatives?
+#: src/aeh/earlytest/templates/pages/home.pt:214
+msgid "must_participate"
+msgstr ""
+
+#. Default: Participation is voluntary. You do not have to participate in this
+#. study. Alternatives include getting a routine HIV antibody test alone.
+#. Testing
+#. for HIV virus as a way to diagnose HIV is not routine, but it may be
+#. available
+#. outside of this study and you could look for availability elsewhere. Not
+#. participating will have no effect on your care at UCSD.
+#: src/aeh/earlytest/templates/pages/home.pt:221
+msgid "must_participate_1"
+msgstr ""
+
+#. Default: Is there any risk to participating in the Early Test?
+#: src/aeh/earlytest/templates/pages/home.pt:233
+msgid "any_risk"
+msgstr ""
+
+#. Default: Participating in this study involves some risks:
+#: src/aeh/earlytest/templates/pages/home.pt:241
+msgid "any_risk_1"
+msgstr ""
+
+#. Default: Taking blood from a vein in your arm can occasionally be associated
+#. with pain, bruising or bleeding. Rarely the site can get infected. Some
+#. people
+#. get dizzy or even faint when their blood is drawn.
+#: src/aeh/earlytest/templates/pages/home.pt:243
+msgid "any_risk_2"
+msgstr ""
+
+#. Default: You may find out you have HIV and this can be upsetting. Waiting
+#. for
+#. the final results can also cause anxiety for some.
+#: src/aeh/earlytest/templates/pages/home.pt:244
+msgid "any_risk_3"
+msgstr ""
+
+#. Default: There is no way to prove that the virus you have is the same as
+#. someone
+#. else’s but you may feel upset that you infected your partner or they
+#. infected
+#. you. Counselors are available to talk about this.
+#: src/aeh/earlytest/templates/pages/home.pt:245
+msgid "any_risk_4"
+msgstr ""
+
+#. Default: Some other risks may be unforeseeable but you will be informed if
+#. they
+#. are identified.
+#: src/aeh/earlytest/templates/pages/home.pt:246
+msgid "any_risk_5"
+msgstr ""
+
+#. Default: There is a risk of loss of confidentiality but all measures
+#. possible
+#. are taken to ensure that your information is secure and consistent with the
+#. policies of UCSD.
+#: src/aeh/earlytest/templates/pages/home.pt:247
+msgid "any_risk_6"
+msgstr ""
+
+#. Default: Is the Early Test confidential?
+#. Default: The Early Test is confidential, but it is not anonymous. This means
+#. that we will ask your name and contact information so that we can inform you
+#. if
+#. your Early Test result is positive or if for some reason, the test needs to
+#. be
+#. run again. However, your results will not be given to anyone else without
+#. your
+#. written permission. Your information is kept in secure files that are
+#. protected.
+#. HIV is a reportable disease like hepatitis C or syphilis and must be
+#. reported to
+#. the public health department in accordance with the law. UCSD also complies
+#. with
+#. the Health Insurance Portability and Accountability Act (HIPAA) that
+#. requires
+#. you to sign a release of your HIV/AIDS information to government regulatory
+#. agencies but only for those official purposes. You must sign the HIPAA form
+#. to
+#. participate in this study. The U.S. Department of Health Services has issued
+#. a
+#. Certificate of Confidentiality for this research that protects your
+#. information
+#. from being disclosed for other purposes even if it is requested by court
+#. order
+#. or subpoena.
+#: src/aeh/earlytest/templates/pages/home.pt:257
+#: src/aeh/earlytest/templates/pages/home.pt:264
+msgid "is_confidential"
+msgstr ""
+
+#. Default: The Early Test Locations
+#: src/aeh/earlytest/templates/pages/location.pt:3
+msgid "locations"
+msgstr ""
+
+#. Default: The Early Test Reports
+#. Default: The Early Test Reports <dynamic element>
+#: src/aeh/earlytest/templates/pages/report-entry.pt:4
+#: src/aeh/earlytest/templates/pages/reports.pt:4
+msgid "reports"
+msgstr ""
+
+#. Default: Get Your Early Test Results
+#: src/aeh/earlytest/templates/pages/results.pt:8
+msgid "get_results"
+msgstr ""
+
+#. Default: If you recently had lab tests as part of the Early Test Program,
+#. you
+#. were given a card with instructions on how to access your results online or
+#. by
+#. phone. The card also has the date that your results will be available, as
+#. well
+#. as your confidential test number. Once your results become available they
+#. remain
+#. in our automated results system for 90 days after the test date.
+#: src/aeh/earlytest/templates/pages/results.pt:10
+msgid "get_results_1"
+msgstr ""
+
+#. Default: Test numbers
+#: src/aeh/earlytest/templates/pages/results.pt:18
+msgid "test_numbers"
+msgstr ""
+
+#. Default: and
+#: src/aeh/earlytest/templates/pages/results.pt:19
+msgid "and"
+msgstr ""
+
+#. Default: do not match.
+#: src/aeh/earlytest/templates/pages/results.pt:20
+msgid "do_not_match"
+msgstr ""
+
+#. Default: The two test numbers entered do not match. Please check and
+#. re-enter
+#. your number to continue.
+#: src/aeh/earlytest/templates/pages/results.pt:22
+msgid "query_invalid_1"
+msgstr ""
+
+#. Default: Results for
+#: src/aeh/earlytest/templates/pages/results.pt:28
+#: src/aeh/earlytest/templates/pages/results.pt:39
+#: src/aeh/earlytest/templates/pages/results.pt:50
+msgid "results_for"
+msgstr ""
+
+#. Default: are not available.
+#: src/aeh/earlytest/templates/pages/results.pt:29
+msgid "are_not_available"
+msgstr ""
+
+#. Default: We are sorry that we are not able to give you your results at this
+#. time. If you are calling before the date written on your Early Test card,
+#. please
+#. call back on or after the date on your card. Otherwise, please call <dynamic
+#. element>.
+#: src/aeh/earlytest/templates/pages/results.pt:31
+msgid "not_available_1"
+msgstr ""
+
+#. Default: are negative.
+#: src/aeh/earlytest/templates/pages/results.pt:40
+msgid "are_negative"
+msgstr ""
+
+#. Default: The results of your Early Test (<dynamic element>) are negative.
+#. This
+#. means that at the time of the test, ${queryTestDate}, there was no sign of
+#. HIV
+#. in your blood. Please follow the plan you developed with your counselor for
+#. reducing your risk.
+#: src/aeh/earlytest/templates/pages/results.pt:42
+msgid "results_negative_1"
+msgstr ""
+
+#. Default: are no longer available.
+#: src/aeh/earlytest/templates/pages/results.pt:51
+msgid "are_no_longer_available"
+msgstr ""
+
+#. Default: here
+#: src/aeh/earlytest/templates/pages/results.pt:56
+msgid "here"
+msgstr ""
+
+#. Default: It has been more than 90 days since the date of your Early Test,
+#. the
+#. results are no longer available. We encourage you to test again, click
+#. <dynamic
+#. element> for information about our test sites.
+#: src/aeh/earlytest/templates/pages/results.pt:53
+msgid "results_out_of_date_1"
+msgstr ""
+
+#. Default: Confidential Test
+#: src/aeh/earlytest/templates/pages/results.pt:61
+msgid "confidential_test"
+msgstr ""
+
+#. Default: does not exist in our database.
+#: src/aeh/earlytest/templates/pages/results.pt:62
+msgid "does_not_exist"
+msgstr ""
+
+#. Default: We're sorry, the number you entered is not in our system at this
+#. time.
+#. If you are calling before the date written on your Early Test card your
+#. results
+#. are not yet available. Please call back on or after the date on your card.
+#. If
+#. you think you've received this message in error, please call <dynamic
+#. element>.
+#: src/aeh/earlytest/templates/pages/results.pt:64
+msgid "results_not_found_1"
+msgstr ""
+
+#. Default: Online
+#: src/aeh/earlytest/templates/pages/results.pt:78
+msgid "online"
+msgstr ""
+
+#. Default: To get your test results now, enter your confidential test number:
+#: src/aeh/earlytest/templates/pages/results.pt:81
+msgid "enter_number"
+msgstr ""
+
+#. Default: Re-enter your confidential test number:
+#: src/aeh/earlytest/templates/pages/results.pt:85
+msgid "reenter_number"
+msgstr ""
+
+#. Default: Submit
+#: src/aeh/earlytest/templates/pages/results.pt:88
+msgid "submit"
+msgstr ""
+
+#. Default: By Phone
+#: src/aeh/earlytest/templates/pages/results.pt:90
+msgid "by_phone"
+msgstr ""
+

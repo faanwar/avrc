@@ -1,0 +1,144 @@
+html,
+body {
+	height: 100%;
+}
+
+body { 
+  padding-top: 60px; 
+  background-image: url('images/brillant.png');
+  position: relative;
+}
+
+#wrap {
+	min-height:100%;
+	height:auto;
+	margin: 0 auto -60px;
+	padding: 0 0 100px;
+  min-width: 320px;
+}
+
+#logged_in {
+}
+
+#footer {
+	min-height: 60px;
+  	height:auto;
+	background-color: #eeeeee;
+}
+
+#wrench {
+	margin-left:10px;
+	color:#000;
+}
+
+.container .text-muted {
+	margin: 20px 0;
+}
+
+#etform {
+  max-width:400px;
+}
+
+.success-ajax{
+  background-color: #32cd32;
+  transition: background-color 1s;
+}
+
+.failure-ajax{
+  background-color: #9D1309;
+  transition: background-color 1s;
+}
+
+.danger-anim{
+  background-color:#f2dede;
+  transition: background-color 1s;
+}
+.slow-blank{
+  transition: background-color 1s;
+}
+
+
+
+h1, h2, h3, h4, h5 {
+  color: #00436d;
+}
+
+.jumbotron > div > div > h1 {
+  color: #00436d;
+}
+
+.img.disabled{
+  opacity: 0.2;
+}
+.img-shadow {
+	-webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+	box-shadow: 0 0 50px 20px rgba(0, 0, 0, .5);
+	margin: 50px;
+}
+.subsInnerContent{
+  font-size:16px;
+  line-height:25px;
+}
+
+.subsInnerContent span.msgTxt{
+  font-size:24px;
+  line-height:35px;
+}
+.selectReason{width:430px;text-align:left;margin:0 auto;margin-top:35px;}
+.inputType{border:1px solid #b3baba;padding:10px 7px;width:100%;font-size:15px;border-radius:6px;overflow:hidden;}
+.msgTitle{color:#ff3f12;font-size:36px;display:inline-block;margin-bottom:24px;}
+.selectReason{width:430px;text-align:left;margin:0 auto;margin-top:35px;}
+.errorMsg{color:#e11414;font-size:12px;line-height:24px;}
+.primaryBtn{background-color:#a80000;font-size:25px;color:#ffffff;padding:10px 24px;text-align:center;border-radius:5px;display:inline-block; text-decoration:none;border:none;}
+.primaryBtn:hover{background-color:#283545}
+.unsubscribeContent{border-radius:10px;border:1px solid #d6d4d4;background-color:#ffffff;padding:45px 60px;width:920px;box-sizing:border-box;text-align:center;margin:25px auto}
+
+
+input[type=date] {
+  height: 15px;
+  margin: 0 auto;
+  //width: 50%;
+  //font-family: arial, sans-serif;
+  //font-size: 18px;
+  //font-weight: bold;
+  text-transform: uppercase;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  border-radius: 3px;
+  padding: 0 3px;
+  color: #000;
+  
+/*  &::-webkit-datetime-edit-month-field {
+    color: red;
+  }
+  &::-webkit-datetime-edit-day-field {
+    color: white;
+  }
+  &::-webkit-datetime-edit-year-field {
+    color: blue;
+  }
+  
+  &::-webkit-clear-button {
+    font-size: 18px;
+    height: 30px;
+    position: relative;
+    right: 5px;
+    margin-right: 4px;
+  }*/
+    &::-webkit-calendar-picker-indicator {
+	    &:hover {
+	      background-color: lighten(#2f2f2f,40%);
+	      color: darken(#fff, 10%);
+	      cursor: pointer;
+	    }
+	    &:active {
+	      color: blue;
+	    }
+  }
+  &::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+  }
+
+}
+

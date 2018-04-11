@@ -1,0 +1,239 @@
+<!--
+This software is Copyright (c) 2015,
+The Regents of the University of California.
+
+Developed by the UCSD CFAR BIT Core (bitcore@ucsd.edu)
+
+Core Developers:
+  Sergei L Kosakovsky Pond (spond@ucsd.edu)
+  Jason A Young (jay007@ucsd.edu)
+  Marco A Martinez (mam002@ucsd.edu)
+  Steven Weaver (sweaver@ucsd.edu)
+
+Significant contributions from:
+  David Mote (davidmote [at] gmail [dot] com)
+  Jennifer Rodriguez-Mueller (almostlikethat [at] gmail [dot] com)
+  Drew Allen (asallen@ucsd.edu)
+  Andrew Dang (a7dang [at] gmail [dot] com)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<html i18n:domain="aeh.earlytest" metal:use-macro="main_template">
+  <metal:content-slot fill-slot="content-slot">
+
+    <h1 i18n:translate="reports">
+      <a class="btn btn-primary" href="${request.route_path('reports')}" tal:condition='python: single_access == False'>
+        <span class="glyphicon glyphicon-circle-arrow-left"></span> All Reports
+      </a>
+      The Early Test Reports <small tal:content='site_name'></small>
+    </h1>
+  <hr class="featurette-divider" />
+
+    <!-- Search Bar -->
+    <form role="form" id="search_form" method="get">
+      <input name="page" id="page" value="${page}" type="hidden" />
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Search Filter
+        </div>
+        <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+              <div class="col-sm-2">
+              <label class="checkbox-inline">
+                <input type="checkbox" id="neg" name="no_filter" tal:attributes="checked 'true' if not dhiv and not dhcv and not dhbv and not visit_date else nothing" /> Show All Results
+              </label>
+              </div>
+              <div class="col-sm-10">
+              <label class="checkbox-inline">
+                <input type="checkbox" id="dhiv" name="dhiv" tal:attributes="checked 'true' if dhiv else nothing" /> HIV Positive
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" id="dhcv" name="dhcv" tal:attributes="checked 'true' if dhcv else nothing" /> HCV Positive
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" id="dhbv" name="dhbv" tal:attributes="checked 'true' if dhbv else nothing" /> HBV Positive
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" id="visit_date" name="visit_date" tal:attributes="checked 'true' if visit_date else nothing" /> Missing Draw Date
+              </label>
+                <button type="button" id="csv_export_btn" class="pull-right btn btn-primary">
+                  <span class="glyphicon glyphicon-download-alt"></span> Download All Search Results (Excel)
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+          <div class="input-group">
+              <span class="input-group-btn" tal:condition="python: prev_ref_no != ''">
+                  <button id="clear_reference_number" class="btn btn-success" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+              </span>
+                <input type="text" id="reference_number" name="reference_number" class="form-control" placeholder="Reference Number" value="${prev_ref_no}" />
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Search</button>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- End Search Bar -->
+
+    <ul class="legend" style="list-style:none; float:right">
+      <li style="float: left; margin-right: 10px"><span class="red-positive-hiv" style="border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; background-color: #FFCCCC;"></span> Positive HIV</li>
+      <li style="float: left; margin-right: 10px"><span class="blue-missing-draw-date" style="border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px;background-color: #D6EAFF;"></span> Missing Draw Dates</li>
+    </ul><br>
+
+    <div tal:condition="python: no_of_reports == 0" class="alert alert-warning">
+      <h2 class="text-danger">
+        No matches found for search criteria
+      </h2>
+      <p>
+        There were no results found for the search criteria you provided. Try expanding your search to see more results.
+      </p>
+
+    </div>
+    <div tal:condition="python: no_of_reports > 0 ">
+
+        <span class="text-muted"><strong>${no_of_reports} Reports Total</strong></span>
+
+      <!-- Paging Display -->
+      <div class="text-center" tal:condition="python: max_pages > 1">
+        <ul class="pagination">
+          <li tal:condition="python: page > 1"><a href="javascript:void();" onclick="javascript:set_page(1);">First</a></li>
+          <li tal:condition="python: page > 1"><a href="javascript:void();" onclick="javascript:set_page(${page - 1 if page - 1 >= 1 else 1});">&larr; Previous</a></li>
+          <li tal:repeat="item python:range(page_start,page_end + 1)" tal:attributes="class 'active' if repeat.item.index + page_start == page else nothing">
+            <a href="javascript:void();" onclick="javascript:set_page(${repeat.item.index + page_start});" tal:content="repeat.item.index + page_start" />
+          </li>
+          <li tal:condition="python: page < max_pages"><a href="javascript:void();" onclick="set_page(${page + 1 if page + 1 &lt;= max_pages else max_pages})">&rarr; Next</a></li>
+          <li tal:condition="python: page < max_pages"><a href="javascript:void();" onclick="set_page(${max_pages})">Last</a></li>
+        </ul>
+      </div>
+      <!-- End Paging Display  -->
+    <table class="table table-condensed">
+      <tr>
+        <th>
+RC Identifier
+        </th>
+        <th>
+Draw Date<!--!
+          <a
+            tal:attributes="class '' if sort_by_item == 'draw_date' else 'text-muted'"
+            href="javascript:void();" onclick="javascript:set_sort('draw_date','${sort_by_dir}');">
+              Draw Date <span tal:attributes="class 'glyphicon glyphicon-arrow-down' if sort_by_dir == 'down' else 'glyphicon glyphicon-arrow-up'"></span>
+          </a>
+          !-->
+        </th>
+        <th>
+Result Date<!--
+          <a
+            tal:attributes="class '' if sort_by_item == 'test_date' else 'text-muted'"
+            href="javascript:void();" onclick="javascript:set_sort('test_date','${sort_by_dir}');">
+              Result Date <span tal:attributes="class 'glyphicon glyphicon-arrow-down' if sort_by_dir == 'down' else 'glyphicon glyphicon-arrow-up'"></span>
+          </a>
+          -->
+        </th>
+        <th>
+NAT
+        <!-- <a
+            tal:attributes="class '' if sort_by_item == 'nat' else 'text-muted'"
+            href="javascript:void();" onclick="javascript:set_sort('nat','${sort_by_dir}');">
+              NAT <span tal:attributes="class 'glyphicon glyphicon-arrow-down' if sort_by_dir == 'down' else 'glyphicon glyphicon-arrow-up'"></span>
+          </a>
+	-->
+        </th>
+        <th>
+DHIV<!--
+          <a
+            tal:attributes="class '' if sort_by_item == 'dhiv' else 'text-muted'"
+            href="javascript:void();" onclick="javascript:set_sort('dhiv','${sort_by_dir}');">
+            DHIV <span tal:attributes="class 'glyphicon glyphicon-arrow-down' if sort_by_dir == 'down' else 'glyphicon glyphicon-arrow-up'"></span>
+          </a>
+          -->
+        </th>
+        <th>
+DHCV<!--
+          <a
+            tal:attributes="class '' if sort_by_item == 'dhcv' else 'text-muted'"
+            href="javascript:void();" onclick="javascript:set_sort('dhcv','${sort_by_dir}');">
+              DHCV <span tal:attributes="class 'glyphicon glyphicon-arrow-down' if sort_by_dir == 'down' else 'glyphicon glyphicon-arrow-up'"></span>
+          </a>
+          -->
+        </th>
+        <th>
+DHBV<!--
+          <a
+            tal:attributes="class '' if sort_by_item == 'dhbv' else 'text-muted'"
+            href="javascript:void();" onclick="javascript:set_sort('dhbv','${sort_by_dir}');">
+              DHBV <span tal:attributes="class 'glyphicon glyphicon-arrow-down' if sort_by_dir == 'down' else 'glyphicon glyphicon-arrow-up'"></span>
+          </a>
+          -->
+        </th>
+        <th>
+          Location<!--
+          <a
+            tal:attributes="class '' if sort_by_item == 'location' else 'text-muted'"
+            href="javascript:void();" onclick="javascript:set_sort('location','${sort_by_dir}');">
+              Location <span tal:attributes="class 'glyphicon glyphicon-arrow-down' if sort_by_dir == 'down' else 'glyphicon glyphicon-arrow-up'"></span>
+          </a>
+          -->
+        </th>
+      </tr>
+      <tr tal:repeat="row reports" tal:attributes="class python:'danger-anim' if row.dhiv == 'P' else 'info' if not row.draw_date else nothing">
+      <!-- If you are changing the position of columns
+	   pay attention to date logic in reports.js-->
+      <td>${row.site_code}${row.reference_number}</td>
+      <td>
+	<input type="date" value="${row.draw_date}" ondblclick="this.readOnly='';" onchange="/*this.readOnly='required';*/ update_date(this)" max="${row.test_date}"/>
+      </td>	
+      <td>
+	<input type="date" value="${row.test_date}"/>
+      </td>
+      <td>${row.nat}</td>
+      <td>${row.dhiv}</td>
+      <td>${row.dhcv}</td>
+      <td>${row.dhbv}</td>
+      <td>${row.location}</td>
+      </tr>
+    </table>
+
+      <!-- Paging Display -->
+      <div class="text-center" tal:condition="python: max_pages > 1">
+        <ul class="pagination">
+          <li tal:condition="python: page > 1"><a href="javascript:void();" onclick="javascript:set_page(1);">First</a></li>
+          <li tal:condition="python: page > 1"><a href="javascript:void();" onclick="javascript:set_page(${page - 1 if page - 1 >= 1 else 1});">&larr; Previous</a></li>
+          <li tal:repeat="item python:range(page_start,page_end + 1)" tal:attributes="class 'active' if repeat.item.index + page_start == page else nothing">
+            <a href="javascript:void();" onclick="javascript:set_page(${repeat.item.index + page_start});" tal:content="repeat.item.index + page_start" />
+          </li>
+          <li tal:condition="python: page < max_pages"><a href="javascript:void();" onclick="set_page(${page + 1 if page + 1 &lt;= max_pages else max_pages})">&rarr; Next</a></li>
+          <li tal:condition="python: page < max_pages"><a href="javascript:void();" onclick="set_page(${max_pages})">Last</a></li>
+        </ul>
+      </div>
+      <!-- End Paging Display  -->
+
+
+    </form>
+
+    <script src="/static/reports.js"></script>
+  </metal:content-slot>
+</html>

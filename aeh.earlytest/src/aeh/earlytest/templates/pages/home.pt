@@ -1,0 +1,119 @@
+<!--!
+This software is Copyright (c) 2015,
+The Regents of the University of California.
+
+Developed by the UCSD CFAR BIT Core (bitcore@ucsd.edu)
+
+Core Developers:
+  Sergei L Kosakovsky Pond (spond@ucsd.edu)
+  Jason A Young (jay007@ucsd.edu)
+  Marco A Martinez (mam002@ucsd.edu)
+  Steven Weaver (sweaver@ucsd.edu)
+
+Significant contributions from:
+  David Mote (davidmote [at] gmail [dot] com)
+  Jennifer Rodriguez-Mueller (almostlikethat [at] gmail [dot] com)
+  Drew Allen (asallen@ucsd.edu)
+  Andrew Dang (a7dang [at] gmail [dot] com)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<html i18n:domain="aeh.earlytest" metal:use-macro="main_template">
+<meta name="google-site-verification" content="M-PF3Qw6QUqc5I6MSKoMSDv-XGhbR2jwRYmQGq03DjE" />
+  <metal:content-slot fill-slot="content-slot">
+	<div class="jumbotron">
+		<div class="row">
+      <div class="col-md-8 col-sm-6">
+        <h1 i18n:translate="the_early_test">The Early Test</h1>
+        <p i18n:translate="dont_wait">You Don't Need To Wait To Get Tested For HIV Anymore</p>
+        <p>
+          <a class="btn btn-lg btn-success" href="${request.route_path('results')}" role="button">Get Your Results</a>
+        </p>
+      </div>
+      <div class="col-md-4 col-sm-6 hidden-xs">
+        <img src="${request.static_path('aeh.earlytest:static/images/homepage1.jpg')}" alt="Get Your Results" class="img-responsive img-rounded" />
+      </div>
+		</div>
+	</div>
+
+  <div class="container">
+
+    <h1 i18n:translate="about_the_early_test">About The Early Test</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <p class="lead" i18n:translate="about_the_early_test_1">Specialized testing for HIV infection as early as one week after exposure.</p>
+        <p i18n:translate="about_the_early_test_2">After becoming HIV infected, it typically takes up to 3 months to develop a positive antibody test result.
+           In rare cases, it may take even longer. During this "window period" when the HIV antibody test is negative, a different type of test - a type of 'viral load' test - can detect the presence of HIV.</p>
+        <p i18n:translate="about_the_early_test_3">This type of test is not typically offered at HIV testing sites and health insurance does not usually cover viral load tests for HIV screening.</p>
+        <p i18n:translate="about_the_early_test_4">If you test negative for the standard HIV antibody test, you will get a free viral load to test to detect very early infection as early as one week after a potential HIV exposure.</p>
+        <p i18n:translate="about_the_early_test_5">With the Early Test there’s no need to return to the test location for your results. In two weeks simply log into our automated results system to get your negative results.</p>
+        <p i18n:translate="about_the_early_test_6">Your confidentiality is assured.  While we do ask for some personal information (such as your name), your results will not be given to anyone else without your written permission.</p>
+      </div>
+      <div class="col-md-4">
+        <img src="${request.static_path('aeh.earlytest:static/images/homepage2.jpg')}" class="img-responsive img-rounded" />
+      </div>
+    </div>
+
+    <hr class="featurette-divider" />
+
+    <h1 i18n:translate="test_positive">What If I Test Positive?</h1>
+    <p class="lead" i18n:translate="test_positive_1">
+      For those who test HIV positive, the Antiviral Research Center (AVRC) can help you in several ways.
+      Whether or not you have health insurance, we can help you find an HIV specialist.
+    </p>
+    <p i18n:translate="test_positive_2">
+      If you are identified as having early HIV infection through this specialized testing program, you will be offered opportunities to participate in early infection research studies.
+      If you are able to participate, you will receive free counseling and free diagnostic tests.
+    </p>
+    <p i18n:translate="test_positive_3">
+      In addition, the AVRC will help you by providing Partner Notification Services if you want help telling your sex partners that they have been exposed to HIV.
+      Talking to partners about HIV is not easy and wondering if you might have infected someone else may weigh heavily on your mind.
+    </p>
+    <p i18n:translate="test_positive_4">
+      The UCSD First Choice Program has specialists who can help you tell your partners that they have been exposed to HIV or they can tell your partners for you.
+      Your name and other identifying information will be kept confidential throughout the process.  No one is here to judge or lecture you.  We are just here to help.
+      For you, and for everyone you’ve had sex with, and for anyone you will have sex with - Know Your Status Now!
+    </p>
+
+    <hr class="featurette-divider" />
+
+    <h1 i18n:translate="advantages_of_knowing">Advantages of Knowing your HIV Status Sooner</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <ol>
+          <li i18n:translate="advantages_of_knowing_1">Getting your results quicker will help decrease the anxiety you feel while waiting for test results.</li>
+          <li i18n:translate="advantages_of_knowing_2">Knowing your status sooner can help you make more responsible decisions to protect you and your partners.</li>
+          <li i18n:translate="advantages_of_knowing_3">There are treatment advantages for those who are identified soon after infection.  You may qualify for one of our many cutting-edge research studies.</li>
+          <li i18n:translate="advantages_of_knowing_4">If you wish, we can notify at-risk partners.  If notified in time, they can potentially avoid HIV infection!</li>
+          <li i18n:translate="advantages_of_knowing_5">Studies have proven that the earlier HIV is diagnosed, the better the long-term prognosis and quality of life.</li>
+        </ol>
+      </div>
+      <div class="col-md-4">
+        <img src="${request.static_path('aeh.earlytest:static/images/homepage3.jpg')}" class="img-responsive img-rounded" />
+      </div>
+    </div>
+
+  </div>
+  </metal:content-slot>
+</html>

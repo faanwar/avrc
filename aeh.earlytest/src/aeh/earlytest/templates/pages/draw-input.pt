@@ -1,0 +1,127 @@
+<!--!
+This software is Copyright (c) 2015,
+The Regents of the University of California.
+
+Developed by the UCSD CFAR BIT Core (bitcore@ucsd.edu)
+
+Core Developers:
+  Sergei L Kosakovsky Pond (spond@ucsd.edu)
+  Jason A Young (jay007@ucsd.edu)
+  Marco A Martinez (mam002@ucsd.edu)
+  Steven Weaver (sweaver@ucsd.edu)
+
+Significant contributions from:
+  David Mote (davidmote [at] gmail [dot] com)
+  Jennifer Rodriguez-Mueller (almostlikethat [at] gmail [dot] com)
+  Drew Allen (asallen@ucsd.edu)
+  Andrew Dang (a7dang [at] gmail [dot] com)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<html i18n:domain="aeh.earlytest" metal:use-macro="main_template">
+  <metal:content-slot fill-slot="content-slot">
+    <div class="jumbotron">
+      <div class="container">
+        <h1 style="padding-bottom: 20px; font-size: 38px; color:#00436D" tal:condition="python: errorStatus == ''">Red Cross Identification Entry Form</h1>
+        <div class="col-md-4">
+          <form role="form" tal:condition="python: errorStatus == ''">
+
+            <div class="form-group">
+              <label style="font-size: 30px; white-space:nowrap; overflow:hidden; color:#00436D" for="drawdate-input">1. Enter Testing Date</label>
+              <input type="date" class="form-control input-lg" name="drawdate-input" id="drawdate-input" value="${maxDate}" required="required" autofocus="autofocus" min="${minDate}" max="${maxDate}" style="width:350px" >
+            </div>
+
+            <div class="form-group">
+              <label style="font-size:30px; white-space:nowrap; overflow:hidden; color:#00436D" for="redcrossid-input"> 2. Scan Red Cross ID</label>
+              <input type="text" class="form-control input-lg" name="redcrossid-entry" id="redcrossid-entry" required="required" placeholder="76C#####, 76GH#####, or 76FJ#####" style="width:350px">
+            </div>
+
+            <button type="submit" class="btn btn-default btn-success btn-lg" name="rcidform.submitted">Submit</button>
+          </form>
+        </div>
+
+        <div tal:condition="python: errorStatus == 'incorrectFormat'" class="alert alert-warning">
+                <h2 class="text-warning">
+                    <span> Error - Red Cross ID is in the incorrect format!</span> <br>
+                    <span> Red Cross ID :</span> (<span tal:content="defaultNumber"></span>) <br>
+                </h2>
+                <p>Please enter the Red Cross ID in the correct format: 76C#####, 76GH#####, or 76FJ#####</p>
+            </div>
+
+            <div tal:condition="python: errorStatus == 'duplicateEntry'" class="alert alert-warning">
+                <h2 class="text-warning">
+                    <span> Error - We found a duplicate entry in our database! </span> <br>
+                    <span> Red Cross ID: </span> (<span tal:content="defaultNumber"></span>)<br>
+                </h2>
+                <p>Please try another Red Cross ID.</p>
+            </div>
+
+            <div tal:condition="python: errorStatus == 'rcidAccepted'" class="alert alert-success">
+                <h2 class="text-success">
+                    <span> Success - This entry was saved into our database! </span> <br>
+                    <span> Draw Date: </span> (<span tal:content="drawDateRaw"></span>) <br>
+                    <span> Red Cross ID: </span> (<span tal:content="defaultNumber"></span>) <br>
+                </h2>
+                <p>Feel free to enter another Red Cross draw date.</p>
+            </div>
+
+            <div tal:condition="python: errorStatus != ''">
+            <a class="btn btn-lg btn-success" id="goBackButton" href="${request.route_path('draw-input')}" role="button" autofocus="autofocus">
+                    <span class="glyphicon glyphicon-circle-arrow-left" ></span> Go Back
+            </a>
+            </div>
+      </div>
+      </div>
+
+      <script>
+        $(document).ready(function(){
+
+          // This method changes the 00 and 44 the barcode scanner prefixes to the RCID to
+          // 76C and 76GH respectively
+          $("#redcrossid-entry").change(function(){
+            var user_input = $("#redcrossid-entry").val();
+            if (user_input.length == 7){
+              var first = user_input.charAt(0);
+              var second = user_input.charAt(1);
+              if (first === "0" && second === "0"){
+                var modified_user_input = "76C" + user_input.substring(2, user_input.length + 1);
+                $("#redcrossid-entry").val(modified_user_input);
+              } else if (first === "4" && second === "4"){
+                var modified_user_input = "76GH" + user_input.substring(2, user_input.length + 1);
+                $("#redcrossid-entry").val(modified_user_input);
+              }
+            }
+          });
+          
+          // Checks if Go Back Button appears then autofocus it
+          setInterval(function(){
+            if("${errorStatus}" != ''){
+               $("#goBackButton").focus();
+            }
+          },500);
+        });
+
+      </script>
+  </metal:content-slot>
+</html>

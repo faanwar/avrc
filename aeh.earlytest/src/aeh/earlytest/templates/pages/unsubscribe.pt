@@ -1,0 +1,78 @@
+<!--!
+This software is Copyright (c) 2017,
+The Regents of the University of California.
+
+Developed by the UCSD CFAR BIT Core (bitcore@ucsd.edu)
+
+Core Developers:
+  Ajay Mohan (ajmohan [at] ucsd [dot] edu)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<html i18n:domain="aeh.earlytest" metal:use-macro="main_template">
+  <metal:content-slot fill-slot="content-slot">
+    <h1 i18n:translate="unsubscribe">Early Test Reminder Subscription</h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7">
+					<div class="alert alert-success" tal:condition="python: message is not None and substatus == 200">
+						<span tal:replace="message"/>
+					</div>
+          <div class="alert alert-warning" tal:condition="python: message is not None and substatus != 200">
+            <span tal:replace="message"/>
+          </div>
+          <div class="unsubscribe-content">
+          <form class="form-signin" id="subscribeform" method="get" name="subscribeform" action="${url}" style="line-height:26px;padding:15px;text-align:center;">
+                  
+                  <div class="form-group">
+                   <div class="subsInnerContent">
+                      To help us improve our services, we would be grateful if you could tell us why:<br>
+                      <div class="selectReason" style="margin-top:35px;min-width:250px;">
+                          <select class="inputType" id="selectUnsubscribeReason" name="unsubscribereason">
+                              <option value="">Please select reason</option>
+                              <option value="Your emails are not relevant to me">Your emails are not relevant to me</option>
+                              <option value="Your emails are too frequent">Your emails are too frequent</option>
+                              <option value="I don't remember signing up for this">I don't remember signing up for this</option>
+                              <option value="I no longer want to receive these emails">I no longer want to receive these emails</option>
+                              <option value="The emails are spam and should be reported">The emails are spam and should be reported</option>
+                              <option value="others">None of the above</option>
+                          </select><br>
+                      </div>
+                  </div>    
+                  </div>
+                  <div style="text-align:center">
+                      <input type="hidden" class="form-control" id="email" value="${email}" name="email" />
+                      <input type="hidden" class="form-control" id="rc_id" value="${rc_id}" name="rc_id" /> 
+                  </div>   <br><br>
+                    <div style="text-align:center">                 
+                       <input class="primaryBtn" type="submit" name="unsubscribe.submitted" value="Submit Feedback"/>  
+                 </div>
+          </form>
+          </div>
+				</div>
+			</div>
+	  </div>
+
+  </metal:content-slot>
+</html>

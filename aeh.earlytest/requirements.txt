@@ -1,0 +1,1 @@
+-e git+ssh://git@bitbucket.org/ucsdbitcore/avrc.redcross.git@master#egg=avrc.redcross

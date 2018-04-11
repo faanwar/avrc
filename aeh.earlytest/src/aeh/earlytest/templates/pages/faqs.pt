@@ -1,0 +1,242 @@
+<!--!
+This software is Copyright (c) 2015,
+The Regents of the University of California.
+
+Developed by the UCSD CFAR BIT Core (bitcore@ucsd.edu)
+
+Core Developers:
+  Sergei L Kosakovsky Pond (spond@ucsd.edu)
+  Jason A Young (jay007@ucsd.edu)
+  Marco A Martinez (mam002@ucsd.edu)
+  Steven Weaver (sweaver@ucsd.edu)
+
+Significant contributions from:
+  David Mote (davidmote [at] gmail [dot] com)
+  Jennifer Rodriguez-Mueller (almostlikethat [at] gmail [dot] com)
+  Drew Allen (asallen@ucsd.edu)
+  Andrew Dang (a7dang [at] gmail [dot] com)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<html i18n:domain="aeh.earlytest" metal:use-macro="main_template">
+  <metal:content-slot fill-slot="content-slot">
+    <div class="page-header">
+      <h1 i18n:translate="frequently_asked_questions">Frequently Asked Questions</h1>
+    </div>
+    <div class="panel-group" id="accordian">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_1" i18n:translate="what_is_the_diff_tests">
+              What is the difference between the Early Test and the standard HIV antibody test?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p i18n:translate="what_is_the_diff_tests_1">
+              A standard HIV test detects antibodies that the person's immune system makes to fight HIV after infection and it could take up to six weeks or more for antibodies to develop.
+              On the other hand, The Early Test detects the HIV virus, not the antibodies. The Early Test can detect HIV infection as early as one week after exposure.
+            </p>
+            <p i18n:translate="what_is_the_diff_tests_1">
+              Although the use of Early Test methods are used to screen the blood supply it is not standard of care for routine HIV testing.
+              The Early Test is being provided as a part of a research study that wants to learn about finding individuals that are in the earliest stages of HIV infection.
+              To be part of this study you need to be 18 or older and give informed consent.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_2" i18n:translate="what_is_involved">
+              What is involved if I participate in the Early Test study?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_2" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p i18n:translate="what_is_involved_1">
+              You will be asked about your sexual activity, drug use history and other factors that are related to your risk of HIV.
+              Your personal information such as name and phone numbers will be collected so that we can contact you with test results if needed.
+              You will have 3-4 tablespoons of blood taken. A standard HIV test will be taken, usually it will be possible to do this from oral fluid.
+            </p>
+            <p i18n:translate="what_is_involved_2">
+              If the standard HIV test is negative your blood will be sent for the Early Test.
+              If the standard HIV test is preliminary positive, your blood will be sent for further tests which are necessary to confirm whether you have HIV.
+              Some of the blood will also be tested to determine if your HIV infection is very recent.
+              Some of the blood will be stored so that it is available for additional tests if needed.
+              If blood is left over it may be used for research on your genes that predict response to HIV and it’s treatment.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_3" i18n:translate="how_long">
+              How long will it take to get my Early Test results?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_3" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p i18n:translate="how_long_1">
+              You will take a rapid antibody test first and get those results during your Early Test visit.
+              If you test negative on the rapid test, we will draw blood to send to the lab that performs the Early Test.
+              If your Early Test result is negative, then you will be able to access your negative result through a secure website or on a toll-free phone line two weeks after you have taken the test.
+              If your Early Test result is positive, UCSD study personnel will contact you within two weeks using the contact information you provide.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_4" i18n:translate="what_if_infected">
+              What if I am HIV infected?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_4" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p i18n:translate="what_if_infected_1">
+              If your HIV test is positive, one of the staff members will talk with you about your options and where you can receive medical care and other services for your HIV infection.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_5" i18n:translate="other_way_to_know">
+              Is there any other way that I might know that I got infected with HIV other than taking a test?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_5" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p i18n:translate="other_way_to_know_1">
+              Taking a test is the only conclusive way to determine if you are infected.
+              Many people have symptoms of fever, headache, rash, diarrhea, or other flu-like symptoms one to two weeks after being exposed to HIV.
+              However, the symptoms are so similar to a flu that most people do not recognize that they have been infected by HIV.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_6" i18n:translate="why_know_now">
+              Why do I need to know my HIV status right away?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_6" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p i18n:translate="why_know_now_1">
+              You are extremely infectious during the first few months after contracting the virus.
+              It is very important that you know your status as soon as possible after being infected so that you can protect others from being infected.
+              Also, many studies have proven that the earlier HIV is diagnosed, the better your long-term prognosis and quality of life.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_7" i18n:translate="must_participate">
+              Do I have to participate in the Early Test? What are the alternatives?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_7" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p i18n:translate="must_participate_1">
+              Participation is voluntary. You do not have to participate in this study. Alternatives include getting a routine HIV antibody  test alone.
+              Testing for HIV virus as a way to diagnose HIV is not routine, but it may be available outside of this study and you could look for availability elsewhere.
+              Not participating will have no effect on your care at UCSD.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_8" i18n:translate="any_risk">
+              Is there any risk to participating in the Early Test?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_8" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>
+              <span i18n:translate="any_risk_1">Participating in this study involves some risks:</span>
+              <ol>
+                <li i18n:translate="any_risk_2">Taking blood from a vein in your arm can occasionally be associated with pain, bruising or bleeding. Rarely the site can get infected. Some people get dizzy or even faint when their blood is drawn. </li>
+                <li i18n:translate="any_risk_3">You may find out you have HIV and this can be upsetting. Waiting for the final results can also cause anxiety for some. </li>
+                <li i18n:translate="any_risk_4">There is no way to prove that the virus you have is the same as someone else’s but you may feel upset that you infected your partner or they infected you. Counselors are available to talk about this. </li>
+                <li i18n:translate="any_risk_5">Some other risks may be unforeseeable but you will be informed if they are identified. </li>
+                <li i18n:translate="any_risk_6">There is a risk of loss of confidentiality but all measures possible are taken to ensure that your information is secure and consistent with the policies of UCSD.</li>
+              </ol>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#faq_9" i18n:translate="is_confidential">
+              Is the Early Test confidential?
+            </a>
+          </h4>
+        </div>
+        <div id="faq_9" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p i18n:translate="is_confidential">
+              The Early Test is confidential, but it is not anonymous.
+              This means that we will ask your name and contact information so that we can inform you if your Early Test result is positive or if for some reason, the test needs to be run again.
+              However, your results will not be given to anyone else without your written permission. Your information is kept in secure files that are protected.
+              HIV is a reportable disease like hepatitis C or syphilis and must be reported to the public health department in accordance with the law.
+              UCSD also complies with the Health Insurance Portability and Accountability Act (HIPAA) that requires you to sign a release of your HIV/AIDS information to government regulatory agencies but only for those official purposes.
+              You must sign the HIPAA form to participate in this study.
+              The U.S. Department of Health Services has issued a Certificate of Confidentiality for this research that protects your information from being disclosed for other purposes even if it is requested by court order or subpoena.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </metal:content-slot>
+</html>

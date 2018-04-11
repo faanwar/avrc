@@ -1,0 +1,8 @@
+#!/bin/bash
+#This is a shell script that is called by crontab first of everymonth
+#It activates the appropriate python environment. Once the environment is activated, it runs rc_remind
+
+cd /home/databot
+source /opt/earlytestv3.0/env/bin/activate
+/opt/earlytestv3.0/env/bin/rc_remind -c /opt/earlytestv3.0/avrc.redcross/avrc_nat_settings.ini
+

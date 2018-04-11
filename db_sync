@@ -1,0 +1,6 @@
+#!/bin/bash
+#This is a shell script that is called by incrontab and cron. It should be running daily and on new results
+cd /home/databot
+source /opt/earlytestv3.0/env/bin/activate
+/opt/earlytestv3.0/env/bin/rc_sync -c /opt/earlytestv3.0/avrc.redcross/avrc_nat_settings.ini
+

@@ -1,0 +1,264 @@
+<!--!
+This software is Copyright (c) 2015,
+The Regents of the University of California.
+
+Developed by the UCSD CFAR BIT Core (bitcore@ucsd.edu)
+
+Core Developers:
+  Sergei L Kosakovsky Pond (spond@ucsd.edu)
+  Jason A Young (jay007@ucsd.edu)
+  Marco A Martinez (mam002@ucsd.edu)
+  Steven Weaver (sweaver@ucsd.edu)
+
+Significant contributions from:
+  David Mote (davidmote [at] gmail [dot] com)
+  Jennifer Rodriguez-Mueller (almostlikethat [at] gmail [dot] com)
+  Drew Allen (asallen@ucsd.edu)
+  Andrew Dang (a7dang [at] gmail [dot] com)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<html i18n:domain="aeh.earlytest" metal:use-macro="main_template">
+  <metal:content-slot fill-slot="content-slot">
+        <div class="row">
+            <div class="container col-md-6 panel">
+              <div class="row" tal:condition="python:show_barker == 'GENERATE_OTP' or show_barker == 'OTP_PROMPT'">
+                <h2>Is this really you?</h2>
+                <h4>To verify and protect your acount, we are going to send a verification code to type in.</h4>
+                <h6>Send a verification code</h6>
+              </div>
+              <div class="row" tal:condition="python:otp_status == 'NON_VALIDATED' and show_barker == 'GENERATE_OTP'">
+                  <form method=post role=form id=deviceform>
+                      <div class="row" id="phone" tal:condition="python: phone != None">
+                        <div class="col-md-6">
+                          <p> 
+                            <span class="glyphicon glyphicon-phone"></span>
+                            ${phone}
+                          </p>  
+                        </div>
+                        <div class="col-md-2">
+                          <input type="submit" class="btn btn-default btn-sm" name="PHONE" value="Text Me">
+                        </div>
+                      </div>
+                      <div class="row" id="email" tal:condition="python: email != None">
+                        <div class="col-md-6">
+                          <p> 
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            ${email}
+                          </p>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="submit" class="btn btn-default btn-sm" name="EMAIL" value="Email Me">
+                        </div>
+                      </div>
+                      <input type="hidden" name="clean_rcid" value=${clean_rcid}>
+                  </form>
+              </div>
+              
+              <div class="row" tal:condition="python:otp_status == 'VALIDATING' and show_barker == 'OTP_PROMPT'">
+                  <form method=post role=form id="otpform" action="/otp">
+                      <div class="row">
+                        <div class="col-md-4" >
+                          <p tal:condition="python:mode == 'PHONE' and phone != None"> 
+                            <span class="glyphicon glyphicon-phone alert-success"></span>
+                            Within a minute you will receive a verification code at
+                            ${phone}
+                          </p>  
+                          <p tal:condition="python: mode == 'EMAIL' and email != None"> 
+                            <span class="glyphicon glyphicon-envelope alert-success"></span>
+                            Within a minute you will receive a verification code at
+                            ${email}
+                          </p>
+                       </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <input type="text" name="otp" class="form-control input-lg" placeholder="123456" autofocus="autofocus">
+                          <input type="hidden" id="clean_rcid" name="clean_rcid" value=${clean_rcid}>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="submit" class="btn btn-default btn-sm" value="Verify">
+                        </div>
+                      </div>
+                  <form>
+               </div>
+               <div class="row" tal:condition="python:otp_status == 'VALIDATED' and show_barker == 'RESULTS'">
+                <div tal:condition="python: queryStatus == 'RESULTS_NEGATIVE'" class="alert alert-success">
+                    <h2 class="text-success">
+                        <span i18n:translate="results_for">Results for</span> (<span tal:content="clean_rcid"></span>)
+                        <span i18n:translate="are_negative">are negative.</span>
+                    </h2>
+                    <p i18n:translate="results_negative_1">
+                        The results of your Early Test <span tal:content="clean_rcid"></span> are negative.
+                        This means that at the time of the test, there was no sign of HIV in your blood.
+                        Please follow the plan you developed with your counselor for reducing your risk.
+                    </p>
+                </div>
+                <div tal:condition="python: queryStatus == 'RESULTS_OUT_OF_DATE'" class="alert alert-info">
+                    <h2 class="text-primary">
+                        <span i18n:translate="results_for">Results for</span> (<span tal:content="clean_rcid"></span>)
+                        <span i18n:translate="are_no_longer_available">are no longer available.</span>
+                    </h2>
+                    <p i18n:translate="results_out_of_date_1">
+                        It has been more than 90 days since the date of your Early Test,
+                        the results are no longer available. We encourage you to test again,
+                        click <a class="alert-link" href="${request.route_path('home',_anchor='about')}" i18n:translate="here">here</a> for information about our test sites.
+                    </p>
+                </div>
+                <div tal:condition="python: queryStatus == 'RESULTS_NOT_FOUND'" class="alert alert-warning">
+                    <h2 class="text-warning">
+                        <span i18n:translate="confidential_test">Confidential Test</span> (<span tal:content="clean_rcid"></span>)
+                        <span i18n:translate="does_not_exist">does not exist in our database.</span>
+                    </h2>
+                    <p i18n:translate="results_not_found_1">
+                        We're sorry, the number you entered is not in our system at this time.
+                        If you are calling before the date written on your Early Test card your results are not yet available.
+                        Please call back on or after the date on your card.
+                        If you think you've received this message in error, please call <a href="tel:16195438080">(619) 543-8080</a>.
+                    </p>
+                </div>
+		        <div tal:condition="python: queryStatus == 'RESULTS_NOT_AVAILABLE'" class="alert alert-info">
+                    <h2 class="text-primary">
+                        <span i18n:translate="results_for">Results for</span> (<span tal:content="clean_rcid"></span>)
+                        <span i18n:translate="are_not_available">are not available.</span>
+                    </h2>
+                    <p i18n:translate="not_available_1">
+                        We are sorry that we are not able to give you your results at this time.
+                        If you are calling before the date written on your Early Test card,
+                        please try again on or after the date on your card. Otherwise, please call <a class="alert-link" href="tel:16195438080">(619) 543-8080</a>.
+                    </p>
+                </div>
+                <div>
+                  <a class="btn btn-lg btn-success" href="${request.route_path('results')}" role="button">
+                    <span class="glyphicon glyphicon-circle-arrow-left"></span> Get more Results
+                  </a>
+               </div>
+               </div>
+               <div class="row" tal:condition="python: show_barker == 'ERROR'">
+               <div tal:condition="python: queryStatus == 'NO_RCID' or queryStatus == 'QUERY_INVALID'" class="alert alert-info">
+                    <h2 class="text-primary">
+                        <span i18n:translate="results_for">Results for</span> (<span tal:content="clean_rcid"></span>)
+                        <span i18n:translate="are_not_available">are not available.</span>
+                    </h2>
+                    <p i18n:translate="not_available_1">
+                        We are sorry but the test number that you entered doesn't seem right. 
+                        Please call <a class="alert-link" href="tel:16195438080">(619) 543-8080</a>
+                        to talk to a support staff and solve this issue.
+                    </p>
+                </div>
+                <div tal:condition="python: queryStatus == 'NO_CONTACT'" class="alert alert-info">
+                    <h2 class="text-primary">
+                        <span i18n:translate="results_for">Contact information is obsolete or incorrect.</span> 
+                    </h2>
+                    <p i18n:translate="contact_unavailable">
+                        The phone number or the email address that you registered with us, was found to be incorrect.
+                        This could be due to typographical errors while registration. Please call<a class="alert-link" 
+                        href="tel:16195438080">(619) 543-8080</a> and update your current contact information and then 
+                        proceed to results page.
+                    </p>
+                </div>
+                 <div tal:condition="python: otp_status == 'INVALID'" class="alert alert-info">
+                    <h2 class="text-primary">
+                        <span i18n:translate="results_for">Invalid One-Time Passcode submitted</span>
+                    </h2>
+                    <p i18n:translate="not_available_1">
+                        The one-time passcode that you just entered seems to be incorrect or might have expired. Please try 
+                        again or call <a class="alert-link" href="tel:16195438080">(619) 543-8080</a>
+                        to talk to a support staff and solve this issue.
+                    </p>
+                </div>
+                <div>
+                  <a class="btn btn-lg btn-success" href="${request.route_path('results')}" role="button">
+                    <span class="glyphicon glyphicon-circle-arrow-left"></span> Get more Results
+                  </a>
+               </div>
+               </div>
+               
+            </div>
+            <div class="col-md-6 container-fluid">
+              <h2>Need Assistance?</h2>
+              <div class="panel-group" id="faq">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#faq" href="#collapse1">I don't remember the confidential test number</a>
+                    </h4>
+                  </div>
+                  <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">As part of the Early Test Program, you were given a card with instructions on how to access your results online. The card has your confidential test number. If you can’t find your card, please come in to the Lead the Way Storefront for in person assistance.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#faq" href="#collapse2">Are my results available today?</a>
+                    </h4>
+                  </div>
+                  <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">As part of the Early Test Program, you were given a card with instructions on how to access your results online. The card has the earliest date when your results will be available. Your result will then be available for 90days from that date. If you can’t find your card, please come in to the Lead the Way Storefront for in person assistance.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#faq" href="#collapse3">Do I need to have my own phone number or email address</a>
+                    </h4>
+                  </div>
+                  <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                    In order to protect your results, we need to verify your identity by sending a one-time usable password to you. Thus, you will need either your phone or email registered with us.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#faq" href="#collapse4">What do I do if I have changed my phone number or email address?</a>
+                    </h4>
+                  </div>
+                  <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      Please call our customer support phone number, listed on the contact page. We will be happy to register your new contact details.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#faq" href="#collapse5">I have other questions. Who do I ask?</a>
+                    </h4>
+                  </div>
+                  <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      Please call our customer support phone number listed in the contact page.
+                    </div>
+                  </div>
+                </div>
+             </div>
+            </div>
+        </div>
+  </metal:content-slot>
+</html>

@@ -1,0 +1,130 @@
+<!--!
+This software is Copyright (c) 2015,
+The Regents of the University of California.
+
+Developed by the UCSD CFAR BIT Core (bitcore@ucsd.edu)
+
+Core Developers:
+  Sergei L Kosakovsky Pond (spond@ucsd.edu)
+  Jason A Young (jay007@ucsd.edu)
+  Marco A Martinez (mam002@ucsd.edu)
+  Steven Weaver (sweaver@ucsd.edu)
+
+Significant contributions from:
+  David Mote (davidmote [at] gmail [dot] com)
+  Jennifer Rodriguez-Mueller (almostlikethat [at] gmail [dot] com)
+  Drew Allen (asallen@ucsd.edu)
+  Andrew Dang (a7dang [at] gmail [dot] com)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<html i18n:domain="aeh.earlytest" metal:use-macro="main_template">
+  <metal:content-slot fill-slot="content-slot">
+        <div class="row">
+            <div class="col-md-3" tal:condition="python: queryStatus != '' and queryStatus != 'QUERY_INVALID'"></div>
+            <div class="col-md-6">
+                <div tal:condition="python: queryDebug is True or queryStatus == ''">
+                    <h1 i18n:translate="get_results">Get Your Early Test Results</h1>
+                    <img src="${request.static_path('aeh.earlytest:static/images/results.card2015.jpg')}" class="center-block img-shadow img-rounded img-responsive" />
+                </div>
+            </div>
+            <div class="col-md-3" tal:condition="python: queryStatus != '' and queryStatus != 'QUERY_INVALID'"></div>
+            <div class="col-md-6 center-block" tal:condition="python: (queryStatus == '' or queryStatus == 'QUERY_INVALID')">
+                <form role="form" id="etform" method="post" action="/otp">
+                    <div class="form-group">
+                        <label for="userInput1" i18n:translate="enter_number">To get your test results now, enter your confidential test number:</label>
+                        <input type="text" class="form-control input-lg" name='userInput1' id="field1" placeholder="${defaultNumber}" autofocus="autofocus" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userInput2" i18n:translate="reenter_number">Re-enter your confidential test number:</label>
+                        <input type="text" class="form-control input-lg" name='userInput2' id="field2" placeholder="${defaultNumber}" onblur="clean_rcid();"/>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-success btn-lg" i18n:translate="submit" onclick="call_submit();">Get Results</button>
+                </form>         
+            </div>
+            <div class="col-md-6 container-fluid" metal:define-macro="results_faq">
+	      <h2>Need Assistance?</h2>
+		<div class="panel-group" id="faq">
+		  <div class="panel panel-default">
+  		    <div class="panel-heading">
+    		      <h4 class="panel-title">
+      			<a data-toggle="collapse" data-parent="#faq" href="#collapse1">I don't remember the confidential test number</a>
+    		      </h4>
+  		    </div>
+		    <div id="collapse1" class="panel-collapse collapse in">
+		      <div class="panel-body">As part of the Early Test Program, you were given a card with instructions on how to access your results online. The card has your confidential test number. If you can’t find your card, please come in to the Lead the Way Storefront for in person assistance.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#faq" href="#collapse2">Are my results available today?</a>
+		      </h4>
+		    </div>
+		    <div id="collapse2" class="panel-collapse collapse">
+		      <div class="panel-body">As part of the Early Test Program, you were given a card with instructions on how to access your results online. The card has the earliest date when your results will be available. Your result will then be available for 90days from that date. If you can’t find your card, please come in to the Lead the Way Storefront for in person assistance.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#faq" href="#collapse3">Do I need to have my own phone number or email address</a>
+		      </h4>
+		    </div>
+		    <div id="collapse3" class="panel-collapse collapse">
+		      <div class="panel-body">
+		      In order to protect your results, we need to verify your identity by sending a one-time usable password to you. Thus, you will need either your phone or email registered with us.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#faq" href="#collapse4">What do I do if I have changed my phone number or email address?</a>
+		      </h4>
+		    </div>
+		    <div id="collapse4" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        Please call our customer support phone number, listed on the contact page. We will be happy to register your new contact details.
+		      </div>
+    	      	    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#faq" href="#collapse5">I have other questions. Who do I ask?</a>
+		      </h4>
+		    </div>
+		    <div id="collapse5" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        Please call our customer support phone number listed in the contact page.
+		      </div>
+		    </div>
+		   </div>
+		  </div>
+          </div>
+  </metal:content-slot>
+</html>
