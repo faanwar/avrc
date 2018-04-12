@@ -174,6 +174,7 @@ def get_patient(rc_id):
         except:
           #log.info(traceback.format_exc())
     except:
+      pass
 	  #log.info(traceback.format_exc())
 
 def find_phone_email(clean_rcid):
