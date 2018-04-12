@@ -172,6 +172,7 @@ def get_patient(rc_id):
           #log.info(patient)
           return patient
         except:
+          pass
           #log.info(traceback.format_exc())
     except:
       pass
