@@ -155,7 +155,7 @@ def is_otp_valid(otp, rcid):
       if status['success'] == True:
         return status['isValidOtp']
     except:
-      #log.critical(traceback.format_exc())
+      log.critical(traceback.format_exc())
     return False
 
 def get_patient(rc_id):
