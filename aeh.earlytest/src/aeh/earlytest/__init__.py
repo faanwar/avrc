@@ -143,6 +143,8 @@ def main(global_config, **settings):
   route('reports-emory-excel', 'reports/emory/excel')
   route('reports-admins', 'reports/admin')
   route('reports-admins-excel', 'reports/admin/excel')
+  route('reports-partner', 'reports/partner')
+  route('reports-partner-excel', 'reports/partner/excel')
   route('login', '/login')
   route('logout', '/logout')
   route('testingfortickets', '/testingfortickets')
