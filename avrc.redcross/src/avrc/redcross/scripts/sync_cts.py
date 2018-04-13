@@ -7,7 +7,7 @@ import traceback
 import json
 import turbomail
 
-from avrc.redcross import log, lookup, Session, models, parser, config, RCProject
+from avrc.redcross import log, lookup, Session, models, parser, config, RCProject, sync_redcap
 
 cli = argparse.ArgumentParser(description='Proceses an encrypted Red Cross File')
 cli.add_argument(
@@ -32,22 +32,9 @@ def main():
 
     try:
         log.info('Called on %s' % args.srcfile)		
-        results, duplicates = parser.parse(args.srcfile, settings)
+        results = sync_redcap.get_cts_results(settings)
 
         if not args.dry:
-          
-            if duplicates:
-                raise Exception('\n'.join(
-                    ['Already exists: %s%s' % (r.site_code, r.reference_number)
-                    for r in duplicates]))
-
-            # Archive processed file
-            shutil.move(args.srcfile, settings['dir.raw'])
-            log.info('Moved encrypted file to %s' % settings['dir.raw'])
-	
-      
-            # Commit all changes now that we've successfully processed the file
-            map(lambda r: setattr(r, 'file', os.path.basename(args.srcfile)), results)
             Session.add_all(results)
             Session.commit()
 

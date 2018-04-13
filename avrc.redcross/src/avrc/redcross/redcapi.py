@@ -24,6 +24,7 @@ class RCProject:
                         'nat', 'dhiv', 'dhcv', 'dhbv', 'nat_sco', 'dhiv_sco', 'dhbv_sco', 'dhcv_sco', 'test_site', 'nat_test_complete', 'nat_results_complete', 'qc_review_complete']
       self.token = {}
       self.exp_date = rcsettings['exp_date']
+      self.token['CTS'] = rcsettings['cap_key']['CTS']
       for site in site_code:
         try:
           self.token[site] =rcsettings['cap_key'][site]
