@@ -58,7 +58,7 @@ def get_results(redcap):
                 dhcv=record['dhcv'],
                 dhcv_sco=record['dhcv_sco'],
                 dhbv=record['dhbv'],
-                dhbv_sco=record['dhbv_sco']
+                dhbv_sco=record['dhbv_sco'])
             results.append(result)
     except:
         pass
