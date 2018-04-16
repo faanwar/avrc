@@ -104,7 +104,7 @@ def sync_sql_result(buckets, settings):
 
   
     redcap = RCProject(buckets.keys(), rcs)
-    
+    ctsrecords = []
     for key, value in buckets.iteritems():
   
       # These malformed draw dates need to be handled offline. This script will only be
@@ -119,6 +119,9 @@ def sync_sql_result(buckets, settings):
     
       # we pass the 'label' flag to get the location value as string instead numeric values
       records = redcap.project[key].export_records(records=value,fields=redcap.nat_fields,raw_or_label='label') 
+      ctsrecord = redcap.project['CTS'].export_records(records=value, fields='rec_status')
+      ctsrecord['rec_status'] = 1
+      ctsrecords.append(ctsrecord)
 
       # RCIDs for which we have new results will be in push records
       push_records = []
@@ -168,7 +171,7 @@ def sync_sql_result(buckets, settings):
 
       # Make the bulk update for every 'key' and 'site'
       value = redcap.project[key].import_records(push_records)
-
+      redcap.project['CTS'].import_records(ctsrecords)
        
       # The following lines form the sophisticated email system ;-P. Well we again 
       # ask the human to help.
