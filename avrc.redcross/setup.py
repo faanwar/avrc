@@ -125,6 +125,7 @@ setup(
     entry_points="""
     [console_scripts]
         rc_initdb = avrc.redcross.scripts.initdb:main
-        rc_parse  = avrc.redcross.scripts.parse:main
+        rc_parse  = avrc.redcross.scripts.sync_cts:main
+        rc_sync  = avrc.redcross.scripts.sync:main
     """,
     )
