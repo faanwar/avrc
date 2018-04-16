@@ -7,7 +7,7 @@ from avrc.redcross import exc, log, models, Session
 import datetime
 from redcapi import RCProject
 import csv
-import pandas
+
 
 def get_cts_results(settings):
     sites = settings.get('site.codes').split()
