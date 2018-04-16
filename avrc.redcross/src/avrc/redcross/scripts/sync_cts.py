@@ -30,8 +30,7 @@ def main():
     days_till_expiration = int(settings['days.tillexpiration'])
     days_till_notify = int(settings['days.tillnotify'])
 
-    try:
-        log.info('Called on %s' % args.srcfile)		
+    try:	
         results = sync_redcap.get_cts_results(settings)
 
         if not args.dry:
