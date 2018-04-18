@@ -55,9 +55,8 @@ def get_results(redcap):
         
         log.info('cts results from redcap collected 3')
         for record in records:
-            log.info('cts results from redcap collected 4')
+            
             rcid= record['rc_id']
-            print rcid[-5:]
             result = models.Result(
                 site_code=rcid[:4],
                 reference_number=rcid[-5:],
@@ -69,6 +68,8 @@ def get_results(redcap):
                 dhcv_sco=record['dhcv_sco'],
                 dhbv=record['dhbv'],
                 dhbv_sco=record['dhbv_sco'])
+            print result
+            log.info('cts results from redcap collected 4')
             results.append(result)
     except:
         pass
