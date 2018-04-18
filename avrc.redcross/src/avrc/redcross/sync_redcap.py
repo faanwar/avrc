@@ -59,7 +59,7 @@ def get_results(redcap):
             log.info('cts results from redcap collected 4')
             rcid= record['rc_id']
             result = models.Result(
-                site_code=rcid[:-5],
+                site_code=rcid[:4],
                 reference_number=rcid[-5:],
                 nat=record['nat'],
                 nat_sco=record['nat_sco'],
