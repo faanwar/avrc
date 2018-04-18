@@ -41,10 +41,10 @@ def get_results(redcap):
     results = []
     try:
         log.info('cget_results called')
-        
+        all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])
         print json.dumps(all_records)
         log.info('cts results from redcap collected')
-        all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])
+        
         input_dict = json.loads(all_records)
         
         filtered_records = (x['rc_id'] for x in input_dict if x['nat_results_complete'] == '2')
