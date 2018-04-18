@@ -41,6 +41,11 @@ def get_cts_results(settings):
     return results
 
 def get_results(redcap):
+
+    def clean(s):
+        """ Helper method to sanitize the string """
+        return s.strip() or None
+
     results = []
     try:
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])       
@@ -52,14 +57,14 @@ def get_results(redcap):
             result = models.Result(
                 site_code=rcid[:4],
                 reference_number=rcid[-5:],
-                nat=record['nat'],
-                nat_sco=record['nat_sco'],
-                dhiv=record['dhiv'],
-                dhiv_sco=record['dhiv_sco'],
-                dhcv=record['dhcv'],
-                dhcv_sco=record['dhcv_sco'],
-                dhbv=record['dhbv'],
-                dhbv_sco=record['dhbv_sco'])
+                nat=clean(record['nat']),
+                nat_sco=clean(record['nat_sco']),
+                dhiv=clean(record['dhiv']),
+                dhiv_sco=clean(record['dhiv_sco']),
+                dhcv=clean(record['dhcv']),
+                dhcv_sco=clean(record['dhcv_sco']),
+                dhbv=clean(record['dhbv']),
+                dhbv_sco=clean(record['dhbv_sco']))
             results.append(result)
     except:
         pass
