@@ -51,7 +51,7 @@ def get_results(redcap):
         filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2')
         
         log.info('cts results from redcap collected 2')
-        records = redcap.project['CTS'].export_records(records=filtered_records['rc_id'])
+        records = redcap.project['CTS'].export_records(records=filtered_records)
         
         log.info('cts results from redcap collected 3')
         for record in records:
