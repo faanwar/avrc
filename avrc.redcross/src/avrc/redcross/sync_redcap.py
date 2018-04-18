@@ -48,7 +48,7 @@ def get_results(redcap):
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])       
         filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2')   
         print 'fileter' 
-        print filtered_records['rc_id']
+        print filtered_records[0]
         unprocessed_records = (x['rc_id'] for x in filtered_records if  x['rec_status'] != '1')    
         records = redcap.project['CTS'].export_records(records=unprocessed_records)
 
