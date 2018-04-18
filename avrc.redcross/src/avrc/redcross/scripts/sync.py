@@ -127,11 +127,11 @@ def sync_sql_result(buckets, settings):
       print value
 
       for each in ctsrecord:
-        print 'each'
-        print each
         new_ctsrecord = {}
         new_ctsrecord['rc_id'] = each['rc_id']
         new_ctsrecord['rec_status'] = 1
+        print 'each'
+        print each
       ctsrecords.append(new_ctsrecord)
 
       # RCIDs for which we have new results will be in push records
