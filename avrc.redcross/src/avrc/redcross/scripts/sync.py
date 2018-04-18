@@ -132,7 +132,7 @@ def sync_sql_result(buckets, settings):
         new_ctsrecord['rec_status'] = 1
         print 'each'
         print each
-      ctsrecords.append(new_ctsrecord)
+        ctsrecords.append(new_ctsrecord)
       print 'ctsrecords'
       print ctsrecords
 
