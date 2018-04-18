@@ -45,7 +45,7 @@ def get_results(redcap):
         
         
         input_dict = json.loads(all_records)
-        print input_dict['rc_id']
+        print input_dict
         log.info('cts results from redcap collected')
         filtered_records = (x['rc_id'] for x in input_dict if x['nat_results_complete'] == '2')
 
