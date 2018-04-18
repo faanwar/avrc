@@ -58,7 +58,7 @@ def get_results(redcap):
             print record        
             rcid= record['rc_id']
             result = models.Result(
-                site_code=rcid[:4],
+                site_code=rcid[:-5],
                 reference_number=rcid[-5:],
                 nat=clean(record['nat']),
                 nat_sco=clean(record['nat_sco']),
