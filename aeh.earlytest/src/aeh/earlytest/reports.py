@@ -313,7 +313,7 @@ def reports_emory_view(request):
   return process(request, 'emory', default_view=default_view(request))
 
 @view_config(route_name='reports-partner', renderer='templates/pages/reports.pt', permission='partner')
-def reports_emory_view(request):
+def reports_partner_view(request):
   return process(request, 'partner', default_view=default_view(request))
 
 @view_config(route_name='reports-admins-excel', permission='admins')
