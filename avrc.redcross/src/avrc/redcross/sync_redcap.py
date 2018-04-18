@@ -18,11 +18,8 @@ def get_cts_results(settings):
     results = get_results(redcap)
     
     for result in results:
-        print result
         # Syncing draw dates
         rc_id = str(result.site_code) + str(result.reference_number)
-        print 'printing rc id'
-        print result.site_code
         draw = redcap.project[result.site_code].export_records([rc_id], fields=['visit_date', 'test_site'], raw_or_label="label")	
 	    
         # Ignore if this information is not available in the redcap db
@@ -49,7 +46,7 @@ def get_results(redcap):
     results = []
     try:
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])       
-        filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2')      
+        filtered_records = (x['rc_id'] for x in all_records (if x['nat_results_complete'] == '2' and x['rec_status'] != '1'))      
         records = redcap.project['CTS'].export_records(records=filtered_records)
 
         for record in records:           
