@@ -43,10 +43,13 @@ def get_results(redcap):
         """ Helper method to sanitize the string """
         return s.strip() or None
 
+    def is_criteria_met(x):
+        return x['nat_results_complete'] == '2'
+
     results = []
     try:
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])       
-        filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2' & x['rc_id' == 'SDET00001'])   
+        filtered_records = (x['rc_id'] for x in all_records if is_criteria_met(x))   
 
         records = redcap.project['CTS'].export_records(records=filtered_records)
 
