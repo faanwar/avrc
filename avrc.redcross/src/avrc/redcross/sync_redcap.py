@@ -48,8 +48,9 @@ def get_results(redcap):
         print input_dict
         log.info('cts results from redcap collected')
         
-        filtered_records = (x['rc_id'] for x in input_dict if x['nat_results_complete'] == '2')
-        
+        filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2')
+        print filtered_records
+        log.info('cts results from redcap collected 2')
         records = redcap.project['CTS'].export_records(records=filtered_records)
         
         for record in records:
