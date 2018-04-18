@@ -52,7 +52,8 @@ def get_results(redcap):
         
         log.info('cts results from redcap collected 2')
         records = redcap.project['CTS'].export_records(records=filtered_records['rc_id'])
-        
+        print records
+        log.info('cts results from redcap collected 3')
         for record in records:
             rcid= record['rc_id']
             result = models.Result(
