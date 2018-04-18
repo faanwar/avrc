@@ -133,6 +133,8 @@ def sync_sql_result(buckets, settings):
         print 'each'
         print each
       ctsrecords.append(new_ctsrecord)
+      print 'ctsrecords'
+      print ctsrecords
 
       # RCIDs for which we have new results will be in push records
       push_records = []
