@@ -119,9 +119,16 @@ def sync_sql_result(buckets, settings):
     
       # we pass the 'label' flag to get the location value as string instead numeric values
       records = redcap.project[key].export_records(records=value,fields=redcap.nat_fields,raw_or_label='label') 
-      
+
       ctsrecord = redcap.project['CTS'].export_records(records=value, fields='rec_status')
+      print 'key'
+      print key
+      print 'value'
+      print value
+
       for each in ctsrecord:
+        print 'each'
+        print each
         new_ctsrecord = {}
         new_ctsrecord['rc_id'] = each['rc_id']
         new_ctsrecord['rec_status'] = 1
