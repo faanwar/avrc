@@ -43,7 +43,7 @@ def get_results(redcap):
         log.info('get_results called')
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])
         
-        input_dict = json.loads(all_records)
+        input_dict = json.dumps(all_records)
         
         print all_records
         log.info('cts results from redcap collected')
