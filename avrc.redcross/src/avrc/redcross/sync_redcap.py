@@ -40,12 +40,12 @@ def get_cts_results(settings):
 def get_results(redcap):
     results = []
     try:
-        log.info('cget_results called')
+        log.info('get_results called')
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])
         
         
         input_dict = json.loads(all_records)
-        print json.dumps(input_dict)
+        print json.dumps(input_dict['rc_id'])
         log.info('cts results from redcap collected')
         filtered_records = (x['rc_id'] for x in input_dict if x['nat_results_complete'] == '2')
 
