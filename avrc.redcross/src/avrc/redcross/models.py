@@ -165,7 +165,7 @@ class Result(Base):
         doc='The lab location this sample was drawn from')
 
     file = Column(
-        String(32), nullable=False,
+        String(32),
         doc='Which file the result was extracted from')
 
     version = Column(
