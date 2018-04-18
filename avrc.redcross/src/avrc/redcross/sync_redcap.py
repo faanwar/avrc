@@ -16,7 +16,7 @@ def get_cts_results(settings):
     redcap = RCProject(sites, rcs)
 
     results = get_results(redcap)
-
+    log.info('cts results from redcap collected %s' results)
     for result in results:
         # Syncing draw dates
         rc_id = str(result.site_code) + str(result.reference_number)
