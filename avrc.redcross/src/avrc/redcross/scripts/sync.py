@@ -119,9 +119,13 @@ def sync_sql_result(buckets, settings):
     
       # we pass the 'label' flag to get the location value as string instead numeric values
       records = redcap.project[key].export_records(records=value,fields=redcap.nat_fields,raw_or_label='label') 
+      
       ctsrecord = redcap.project['CTS'].export_records(records=value, fields='rec_status')
-      ctsrecord['rec_status'] = '1'
-      ctsrecords.append(ctsrecord)
+      for each in ctsrecord:
+        new_ctsrecord = {}
+        new_ctsrecord['rc_id'] = each['rc_id']
+        new_ctsrecord['rec_status'] = 1
+      ctsrecords.append(new_ctsrecord)
 
       # RCIDs for which we have new results will be in push records
       push_records = []
