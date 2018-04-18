@@ -46,7 +46,7 @@ def get_results(redcap):
     results = []
     try:
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])       
-        filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2')   
+        filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2' and x['rc_id' == 'SDET00001'])   
 
         records = redcap.project['CTS'].export_records(records=filtered_records)
 
