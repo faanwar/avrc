@@ -146,10 +146,10 @@ class Result(Base):
     dhiv = Column(NatEnum)
     dhcv = Column(NatEnum)
     dhbv = Column(NatEnum)
-    nat_sco = Column(DECIMAL(10,2)) 
-    dhiv_sco = Column(DECIMAL(10,2)) 
-    dhbv_sco = Column(DECIMAL(10,2)) 
-    dhcv_sco = Column(DECIMAL(10,2)) 
+    nat_sco = Column(String) 
+    dhiv_sco = Column(String) 
+    dhbv_sco = Column(String) 
+    dhcv_sco = Column(String) 
 
     test_date = Column(
         Date, nullable=False, default=datetime.today,
