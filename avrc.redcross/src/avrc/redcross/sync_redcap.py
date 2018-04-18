@@ -57,7 +57,7 @@ def get_results(redcap):
         for record in records:
             log.info('cts results from redcap collected 4')
             rcid= record['rc_id']
-            print rcid[:4]
+            print rcid[-5:]
             result = models.Result(
                 site_code=rcid[:4],
                 reference_number=rcid[-5:],
