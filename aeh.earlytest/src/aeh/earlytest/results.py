@@ -87,7 +87,7 @@ def process(request, default_view={}):
     days_til_exp = Config.getint('aeh:results', 'results_expiration')
     days_til_access = Config.getint('aeh:results', 'results_buffer')
     site_code_list = Config.get('aeh:results', 'site.codes').upper().split()
-    default_number = '76C##### or 76GH##### or 76FJ#####'
+    default_number = '76C#####, SDET#####, etc.'
 
     query_status = ""
     clean_input1 = {'site_code':'', 'ref_num':''}
