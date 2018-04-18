@@ -18,6 +18,7 @@ def get_cts_results(settings):
     results = get_results(redcap)
     
     for result in results:
+        print result
         # Syncing draw dates
         rc_id = str(result.site_code) + str(result.reference_number)
         draw = redcap.project['result.site_code'].export_records([rc_id], fields=['visit_date', 'test_site'], raw_or_label="label")	
@@ -40,22 +41,11 @@ def get_cts_results(settings):
 def get_results(redcap):
     results = []
     try:
-        log.info('get_results called')
-        all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])
-        
-        input_dict = json.dumps(all_records)
-        print all_records
-        print input_dict
-        log.info('cts results from redcap collected')
-        
-        filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2')
-        
-        log.info('cts results from redcap collected 2')
+        all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete'])       
+        filtered_records = (x['rc_id'] for x in all_records if x['nat_results_complete'] == '2')      
         records = redcap.project['CTS'].export_records(records=filtered_records)
-        
-        log.info('cts results from redcap collected 3')
-        for record in records:
-            
+
+        for record in records:           
             rcid= record['rc_id']
             result = models.Result(
                 site_code=rcid[:4],
@@ -68,8 +58,6 @@ def get_results(redcap):
                 dhcv_sco=record['dhcv_sco'],
                 dhbv=record['dhbv'],
                 dhbv_sco=record['dhbv_sco'])
-            print result
-            log.info('cts results from redcap collected 4')
             results.append(result)
     except:
         pass
