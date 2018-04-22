@@ -46,7 +46,7 @@ def get_results(redcap):
     def is_criteria_met(x):
         print x['nat_results_complete']
         print x['rec_status'] 
-        return str(x['nat_results_complete']) == str(2) and str(x['rec_status']) != str(1)
+        return str(x['nat_results_complete']) == str(2) 
 
     results = []
     try:
