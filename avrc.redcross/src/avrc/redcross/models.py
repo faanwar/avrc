@@ -99,7 +99,7 @@ supported_tests = {
 # A nucleic acid test can yield only one of the following results
 # This is poorly named as there is an ambiguously-named NAT test
 # that is used for HIV...
-NAT_RESULT_TYPES = ('N', 'P', 'NT')
+NAT_RESULT_TYPES = ('N', 'P', 'NT', 'I')
 
 BLOOD_TYPES = ('O+', 'O-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-')
 
