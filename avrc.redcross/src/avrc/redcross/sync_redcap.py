@@ -54,8 +54,7 @@ def get_results(redcap):
         records = redcap.project['CTS'].export_records(records=filtered_records)
 
         for record in records:   
-            print 'record'
-            print record        
+           
             rcid= record['rc_id']
             result = models.Result(
                 site_code=rcid[:-5],

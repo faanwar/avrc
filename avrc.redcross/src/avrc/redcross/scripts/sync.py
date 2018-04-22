@@ -121,20 +121,15 @@ def sync_sql_result(buckets, settings):
       records = redcap.project[key].export_records(records=value,fields=redcap.nat_fields,raw_or_label='label') 
 
       ctsrecord = redcap.project['CTS'].export_records(records=value, fields='rec_status')
-      print 'key'
-      print key
-      print 'value'
-      print value
+  
 
       for each in ctsrecord:
         new_ctsrecord = {}
         new_ctsrecord['rc_id'] = each['rc_id']
         new_ctsrecord['rec_status'] = 1
-        print 'each'
-        print each
+   
         ctsrecords.append(new_ctsrecord)
-      print 'ctsrecords'
-      print ctsrecords
+
 
       # RCIDs for which we have new results will be in push records
       push_records = []
