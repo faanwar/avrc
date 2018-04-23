@@ -211,7 +211,7 @@ def otp(request, admin, default_view={}):
  
       if 'clean_rcid' in request.params:
         clean_rcid = request.params['clean_rcid']
-        log.info("Current rcid:%s",clean_rcid)
+        #log.info("Current rcid:%s",clean_rcid)
       
       if 'userInput1' in request.POST and 'userInput2' in request.POST:
 
@@ -235,7 +235,7 @@ def otp(request, admin, default_view={}):
             
             return dict(default_view.items() + ret.items()) 
             
-      if admin != True:  
+      if 0:  
         if "PHONE" in request.params:
           mode = 'PHONE'
           email = None
