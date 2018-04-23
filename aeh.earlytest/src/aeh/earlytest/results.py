@@ -162,6 +162,8 @@ def is_otp_valid(otp, rcid):
 
 def get_patient(rc_id):
     try:
+      print 'get_patient'
+      print rc_id
       patient = None
       patient_sites = Config.get('aeh:results','pat.codes').split()   
       #log.info(patient_sites)
