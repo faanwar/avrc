@@ -60,7 +60,8 @@ def parse_input(text):
     offset = len(strip_text) - 5
     site_code = strip_text[:-5].upper()
     ref_num   = strip_text[-5:]
-    log.info(site_code + ' site code and ref ' + ref_num)
+    print site_code
+    print ref_num
     return { 'site_code': site_code, 'ref_num': ref_num }
 
 # get_fullname(clean_input)
@@ -266,6 +267,8 @@ def otp(request, admin, default_view={}):
         if otp_status == 'NON_VALIDATED' and "userInput1" in request.params:
             print 'IM IN THERE'
             clean_rcid = request.params['userInput1'] 
+            print 'clean'
+            print clean_rcid
             phone, email, cnxn = find_phone_email(clean_rcid) 
             #log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
             if cnxn is 'NO_CONTACT' or cnxn is 'QUERY_INVALID':
