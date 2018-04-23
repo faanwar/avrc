@@ -57,6 +57,8 @@ def get_results(redcap):
         records = redcap.project['CTS'].export_records(records=filtered_records)
 
         for record in records:
+            print 'sum'
+            print len(filtered_records)
             print 'record'   
             print record
             rcid= record['rc_id']
