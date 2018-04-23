@@ -210,7 +210,7 @@ def otp(request, admin, default_view={}):
  
       if 'clean_rcid' in request.params:
         clean_rcid = request.params['clean_rcid']
-        log.info("Current rcid:%s",clean_rcid)
+        #log.info("Current rcid:%s",clean_rcid)
       
       if 'userInput1' in request.POST and 'userInput2' in request.POST:
 
@@ -251,7 +251,7 @@ def otp(request, admin, default_view={}):
             contact = cp_email
             
           sent, text_status = is_otp_sent(clean_rcid, mode, contact)
-          log.info("OTP sent: %ss, text_status: %s", sent , text_status)
+          #log.info("OTP sent: %ss, text_status: %s", sent , text_status)
           cp_phone, cp_email = masked_contacts(cp_phone, cp_email)
           
           
@@ -259,21 +259,21 @@ def otp(request, admin, default_view={}):
             email = cp_email
           elif email == None:
             phone = cp_phone
-          log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
+          #log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
           show_barker = 'OTP_PROMPT'
 
-        log.info("Mode: %s, Otp_Status: %s \n", mode, otp_status)
+        #log.info("Mode: %s, Otp_Status: %s \n", mode, otp_status)
         if otp_status == 'NON_VALIDATED' and "userInput1" in request.params:
             clean_rcid = request.params['userInput1'] 
             phone, email, cnxn = find_phone_email(clean_rcid) 
-            log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
+            #log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
             if cnxn is 'NO_CONTACT' or cnxn is 'QUERY_INVALID':
               show_barker = 'ERROR'
               queryStatus = cnxn 
             else:
               phone, email = masked_contacts(phone, email)
               show_barker = 'GENERATE_OTP'
-              log.info("Phone: %s, Email: %s,\n", phone, email)
+              #log.info("Phone: %s, Email: %s,\n", phone, email)
         
         if "otp" in request.params:
             otp = request.params['otp']
@@ -304,7 +304,7 @@ def otp(request, admin, default_view={}):
           queryStatus = get_results(clean_rcid)
 
     except:
-      log.info(traceback.format_exc())
+      #log.info(traceback.format_exc())
       raise
     
     ret = {
@@ -316,7 +316,7 @@ def otp(request, admin, default_view={}):
         'mode' : mode,
         'show_barker': show_barker
     }
-    log.info(str(ret))
+    #log.info(str(ret))
     return dict(default_view.items() + ret.items())
 
     
