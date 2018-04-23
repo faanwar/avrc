@@ -60,7 +60,7 @@ def parse_input(text):
     offset = len(strip_text) - 5
     site_code = strip_text[:-5].upper()
     ref_num   = strip_text[-5:]
-
+    log.info(site_code + ' ' + ref_num)
     return { 'site_code': site_code, 'ref_num': ref_num }
 
 # get_fullname(clean_input)
