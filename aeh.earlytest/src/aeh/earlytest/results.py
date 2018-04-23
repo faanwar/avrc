@@ -174,6 +174,8 @@ def get_patient(rc_id):
         try:
           patients = redcap.project[key].export_records(records=[str(rc_id)])
           patient = patients[0]
+          print 'patient'
+          print patient
           #log.info(patient)
           return patient
         except:
