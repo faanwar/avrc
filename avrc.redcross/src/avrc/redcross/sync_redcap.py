@@ -52,10 +52,12 @@ def get_results(redcap):
     results = []
     try:
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete', 'rec_status'])     
-        filtered_records = sum(x['rc_id'] for x in all_records if is_criteria_met(x) == True) 
+        filtered_records = (x['rc_id'] for x in all_records if is_criteria_met(x) == True) 
+       
+        sum_records = sum(filtered_records)
         print 'sum'
-        print filtered_records
-        if sum != 0:
+        print sum_records
+        if sum_records != 0:
             records = redcap.project['CTS'].export_records(records=filtered_records)
         else:
             records = []
