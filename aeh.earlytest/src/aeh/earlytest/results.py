@@ -270,6 +270,12 @@ def otp(request, admin, default_view={}):
             print 'clean'
             print clean_rcid
             phone, email, cnxn = find_phone_email(clean_rcid) 
+            print 'phone'
+            print phone
+            print 'email'
+            print email
+            print 'cnxn'
+            print cnxn
             #log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
             if cnxn is 'NO_CONTACT' or cnxn is 'QUERY_INVALID':
               show_barker = 'ERROR'
