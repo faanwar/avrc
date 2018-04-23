@@ -277,6 +277,7 @@ def otp(request, admin, default_view={}):
               #log.info("Phone: %s, Email: %s,\n", phone, email)
         
         if "otp" in request.params:
+            print 'otp in request'
             otp = request.params['otp']
 
             if clean_rcid == None:
