@@ -45,14 +45,15 @@ def get_results(redcap):
 
     def is_criteria_met(x):
         a = x['nat_results_complete'] == '2' and x['rec_status'] != '1'
+        print 'a'
+        print a
         return a
 
     results = []
     try:
         all_records = redcap.project['CTS'].export_records(fields=['rc_id', 'nat_results_complete', 'rec_status'])     
         filtered_records = (x['rc_id'] for x in all_records if is_criteria_met(x) == True) 
-        print 'fr'
-        json.dumps(filtered_records)
+  
         records = redcap.project['CTS'].export_records(records=filtered_records)
 
         for record in records:
