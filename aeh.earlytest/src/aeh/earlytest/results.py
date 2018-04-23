@@ -165,7 +165,9 @@ def get_patient(rc_id):
       print 'get_patient'
       print rc_id
       patient = None
-      patient_sites = Config.get('aeh:results','pat.codes').split()   
+      patient_sites = Config.get('aeh:results','pat.codes').split() 
+      print 'patient codes'
+      print patient_sites  
       #log.info(patient_sites)
       redcap = RCProject(patient_sites, rcs)
       for key in patient_sites:
