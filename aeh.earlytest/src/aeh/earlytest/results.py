@@ -234,7 +234,7 @@ def otp(request, admin, default_view={}):
             
             return dict(default_view.items() + ret.items()) 
             
-      if 0:  
+      if admin != True:  
         if "PHONE" in request.params:
           mode = 'PHONE'
           email = None
