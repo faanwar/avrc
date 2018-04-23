@@ -162,22 +162,14 @@ def is_otp_valid(otp, rcid):
 
 def get_patient(rc_id):
     try:
-      print 'get_patient'
-      print rc_id
       patient = None
       patient_sites = Config.get('aeh:results','pat.codes').split() 
-      print 'patient codes'
-      print patient_sites  
       #log.info(patient_sites)
       redcap = RCProject(patient_sites, rcs)
       for key in patient_sites:
-        print 'key'
-        print key
         try:
           patients = redcap.project[key].export_records(records=[str(rc_id)])
           patient = patients[0]
-          print 'patient'
-          print patient
           #log.info(patient)
           return patient
         except:
@@ -273,17 +265,9 @@ def otp(request, admin, default_view={}):
 
         #log.info("Mode: %s, Otp_Status: %s \n", mode, otp_status)
         if otp_status == 'NON_VALIDATED' and "userInput1" in request.params:
-            print 'IM IN THERE'
             clean_rcid = request.params['userInput1'] 
-            print 'clean'
-            print clean_rcid
             phone, email, cnxn = find_phone_email(clean_rcid) 
-            print 'phone'
-            print phone
-            print 'email'
-            print email
-            print 'cnxn'
-            print cnxn
+
             #log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
             if cnxn is 'NO_CONTACT' or cnxn is 'QUERY_INVALID':
               show_barker = 'ERROR'
@@ -295,7 +279,7 @@ def otp(request, admin, default_view={}):
         
         if "otp" in request.params:
             otp = request.params['otp']
-
+            print 'otp in request'
             if clean_rcid == None:
                 otp_status = 'NON_VALIDATED'
                 show_barker = 'NO_RCID'
