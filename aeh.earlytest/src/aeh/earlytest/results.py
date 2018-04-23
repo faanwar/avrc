@@ -171,6 +171,8 @@ def get_patient(rc_id):
       #log.info(patient_sites)
       redcap = RCProject(patient_sites, rcs)
       for key in patient_sites:
+        print 'key'
+        print key
         try:
           patients = redcap.project[key].export_records(records=[str(rc_id)])
           patient = patients[0]
