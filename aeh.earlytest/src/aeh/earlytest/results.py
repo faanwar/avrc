@@ -331,6 +331,8 @@ def otp_entry(request, default_view={}):
       return HTTPFound(request.route_path('results'))
 
 def get_results(input_rcid):
+    print 'im in there '
+  
     # parse inputs for site_code and reference_number
     clean_rcid = parse_input(input_rcid)
 
