@@ -265,13 +265,12 @@ def otp(request, admin, default_view={}):
 
         #log.info("Mode: %s, Otp_Status: %s \n", mode, otp_status)
         if otp_status == 'NON_VALIDATED' and "userInput1" in request.params:
-            clean_rcid = request.params['userInput1'] 
-            phone, email, cnxn = find_phone_email(clean_rcid) 
-
+            clean_rcid = request.params['userInput1']
+            phone, email, cnxn = find_phone_email(clean_rcid)
             #log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
             if cnxn is 'NO_CONTACT' or cnxn is 'QUERY_INVALID':
               show_barker = 'ERROR'
-              queryStatus = cnxn 
+              queryStatus = cnxn
             else:
               phone, email = masked_contacts(phone, email)
               show_barker = 'GENERATE_OTP'
@@ -279,7 +278,7 @@ def otp(request, admin, default_view={}):
         
         if "otp" in request.params:
             otp = request.params['otp']
-            print 'otp in request'
+
             if clean_rcid == None:
                 otp_status = 'NON_VALIDATED'
                 show_barker = 'NO_RCID'
@@ -332,17 +331,17 @@ def otp_entry(request, default_view={}):
       return HTTPFound(request.route_path('results'))
 
 def get_results(input_rcid):
-       
+
         # parse inputs for site_code and reference_number
         clean_rcid = parse_input(input_rcid)
-        
+
         site_code = clean_rcid['site_code']
         ref_num   = clean_rcid['ref_num']
         current_time  = datetime.date.today()
-    	# Var used to determine expiration of test results
-    	results_expiration = current_time - datetime.timedelta(days=int(Config.get('aeh:results', 'results_expiration')))
-    	# Var used to calculate buffer time for test result retrieval
-    	results_buffer = current_time - datetime.timedelta(days=int(Config.get('aeh:results', 'results_buffer')))
+      # Var used to determine expiration of test results
+      results_expiration = current_time - datetime.timedelta(days=int(Config.get('aeh:results', 'results_expiration')))
+      # Var used to calculate buffer time for test result retrieval
+      results_buffer = current_time - datetime.timedelta(days=int(Config.get('aeh:results', 'results_buffer')))
 
         site_code_list = Config.get('aeh:results', 'site.codes').split()
         if not site_code in site_code_list:
@@ -354,18 +353,24 @@ def get_results(input_rcid):
                          .filter(models.Result.reference_number == ref_num).first()
 
             show_results = Config.getboolean('aeh:results', 'site.{0}.show_results'.format(site_code.upper()))
-              
-            if result and show_results:
+
+            # Check if result exists
+            if result:
                 query_draw_date = result.draw_date
-                """ 
-		        Conditions to not show results 
-		        a) the site doesn't allows access.
-	            b) No draw date
-		        c) DHIV result is P
-		        """
-                query_status = 'RESULTS_NOT__AVAILABLE'
+                # Check if the site allows access to results
+                if not show_results:
+                    query_status = 'RESULTS_NOT_AVAILABLE'
+
+                # Check if there is a draw date
+                elif not query_draw_date:
+                    query_status = 'RESULTS_NOT_AVAILABLE'
+
+                # Check if dhiv result is P
+                elif result.check('dhiv'):
+                    query_status = 'RESULTS_NOT_AVAILABLE'
+
                 # Check if dhiv result in N
-                if result.check('dhiv') is False:
+                elif result.check('dhiv') is False:
                     # Check if draw date is 14 or more days
                     if query_draw_date <= results_buffer:
                         # Check if draw date is less than 90 days old
@@ -373,9 +378,16 @@ def get_results(input_rcid):
                             query_status = 'RESULTS_NEGATIVE'
                         else:
                             query_status = 'RESULTS_OUT_OF_DATE'
+                    else:
+                        query_status = 'RESULTS_NOT_AVAILABLE'
+
+                # Else return results not available, such if dhiv is NT or something weird
+                else:
+                    query_status = 'RESULTS_NOT_AVAILABLE'
             else:
                 query_status = 'RESULTS_NOT_FOUND'
-        
+
+
         return query_status
 
 def masked_contacts(phone, email):
