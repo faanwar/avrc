@@ -44,7 +44,10 @@ def get_results(redcap):
         return s.strip() or None
 
     def is_criteria_met(x):
-        return x['nat_results_complete'] == '2' and x['rec_status'] != '1'
+        a = x['nat_results_complete'] == '2' and x['rec_status'] != '1'
+        print 'a'
+        print a
+        return a
 
     results = []
     try:
@@ -53,7 +56,8 @@ def get_results(redcap):
 
         records = redcap.project['CTS'].export_records(records=filtered_records)
 
-        for record in records:   
+        for record in records:
+            print 'record'   
             print record
             rcid= record['rc_id']
             result = models.Result(
