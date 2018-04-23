@@ -331,22 +331,21 @@ def otp_entry(request, default_view={}):
       return HTTPFound(request.route_path('results'))
 
 def get_results(input_rcid):
+    # parse inputs for site_code and reference_number
+    clean_rcid = parse_input(input_rcid)
 
-        # parse inputs for site_code and reference_number
-        clean_rcid = parse_input(input_rcid)
+    site_code = clean_rcid['site_code']
+    ref_num   = clean_rcid['ref_num']
+    current_time  = datetime.date.today()
+    # Var used to determine expiration of test results
+    results_expiration = current_time - datetime.timedelta(days=int(Config.get('aeh:results', 'results_expiration')))
+    # Var used to calculate buffer time for test result retrieval
+    results_buffer = current_time - datetime.timedelta(days=int(Config.get('aeh:results', 'results_buffer')))
 
-        site_code = clean_rcid['site_code']
-        ref_num   = clean_rcid['ref_num']
-        current_time  = datetime.date.today()
-      # Var used to determine expiration of test results
-      results_expiration = current_time - datetime.timedelta(days=int(Config.get('aeh:results', 'results_expiration')))
-      # Var used to calculate buffer time for test result retrieval
-      results_buffer = current_time - datetime.timedelta(days=int(Config.get('aeh:results', 'results_buffer')))
-
-        site_code_list = Config.get('aeh:results', 'site.codes').split()
-        if not site_code in site_code_list:
-            query_status = 'RESULTS_NOT_FOUND'
-        else:
+    site_code_list = Config.get('aeh:results', 'site.codes').split()
+    if not site_code in site_code_list:
+      query_status = 'RESULTS_NOT_FOUND'
+    else:
             session  = Session()
             result   = session.query(models.Result)\
                          .filter(models.Result.site_code == site_code)\
@@ -388,7 +387,7 @@ def get_results(input_rcid):
                 query_status = 'RESULTS_NOT_FOUND'
 
 
-        return query_status
+    return query_status
 
 def masked_contacts(phone, email):
     if phone != None:
