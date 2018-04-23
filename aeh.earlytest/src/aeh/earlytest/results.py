@@ -264,6 +264,7 @@ def otp(request, admin, default_view={}):
 
         #log.info("Mode: %s, Otp_Status: %s \n", mode, otp_status)
         if otp_status == 'NON_VALIDATED' and "userInput1" in request.params:
+            print 'IM IN THERE'
             clean_rcid = request.params['userInput1'] 
             phone, email, cnxn = find_phone_email(clean_rcid) 
             #log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
