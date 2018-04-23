@@ -210,7 +210,7 @@ def otp(request, admin, default_view={}):
  
       if 'clean_rcid' in request.params:
         clean_rcid = request.params['clean_rcid']
-        #log.info("Current rcid:%s",clean_rcid)
+        log.info("Current rcid:%s",clean_rcid)
       
       if 'userInput1' in request.POST and 'userInput2' in request.POST:
 
@@ -266,7 +266,7 @@ def otp(request, admin, default_view={}):
         if otp_status == 'NON_VALIDATED' and "userInput1" in request.params:
             clean_rcid = request.params['userInput1'] 
             phone, email, cnxn = find_phone_email(clean_rcid) 
-            #log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
+            log.info("Phone: %s, Email: %s, Status: %s \n", phone, email, cnxn) 
             if cnxn is 'NO_CONTACT' or cnxn is 'QUERY_INVALID':
               show_barker = 'ERROR'
               queryStatus = cnxn 
