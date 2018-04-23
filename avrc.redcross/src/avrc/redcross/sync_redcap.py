@@ -55,7 +55,10 @@ def get_results(redcap):
         filtered_records = sum(x['rc_id'] for x in all_records if is_criteria_met(x) == True) 
         print 'sum'
         print filtered_records
-        records = redcap.project['CTS'].export_records(records=filtered_records)
+        if sum != 0:
+            records = redcap.project['CTS'].export_records(records=filtered_records)
+        else:
+            records = []
 
         for record in records:
             print 'record'   
