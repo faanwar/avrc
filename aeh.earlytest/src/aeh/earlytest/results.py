@@ -58,8 +58,8 @@ import turbomail
 def parse_input(text):
     strip_text = text.replace(' ','')
     offset = len(strip_text) - 5
-    site_code = strip_text[:offset].upper()
-    ref_num   = strip_text[offset:]
+    site_code = strip_text[:-5].upper()
+    ref_num   = strip_text[-5:]
 
     return { 'site_code': site_code, 'ref_num': ref_num }
 
@@ -234,7 +234,7 @@ def otp(request, admin, default_view={}):
             
             return dict(default_view.items() + ret.items()) 
             
-      if admin != True:  
+      if 0:  
         if "PHONE" in request.params:
           mode = 'PHONE'
           email = None
