@@ -118,7 +118,12 @@ def sync_sql_result(buckets, settings):
       #fields = ['visit_date','test_site']
     
       # we pass the 'label' flag to get the location value as string instead numeric values
-      records = redcap.project[key].export_records(records=value,fields=redcap.nat_fields,raw_or_label='label') 
+      records = []
+      if redcap.project[key].is_longitudinal() == True:
+        l_records = redcap.project[key].export_records(fields=redcap.nat_fields,raw_or_label='label') 
+        records = list(x for x in l_records if x['rc_id'] in value) 
+      else:
+        records = redcap.project[key].export_records(records=value,fields=redcap.nat_fields,raw_or_label='label') 
 
       ctsrecord = redcap.project['CTS'].export_records(records=value, fields='rec_status')
   
