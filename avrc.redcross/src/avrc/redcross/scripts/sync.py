@@ -150,6 +150,10 @@ def sync_sql_result(buckets, settings):
         if 'visit_date' in record.keys() and record['visit_date'] != '':
           visit_date =  dt.strptime(record['visit_date'], "%Y-%m-%d").date() 
           if sql_row.draw_date != visit_date:
+            if sql_row.site_code == 'SDUN':
+              print 'dates not equal'
+              print sql_row.draw_date
+              print visit_date
             if sql_row.test_date >= visit_date:
               print 'update visit date'
               sql_row.draw_date = visit_date
