@@ -123,6 +123,7 @@ def sync_sql_result(buckets, settings):
       records = []
       if redcap.project[key].is_longitudinal() == True:
         print 'is logitudinal'
+        print key
         l_records = redcap.project[key].export_records() 
         records = list(x for x in l_records if x['rc_id'] in value)
       else:
