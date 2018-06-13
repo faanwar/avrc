@@ -48,8 +48,6 @@ def get_results(redcap):
 
     def is_criteria_met(x):
         a = x['nat_results_complete'] == '2' and x['rec_status'] != '1'
-        print 'a'
-        print a
         return a
 
     results = []
