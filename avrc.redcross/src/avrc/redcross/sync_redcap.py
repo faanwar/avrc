@@ -23,6 +23,9 @@ def get_cts_results(settings):
         value = redcap.project[result.site_code].export_records( raw_or_label="label")
         draw = list(x for x in value if x['rc_id'] == rc_id)
         # Ignore if this information is not available in the redcap db
+        print 'draw'
+        print draw[0]['rc_id']
+        print draw[0]['visit_date']
         try:
             if draw[0]['visit_date'] != '':     
                 draw_date = datetime.datetime.strptime(draw[0]['visit_date'], "%Y-%m-%d").date()   
