@@ -21,6 +21,7 @@ def get_cts_results(settings):
         # Syncing draw dates
         rc_id = str(result.site_code) + str(result.reference_number)
         value = redcap.project[result.site_code].export_records( raw_or_label="label")
+        print rc_id
         print value[0]
         draw = list(x for x in value if x['rc_id'] == rc_id)
         # Ignore if this information is not available in the redcap db
