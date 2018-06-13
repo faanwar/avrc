@@ -148,11 +148,7 @@ def sync_sql_result(buckets, settings):
            
         # Visit/Draw date update in SQL DB
         if 'visit_date' in record.keys() and record['visit_date'] != '':
-          print 'in visit date'
           visit_date =  dt.strptime(record['visit_date'], "%Y-%m-%d").date() 
-          print record['rc_id']
-          print visit_date
-          print sql_row.draw_date
           if sql_row.draw_date != visit_date:
             if sql_row.test_date >= visit_date:
               print 'update visit date'
