@@ -20,10 +20,14 @@ def get_cts_results(settings):
     for result in results:
         # Syncing draw dates
         rc_id = str(result.site_code) + str(result.reference_number)
-        value = redcap.project[result.site_code].export_records( raw_or_label="label")
-        print rc_id
-        print value[0]
-        draw = list(x for x in value if x['rc_id'] == rc_id)
+        draw = []
+        if redcap.project[result.site_code].is_longitudinal() == True:
+            value = redcap.project[result.site_code].export_records( raw_or_label="label")
+            print rc_id
+            print value[0]
+            draw = list(x for x in value if x['rc_id'] == rc_id)
+        else: 
+            draw = redcap.project[result.site_code].export_records([rc_id], fields=['visit_date', 'test_site'], raw_or_label="label")	
         # Ignore if this information is not available in the redcap db
         try:
             if draw[0]['visit_date'] != '':     
