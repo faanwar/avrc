@@ -120,10 +120,11 @@ def sync_sql_result(buckets, settings):
       # we pass the 'label' flag to get the location value as string instead numeric values
       records = []
       if redcap.project[key].is_longitudinal() == True:
-        l_records = redcap.project[key].export_records(fields=redcap.nat_fields,raw_or_label='label') 
-        records = list(x for x in l_records if x['rc_id'] in value) 
+        print 'is logitudinal'
+        l_records = redcap.project[key].export_records() 
+        records = list(x for x in l_records if x['rc_id'] in value)
       else:
-        records = redcap.project[key].export_records(records=value,fields=redcap.nat_fields,raw_or_label='label') 
+        records = redcap.project[key].export_records(records=value,fields=redcap.nat_fields, raw_or_label='label') 
 
       ctsrecord = redcap.project['CTS'].export_records(records=value, fields='rec_status')
   
@@ -164,8 +165,10 @@ def sync_sql_result(buckets, settings):
    
         # Location update in SQL DB
         if 'test_site' in record.keys() and record['test_site'] != '':
-          if sql_row.location != record['test_site']:
-            sql_row.location = record['test_site'] 
+          labeled_recs = redcap.project[key].export_records(raw_or_label='label')
+          fil_rec = list(x for x in labeled_recs if x['rc_id'] == record['rc_id'])[0]
+          if sql_row.location != fil_rec['test_site']:
+            sql_row.location = fil_rec['test_site'] 
       
         # Keep track for bulk update in RedCAP later
         if 'nat_result_date' in record.keys():
@@ -174,14 +177,13 @@ def sync_sql_result(buckets, settings):
           else:
             if 'nat_test_complete' in record.keys() and \
                 record['nat_test_complete'] == "Incomplete":
-            
               new_record = {}
               new_record['rc_id'] = record['rc_id']
               new_record['nat_test_complete'] = 2
               push_records.append(new_record)
              
         Session.commit()
-
+      
       # Make the bulk update for every 'key' and 'site'
       value = redcap.project[key].import_records(push_records)
       redcap.project['CTS'].import_records(ctsrecords)
