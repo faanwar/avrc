@@ -171,6 +171,7 @@ def sync_sql_result(buckets, settings):
         # Location update in SQL DB
         if 'test_site' in record.keys() and record['test_site'] != '':
           labeled_recs = redcap.project[key].export_records(raw_or_label='label')
+          print labeled_recs
           fil_rec = list(x for x in labeled_recs if x['rc_id'] == record['rc_id'])[0]
           if sql_row.location != fil_rec['test_site']:
             sql_row.location = fil_rec['test_site'] 
