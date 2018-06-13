@@ -32,7 +32,7 @@ def main():
 
     try:	
         results = sync_redcap.get_cts_results(settings)
-
+        print 'a'
         if not args.dry:
             Session.add_all(results)
             Session.commit()
