@@ -106,8 +106,7 @@ def sync_sql_result(buckets, settings):
     redcap = RCProject(buckets.keys(), rcs)
     
     for key, value in buckets.iteritems():
-      print 'key'
-      print key
+      
       ctsrecords = []
       # These malformed draw dates need to be handled offline. This script will only be
       # reporting such entries
@@ -116,7 +115,8 @@ def sync_sql_result(buckets, settings):
       # Unmindful check. This line is mostly a deadcode, I guess.
       if key not in redcap.project.keys():
         continue
-      
+      print 'key'
+      print key
       #fields = ['visit_date','test_site']
     
       # we pass the 'label' flag to get the location value as string instead numeric values
