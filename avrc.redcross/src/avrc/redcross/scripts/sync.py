@@ -102,7 +102,7 @@ def sync_sql_result(buckets, settings):
     # Days after which tester should definitely act ASAP on CRF's or redcap entries
     days_till_urgent = int(settings['days.tillurgent'])
 
-  
+    pk_sites = settings.get('pk_site').split()
     redcap = RCProject(buckets.keys(), rcs)
     
     for key, value in buckets.iteritems():
@@ -121,7 +121,7 @@ def sync_sql_result(buckets, settings):
     
       # we pass the 'label' flag to get the location value as string instead numeric values
       records = []
-      if redcap.project[key].is_longitudinal() == True:
+      if redcap.project[key].is_longitudinal() == True or key in pk_sites:
         print 'is logitudinal'
         print key
         l_records = redcap.project[key].export_records() 
