@@ -106,6 +106,8 @@ def sync_sql_result(buckets, settings):
     redcap = RCProject(buckets.keys(), rcs)
     
     for key, value in buckets.iteritems():
+      print 'key'
+      print key
       ctsrecords = []
       # These malformed draw dates need to be handled offline. This script will only be
       # reporting such entries
