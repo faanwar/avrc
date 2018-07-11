@@ -58,7 +58,8 @@ class ReportViews:
         self.oakland = self.admins or bool(has_permission('oakland', root, request))
         self.emory   = self.admins or bool(has_permission('emory', root, request))
         self.partner   = self.admins or bool(has_permission('partner', root, request))
-        self.single_access = not self.admins and (self.avrc != self.oakland) and (self.avrc != self.emory) and (self.oakland != self.emory) and (self.partner != self.avrc) and (self.partner != self.oakland) and (self.partner != self.emory)
+        self.uni   = self.admins or bool(has_permission('uni', root, request))
+        self.single_access = not self.admins and (self.uni != self.oakland) and (self.uni != self.avrc) and (self.uni != self.emory) and (self.avrc != self.partner) and (self.avrc != self.oakland) and (self.avrc != self.emory) and (self.oakland != self.emory) and (self.partner != self.avrc) and (self.partner != self.oakland) and (self.partner != self.emory)
 
 class ReportSite:
   def __init__(self, permissions):
@@ -77,6 +78,9 @@ class ReportSite:
     elif permissions == 'partner':
       self.name = 'Partner'
       self.codes = ['SDPT']
+    elif permissions == 'uni':
+      self.name = 'UNI'
+      self.codes = ['SDUN']
     else:
       self.name = 'Unknown Permissions'
       self.codes = []
@@ -288,6 +292,7 @@ def entry (request, default_view={}):
       'oakland': rv.oakland,
       'emory': rv.emory,
       'partner': rv.partner,
+      'uni': rv.uni,
       'single_access': rv.single_access
   }
   return dict(default_view.items() + ret.items())
@@ -316,6 +321,10 @@ def reports_emory_view(request):
 def reports_partner_view(request):
   return process(request, 'partner', default_view=default_view(request))
 
+@view_config(route_name='reports-uni', renderer='templates/pages/reports.pt', permission='uni')
+def reports_uni_view(request):
+  return process(request, 'uni', default_view=default_view(request))
+
 @view_config(route_name='reports-admins-excel', permission='admins')
 def reports_admin_excel_view(request):
   return process(request, 'admins', csv_export=True)
@@ -333,6 +342,10 @@ def reports_emory_excel_view(request):
   return process(request, 'emory', csv_export=True)
 
 @view_config(route_name='reports-partner-excel', permission='partner')
-def reports_emory_excel_view(request):
+def reports_partner_excel_view(request):
   return process(request, 'partner', csv_export=True)
+
+@view_config(route_name='reports-uni-excel', permission='uni')
+def reports_uni_excel_view(request):
+  return process(request, 'uni', csv_export=True)
 

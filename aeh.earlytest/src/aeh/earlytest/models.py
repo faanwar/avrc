@@ -48,6 +48,7 @@ oakland_cn = 'cn=earlytest-oakland' + ou
 emory_cn   = 'cn=earlytest-emory'   + ou
 data_cn    = 'cn=earlytest-data'    + ou
 partner_cn    = 'cn=earlytest-partner'+ ou
+uni_cn    = 'cn=earlytest-uni'+ ou
 
 class RootFactory(object):
   __acl__ = \
@@ -55,6 +56,7 @@ class RootFactory(object):
     (Allow, admins_cn, ALL_PERMISSIONS),
     (Allow, avrc_cn, ['avrc', 'reports', 'draw-input']),
     (Allow, avrc_cn, ['partner', 'reports', 'draw-input']),
+    (Allow, avrc_cn, ['uni', 'reports', 'draw-input']),
     (Allow, oakland_cn, ['oakland', 'reports', 'draw-input']),
     (Allow, emory_cn, ['emory', 'reports', 'draw-input']),
     (Allow, data_cn, ['draw-input']),

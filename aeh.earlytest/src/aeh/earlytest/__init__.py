@@ -145,6 +145,8 @@ def main(global_config, **settings):
   route('reports-admins-excel', 'reports/admin/excel')
   route('reports-partner', 'reports/partner')
   route('reports-partner-excel', 'reports/partner/excel')
+  route('reports-uni', 'reports/uni')
+  route('reports-uni-excel', 'reports/uni/excel')
   route('login', '/login')
   route('logout', '/logout')
   route('testingfortickets', '/testingfortickets')

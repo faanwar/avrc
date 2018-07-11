@@ -50,6 +50,7 @@ POSSIBILITY OF SUCH DAMAGE.
     <a tal:condition="oakland" href="${request.route_path('reports-oakland')}" class="btn btn-primary btn-lg" role="button">Oakland</a>
     <a tal:condition="emory" href="${request.route_path('reports-emory')}" class="btn btn-primary btn-lg" role="button">Emory</a>
     <a tal:condition="partner" href="${request.route_path('reports-partner')}" class="btn btn-primary btn-lg" role="button">Partner Study</a>
+    <a tal:condition="uni" href="${request.route_path('reports-uni')}" class="btn btn-primary btn-lg" role="button">UNI Study</a>
     <a tal:condition="admins" href="${request.route_path('reports-admins')}" class="btn btn-primary btn-lg" role="button">Admins (AVRC, Oakland, &#38; Emory)</a>
   </div>
 
