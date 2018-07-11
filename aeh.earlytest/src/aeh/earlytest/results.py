@@ -358,36 +358,45 @@ def get_results(input_rcid):
 
             # Check if result exists
             if result:
+                print 'results exist'
                 query_draw_date = result.draw_date
                 # Check if the site allows access to results
                 if not show_results:
+                    print 'results not allowed'
                     query_status = 'RESULTS_NOT_AVAILABLE'
 
                 # Check if there is a draw date
                 elif not query_draw_date:
+                    print 'no draw date'
                     query_status = 'RESULTS_NOT_AVAILABLE'
 
                 # Check if dhiv result is P
                 elif result.check('dhiv'):
+                    print 'dhiv p'
                     query_status = 'RESULTS_NOT_AVAILABLE'
 
                 # Check if dhiv result in N
                 elif result.check('dhiv') is False:
                     # Check if draw date is 14 or more days
+                    print 'dhiv n'
                     if query_draw_date <= results_buffer:
                         # Check if draw date is less than 90 days old
                         if query_draw_date > results_expiration:
                             query_status = 'RESULTS_NEGATIVE'
+                            print 'draw date less than 90'
                         else:
                             query_status = 'RESULTS_OUT_OF_DATE'
                     else:
                         query_status = 'RESULTS_NOT_AVAILABLE'
+                        print 'draw date less than 14'
 
                 # Else return results not available, such if dhiv is NT or something weird
                 else:
                     query_status = 'RESULTS_NOT_AVAILABLE'
+                    print 'something weird'
             else:
                 query_status = 'RESULTS_NOT_FOUND'
+                print 'result dont exist'
 
 
     return query_status
