@@ -127,5 +127,6 @@ setup(
         rc_initdb = avrc.redcross.scripts.initdb:main
         rc_parse  = avrc.redcross.scripts.sync_cts:main
         rc_sync  = avrc.redcross.scripts.sync:main
+        rc_remind = avrc.redcross.scripts.remind:main
     """,
     )
