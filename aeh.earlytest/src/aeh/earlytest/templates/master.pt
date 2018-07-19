@@ -155,7 +155,7 @@ POSSIBILITY OF SUCH DAMAGE.
 						!-->
 	          <li tal:attributes="class python:'active' if default_active == 'contact' else nothing">
 							<a href="${request.route_path('contact')}">
-								<span class="glyphicon glyphicon-contact"></span>
+								<span class="glyphicon glyphicon-earphone"></span>
 								<span i18n:translate="contact">Contact Us</span>
 							</a>
 						</li>
