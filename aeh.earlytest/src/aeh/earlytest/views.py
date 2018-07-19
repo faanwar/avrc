@@ -152,3 +152,7 @@ def otp_view(request):
 def unsub_view(request):
   return unsubscribe_view(request,"unsubscribe")
 
+@view_config(route_name='contact', renderer='templates/pages/contact.pt')
+def contact_view(request):
+  return default_view(request,"contact")
+

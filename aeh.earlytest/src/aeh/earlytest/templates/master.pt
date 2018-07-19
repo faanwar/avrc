@@ -153,42 +153,12 @@ POSSIBILITY OF SUCH DAMAGE.
 							</ul>
 						</li>
 						!-->
-	          <li class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<span class="glyphicon glyphicon-pencil"></span>
-								<span i18n:translate="contact_us">Contact Us</span> <b class="caret"></b>
+	          <li tal:attributes="class python:'active' if default_active == 'contact' else nothing">
+							<a href="${request.route_path('contact')}">
+								<span class="glyphicon glyphicon-contact"></span>
+								<span i18n:translate="contact">Contact Us</span>
 							</a>
-	            <ul class="dropdown-menu">
-	              <li>
-									<a href="tel:16195438080"><span class="glyphicon glyphicon-earphone"></span> (619) 543-8080</a>
-								</li>
-	              <li>
-	                <script type="text/javascript">
-	                  //<![CDATA[
-	                  <!--
-	                  var x="function f(x,y){var i,o=\"\",l=x.length;for(i=0;i<l;i++){if(i==38)y+=" +
-	                  "i;y%=127;o+=String.fromCharCode(x.charCodeAt(i)^(y++));}return o;}f(\"@RFJ^" +
-	                  "BCC\\016I\\030I\\033HBTD\\027Q\\025U\\006\\036\\037\\022P,|:m( ( <!f'O\\034" +
-	                  "\\030N\\001\\037\\021\\025\\037S\\004S\\035h`p@kacF|!f$=>'.-)$:oadnca1&d&r4" +
-	                  "\\035M\\031^GDRD@\\001O\\002WPSI_C\\032Z\\tY\\033\\006\\003P\\004\\006\\014" +
-	                  "\\006W\\022mh9,ox>i+!+9\\r9f&yj/!1!#%6y5u/(<,\\024\\023JSH\\n\\nNS\\024\\01" +
-	                  "4CND[W\\\\-PALIYPB\\033WF#03t]^ARBPe]Zpah}gtl7'Y#]8`e}|a13I(\\027\\020~\\17" +
-	                  "7IH\\017E^N\\\\iY^\\035\\034\\000mnGhi\\003\\007\\010ef\\014\\016\\rbcppr\\" +
-	                  "037\\030uuw\\024\\025\\177x|\\021\\022\\002abb\\017\\010dfg\\004\\005jhl\\0" +
-	                  "01\\002mSQ>?WWV;4]Y[01<\\\\#BCC()\\002+$HIK !L01^_MqZ[SMGePQ9> MN$$%JK-+*G@" +
-	                  "iBC\\r\\010Q\\013\\021\\032\\022\\n\\034\\020\\033w\\016\\005HR\\013^\\022]" +
-	                  "F@BRJD\\001\\022\\025\\026\\025Fh\\037k*l1\\007\\\",&\\t9-%-a(y77;\\026$60\\"+
-	                  "03274.;p8\\016\\010\\020\\0277XM\\010S^XZQH\\027T\\031LY\\n]@NJE\\020R\\035" +
-	                  "\\025\\006W+*k8h9o<84c#~bh4xeu}qy8o%u6G>A<\\\"O\\rK\\003VDP\\\\\\001P\\006S" +
-	                  "\\004K\\016A_XFPZ@P\\025\\021\",38)"                                         ;
-	                  while(x=eval(x));
-	                  //-->
-	                  //]]>
-	                </script>
-	              </li>
-								<li><a href="https://www.facebook.com/theearlytest"><img src="/static/images/facebook_16.png" /> Facebook Page</a></li>
-	            </ul>
-	          </li>
+						</li>
 	        </ul>
 			  </div><!-- /.navbar-collapse -->
 			</div>

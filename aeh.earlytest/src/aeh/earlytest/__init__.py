@@ -131,6 +131,7 @@ def main(global_config, **settings):
   route('home', '/')
   route('about', '/about')
   route('faqs', '/faqs')
+  route('contact', '/contact')
   route('location', '/location')
   route('results', '/results')
   route('locale', '/locale/{language}')
