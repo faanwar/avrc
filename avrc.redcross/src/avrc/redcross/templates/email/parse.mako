@@ -45,5 +45,35 @@ Date import occurred: ${timestamp.strftime('%Y-%m-%d at %I:%M %p')}
 ${type_.upper()} Positive: ${len(pnt)}
 Other: ${len(odd)}
 
-<%include file="footer.mako"/>
+---------------------------------------
+RCID List ${determine_site(code)} \
+---------------------------------------
+
+${positive_result(pnt)}
+
+
+
+<%def name="determine_site(code)">\
+code
+\
+% endif
+</%def>\
+
+<%def name="positive_result(items)">\
+% if items:
+The list of ${len(items)} positive records follows:
+${results2table(items)}
+% else:
+\
+% endif
+\
+</%def>\
+
+def formateach(iterable):
+  for r in iterable:
+    yield [
+      r['rc_id'], r['visit_date']]
+
+def results2table(iterable):
+  return tabulate(formateach(iterable))
 

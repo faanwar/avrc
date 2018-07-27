@@ -141,12 +141,7 @@ There are NO missing Red Cross Results.
 </%def>\
 
 <%def name="determine_site(code)">\
-% if code == "76C":
-AVRC
-% elif code == "76GH":
-Oakland
-% elif code == "76FJ":
-Emory
+code
 \
 % endif
 </%def>\
