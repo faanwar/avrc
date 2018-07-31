@@ -141,7 +141,7 @@ There are NO missing Red Cross Results.
 </%def>\
 
 <%def name="determine_site(code)">\
-code
+
 \
-% endif
+
 </%def>\

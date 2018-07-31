@@ -77,8 +77,9 @@ def get_results(redcap):
                 dhcv=clean(record['dhcv']),
                 dhcv_sco=clean(record['dhcv_sco']),
                 dhbv=clean(record['dhbv']),
+                test_date=datetime.datetime.strptime(clean(record['nat_result_date']), '%Y-%m-%d'),
                 dhbv_sco=clean(record['dhbv_sco']))
             results.append(result)
-    except:
-        pass
+    except Exception as e:
+        print e
     return results

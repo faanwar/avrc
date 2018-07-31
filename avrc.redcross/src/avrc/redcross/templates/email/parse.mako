@@ -38,42 +38,42 @@
 ## ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 ## POSSIBILITY OF SUCH DAMAGE.
 
-Red Cross test result updates for site: ${site_code}
-
-Date import occurred: ${timestamp.strftime('%Y-%m-%d at %I:%M %p')}
-
-${type_.upper()} Positive: ${len(pnt)}
-Other: ${len(odd)}
-
----------------------------------------
-RCID List ${determine_site(code)} \
----------------------------------------
+We received positive NAT result(s) for ${type_.upper()} 
 
 ${positive_result(pnt)}
 
+Date import occurred: ${timestamp.strftime('%Y-%m-%d at %I:%M %p')}
 
+<%!
+from tabulate import tabulate
 
-<%def name="determine_site(code)">\
-code
-\
-% endif
-</%def>\
-
-<%def name="positive_result(items)">\
-% if items:
-The list of ${len(items)} positive records follows:
-${results2table(items)}
-% else:
-\
-% endif
-\
-</%def>\
+HEADERS_P = ['ID', 'Result Date']
 
 def formateach(iterable):
   for r in iterable:
     yield [
-      r['rc_id'], r['visit_date']]
+      r.site_code + r.reference_number, r.test_date]
 
 def results2table(iterable):
-  return tabulate(formateach(iterable))
+  return tabulate(formateach(iterable), headers=HEADERS_P)
+
+
+%>\
+
+
+
+<%def name="determine_site(code)">\
+
+\
+</%def>\
+
+<%def name="positive_result(items)">\
+% if items:
+${results2table(items)}
+
+% endif
+\
+</%def>\
+
+
 

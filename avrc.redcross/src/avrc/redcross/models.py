@@ -152,7 +152,7 @@ class Result(Base):
     dhcv_sco = Column(String(10)) 
 
     test_date = Column(
-        Date, nullable=False, default=datetime.today,
+        Date, nullable=False, 
         doc='The date the test was return from the Red Cross')
 
     draw_date = Column(

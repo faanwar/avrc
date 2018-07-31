@@ -53,19 +53,26 @@ def main():
                 if not notify:
                     continue
 
-                pnt = [r for r in results if r.check(type_) is True and r.site_code == site_code]
+                pnt = list(r for r in results if r.check(type_) is True and r.site_code == site_code)
                 neg = [r for r in results if r.check(type_) is False and r.site_code == site_code]
                 odd = [r for r in results if r.check(type_) is None and r.site_code == site_code]
 
-                if not (pnt or odd):
+                if not (pnt):
                     continue
+
+                if type_ == 'dhiv':
+                    t_type = 'HIV'
+                elif type_ == 'dhcv':
+                    t_type = 'HCV'
+                elif type_ == 'dhbv':
+                    t_type = 'HBV'
 
                 turbomail.send(turbomail.Message(
                     to=notify,
-                    subject='[The Early Test]: New Records Notification (%s)' % type_,
+                    subject='New %s+ NAT' % t_type,
                     plain=lookup.get_template('email/parse.mako').render(**{
                         'timestamp': datetime.datetime.now(),
-                        'type_': type_,
+                        'type_': t_type,
                         'site_code': site_code,
                         'pnt': pnt,
                         'neg': neg,
