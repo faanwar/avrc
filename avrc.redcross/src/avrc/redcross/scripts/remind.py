@@ -197,7 +197,8 @@ def send_reminder(settings):
                              'visit_date'       : latest_record['visit_date'],
                              'ltw_url'          : settings['ltw_url'],
                              'unsubscribe_url'  : settings['unsubscribe_url'] + '?email='+ key +"&rc_id=" + latest_record['rc_id'] + "&unsubscribe.submitted=Unsubscribe",
-                             'phone'            : settings['phone']
+                             'phone'            : settings['phone'],
+                             'email'            : key
                             }
           try:
             turbomail.send(turbomail.Message(

@@ -44,7 +44,7 @@
   <tr>
     <td align="left">
     <br>
-      According to our records, it has been more than ${months} months since you last tested at the <b>UCSD Early Test/Lead the Way
+      According to our records, it has been more than 3 months since you last tested (using the email ${email}) at the <b>UCSD Early Test/Lead the Way
       testing program</b>. Do you think this might be a good time to schedule a repeat test?
     </td>
   </tr>
