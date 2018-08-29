@@ -43,35 +43,24 @@ POSSIBILITY OF SUCH DAMAGE.
   <metal:content-slot fill-slot="content-slot">
     <h1 i18n:translate="locations">The Early Test Locations</h1>
     <hr class="featurette-divider" />
-        <address>
-          <strong>Lead the Way</strong><br />
-          <a href="https://www.google.com/maps?q=3830+Park+Boulevard,+San+Diego,+CA&hl=en&sll=32.732565,-117.146158&sspn=0.081154,0.169086&t=h&hnear=3830+Park+Blvd,+San+Diego,+California+92103&z=16">3830 Park Boulevard, San Diego, CA 92103</a><br/>
-          Monday – Friday  |  12:00pm - 8:00pm<br/>
-          Saturday  |  10:00am - 4:00pm<br/>
-          <i><a href="http://www.leadthewaysd.com/scheduling_calendar.html">Make appointment online</a> or call 619-543-9340</i><br/>
-        </address>
+
 
         <address>
           <strong>AVRC</strong><br/>
           <a href="https://www.google.com/maps?q=220+Dickinson+Street,+Suite+A,+San+Diego,+CA+92103&hl=en&ll=32.755303,-117.165606&spn=0.010142,0.021136&sll=32.748232,-117.146493&sspn=0.010142,0.021136&t=h&hnear=220+Dickinson+St,+San+Diego,+California+92103&z=16">220 Dickinson Street, Suite A, San Diego, CA 92103</a><br/>
-          Monday – Thursday  |  9:00am – 3:00pm <br/>
-          Friday | 9:00am - noon <br/>
+          Monday – Friday  |  9:00am – 8:00pm <br/>
+          Saturday | 10:00am - 4:00pm <br/>
           <i>Make an appointment by calling 619-543-8080</i><br/>
         </address>
 
         <address>
           <strong>San Diego LGBT Community Center</strong><br />
           <a href="https://maps.google.com/maps?q=3909+Centre+Street,+San+Diego,+CA+92103&hl=en&ll=32.749005,-117.147989&spn=0.010142,0.021136&sll=32.748229,-117.146487&sspn=0.010142,0.021136&t=h&gl=us&hnear=3909+Centre+St,+San+Diego,+California+92103&z=16">3909 Centre Street, San Diego, CA 92103</a><br/>
-          Friday  |  12:15pm – 4:00pm<br/>
-          <b>(Please note new hours at the LGBT Center. All other testing times will NOT include an Early Test. If you would like an Early Test during other times please call the number below)</b><br/>
-          <i>Walk-in appointments or call 619-543-8080</i><br/>
+          Monday – Friday  |  9:00am – 8:00pm (last test at 7:00pm)<br/>
+          Saturday | 10:00am - 3:00pm <br/>
+          <i>Walk-in appointments or call 619-692-2077 x101</i><br/>
         </address>
-        <address>
-          <strong>Family Health Centers of San Diego - Gay Men’s Health Clinic</strong><br/>
-          <a href="https://www.google.com/maps/place/4094+4th+Ave,+San+Diego,+CA+92103/@32.751735,-117.1640744,785m/data=!3m2!1e3!4b1!4m2!3m1!1s0x80d954d9fd51cb83:0x2a820e480c523bfe!6m1!1e1?hl=en">4094 4th Avenue, San Diego CA 92103</a><br/>
-          Monday - Thursday  |  5:30pm – 9:00pm<br/>
-          <i>Walk-in appointments</i><br/>
-        </address>
+
 
         <div class="row">
 
