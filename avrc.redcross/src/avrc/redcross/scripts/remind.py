@@ -202,11 +202,11 @@ def send_reminder(settings):
                             }
           try:
             turbomail.send(turbomail.Message(
-                          author="ucsd - leadtheway<" + settings["remind.email"] + ">",
-                          organization=["ucsd - leadtheway"],
+                          author="UCSD - Good to Go<" + settings["remind.email"] + ">",
+                          organization=["UCSD - Good to Go"],
                           bcc=[key],
                           reply_to=settings["remind.email"],
-                          subject="ucsd early test - lead the way reminders",
+                          subject="UCSD Early Test - Good to Go reminders",
                           rich = lookup.get_template('email/reminder.mako').render(**template_input),
                           headers =  {'list-unsubscribe': "<" + template_input['unsubscribe_url'] 
                                                                + ">,<mailto:" + settings["remind.email"] +">"},
@@ -257,11 +257,11 @@ def send_reminder(settings):
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
         turbomail.send(turbomail.Message(
-                        author = "ucsd - leadtheway<" + settings["remind.email"] + ">",
-                        organization = ["ucsd - leadtheway"],
+                        author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
+                        organization = ["UCSD - Good to Go"],
                         to = settings['notify.admin'].split(),
                         reply_to = settings["remind.email"],
-                        subject = "Lead the Way Email Reminders Statistics",
+                        subject = "Good to Go Email Reminders Statistics",
                         plain = text))
       except:
         log.debug(lookup.get_template('email/stats.mako').render(**stats))
