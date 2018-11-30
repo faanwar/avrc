@@ -50,25 +50,41 @@
   <tr>
     <td>
     <br>
-       As you may know, the storefront has been closed for renovations. We are excited to report that we anticipate reopening within the month of November, 2018. The renovation comes in tandem with our ability to offer a comprehensive STD screening known as the Total Test (which includes the Early Test) and the full launch of our new Good To Go campaign. We know you'll find the revamped storefront, now called the AVRC UP location, to be a beautiful contemporary and community space for us at the AntiViral Research Center to do our good work. From our standpoint, you are Good To Go when you know all your statuses, are in treatment/on PrEP/have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy!
+As you may know, the storefront has been closed for renovations. We are excited to report that our Lead The Way space has been completely renovated and we now offer a comprehensive STD screening known as the Total Test (which includes the Early Test) which has been launched as our new Good To Go campaign.
     </td>
   </tr>
   <tr>
     <td>
     <br>
-       To stay updated on Good To Go's launch, and the Grand Opening of the AVRC UP location, please visit www.goodtogosd.com, or call 619-543-9340.
+    We know you'll find the revamped storefront, now called the AVRC UP (University and Park), to be a beautiful contemporary and community space for us at the AntiViral Research Center to do our good work. From our standpoint, you are Good To Go when you know all your statuses, are in treatment/on PrEP/have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy! 
     </td>
   </tr>
   <tr>
     <td>
     <br>
-       You can currently schedule an appointment for an Early Test without these others services at: 
+ 
        <table width="100%" border="0" cellspacing="100%" cellpadding="0" padding="10px">
+       <tr>
+          <td>
+          <br>
+            AVRC UP: 619-543-9340 <br/>
+            <b>STD + HIV Available </b> <br/>
+            3830 Park Boulevard, San Diego, CA 92103 <br/>
+            (Corner of University Avenue and Park Boulevard)</br>
+            Monday - Friday: Noon - 8:00pm <br/>
+            Saturday: 10:00am - 4:00pm <br/>
+
+          </td>
+        </tr>
+
+        <tr>Please visit www.goodtogosd.com </tr>
+        <tr>You can also still schedule an appointment for an Early Test without these other services at: <br/>  </tr>
         <tr>
           <td>
           <br>
-            AVRC Headquarters: 619-543-8080 <br/>
-            220 Dickinson Street, Suite A, SanDiego, CA 92103. <br/>
+            AVRC Headquarters (HQ): 619-543-8080 <br/>
+            <b>HIV Only </b> <br/>
+            220 Dickinson Street, Suite A, San Diego, CA 92103. <br/>
             Monday - Thursday: 09:00am - 3:00pm, <br/>
             Friday: 09:00am - noon <br/>
 
@@ -77,9 +93,9 @@
         <tr>
           <td>
           <br>
-            The San Diego LGBT Community Center <br/>
+            The San Diego LGBT Community Center: 619-692-2077 <br/>
+            <b>HIV Only </b> <br/>
             3909 Centre Street, San Diego, CA 92103. <br/>
-            For an appointment call 619-692-2077 <br/>
 
           </td>
         </tr>
