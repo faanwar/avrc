@@ -44,31 +44,31 @@
   <tr>
     <td align="left">
     <br>
-      According to our records, it has been more than 3 months since you last tested (using the email ${email}) at the UCSD Early Test (now the Good To Go program). Do you think this might be a good time to schedule a repeat test?
+      According to our records, it has been more than 3 months since you last tested (using the email ${email}) at UCSD's Good To Go Location. Do you think this might be a good time to schedule a repeat test? 
     </td>
   </tr>
   <tr>
     <td>
     <br>
-As you may know, the storefront has been closed for renovations. We are excited to report that our Lead The Way space has been completely renovated and we now offer a comprehensive STD screening known as the Total Test (which includes the Early Test) which has been launched as our new Good To Go campaign.
-    </td>
+At Good To Go, we offer the Total Test, which includes STD screening (syphilis, gonorrhea, chlamydia) and immediate PrEP to those who qualify (men who have sex with men, and/or trans females). We still offer the Early Test at other locations (see below).     </td>
   </tr>
   <tr>
     <td>
     <br>
-    We know you'll find the revamped storefront, now called the AVRC UP (University and Park), to be a beautiful contemporary and community space for us at the AntiViral Research Center to do our good work. From our standpoint, you are Good To Go when you know all your statuses, are in treatment/on PrEP/have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy! 
-    </td>
+From our standpoint, you are 'Good To Go' when you know your status(es), are treated for STIs, on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy!     </td>
   </tr>
   <tr>
     <td>
     <br>
  
        <table width="100%" border="0" cellspacing="100%" cellpadding="0" padding="10px">
+       <tr><b>HIV / STD / PrEP (Total Test) </b></tr>
        <tr>
           <td>
           <br>
-            AVRC UP: 619-543-9340 <br/>
-            <b>STD + HIV Available </b> <br/>
+            Good To Go: <br/>
+            www.goodtogosd.com <br/>
+            619-543-9340 <br/>
             3830 Park Boulevard, San Diego, CA 92103 <br/>
             (Corner of University Avenue and Park Boulevard)</br>
             Monday - Friday: Noon - 8:00pm <br/>
@@ -77,13 +77,13 @@ As you may know, the storefront has been closed for renovations. We are excited 
           </td>
         </tr>
 
-        <tr>Please visit www.goodtogosd.com </tr>
-        <tr>You can also still schedule an appointment for an Early Test without these other services at: <br/>  </tr>
+       
+        <tr><b>HIV Testing Only (Early Test)</b> </tr>
         <tr>
           <td>
           <br>
-            AVRC Headquarters (HQ): 619-543-8080 <br/>
-            <b>HIV Only </b> <br/>
+            AVRC Headquarters (HQ): <br/>
+            619-543-8080 <br/>
             220 Dickinson Street, Suite A, San Diego, CA 92103. <br/>
             Monday - Thursday: 09:00am - 3:00pm, <br/>
             Friday: 09:00am - noon <br/>
