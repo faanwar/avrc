@@ -78,10 +78,9 @@ At Good To Go, we offer the Total Test, which includes STD screening (syphilis, 
         </tr>
 
        <br />
-       
+       <tr><b>HIV Testing Only (Early Test)</b> </tr>
         <tr>
           <td>
-          <b>HIV Testing Only (Early Test)</b></br>
           <br>
             AVRC Headquarters (HQ): <br/>
             619-543-8080 <br/>
