@@ -70,7 +70,7 @@ def send_reminder(settings):
     
 
     # Required Patient Fields
-    pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name']
+    pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name', 'visit_date']
     precords = {}
 
     for key in pat_keys:
