@@ -221,13 +221,12 @@ def send_reminder(settings):
             pass
 
         for record in patient_history:
-          log.debug("Update records with last email date")
           print 'record'
           print record
           record['lstremndr_dt'] = datetime.today().date().strftime('%m/%d/%Y')
         redcap.project[site].import_records(patient_history)
 
-          log.debug("Patient email last date updated")
+        log.debug("Patient email last date updated")
     
       # Delete invalid email Ids from redcap. A hashSet is handy for this operation
       # invalid_emails = set(invalid_emails)
