@@ -54,8 +54,8 @@ At Good To Go, we offer the Total Test, which includes STD screening (syphilis, 
   </tr>
   <tr>
     <td>
-    <br>
-From our standpoint, you are 'Good To Go' when you know your status(es), are treated for STIs, on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy!     </td>
+    <br/>
+    From our standpoint, you are 'Good To Go' when you know your status(es), are treated for STIs, on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy!     </td>
   </tr>
   <tr>
     <td>
@@ -77,7 +77,7 @@ From our standpoint, you are 'Good To Go' when you know your status(es), are tre
           </td>
         </tr>
 
-       
+       <br />
         <tr><b>HIV Testing Only (Early Test)</b> </tr>
         <tr>
           <td>
@@ -93,8 +93,7 @@ From our standpoint, you are 'Good To Go' when you know your status(es), are tre
         <tr>
           <td>
           <br>
-            The San Diego LGBT Community Center: 619-692-2077 <br/>
-            <b>HIV Only </b> <br/>
+            The San Diego LGBT Community Center:<br /> 619-692-2077 <br/>
             3909 Centre Street, San Diego, CA 92103. <br/>
 
           </td>

@@ -223,6 +223,7 @@ def send_reminder(settings):
         for site, records in site_rcid.iteritems():
           log.debug("Update records with last email date - Site: %s, Requesting: %d records", site, len(records))
           for record in records:
+            print 'record'
             print record
             record['lstremndr_dt'] = datetime.today().date().strftime('%m/%d/%Y')
           redcap.project[site].import_records(records)
