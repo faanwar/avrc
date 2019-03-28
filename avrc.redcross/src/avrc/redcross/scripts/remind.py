@@ -159,7 +159,7 @@ def send_reminder(settings):
       patient_history = []
 
       # We need the following fields to decide if we need to send emails for this patient
-      fields = ['rc_id','visit_date','rapid1', 'rapid2', 'testing_reminder','dhiv']
+      fields = ['rc_id','visit_date','rapid1', 'rapid2', 'testing_reminder','dhiv', 'lstremndr_dt']
       for site, records in site_rcid.iteritems():
         log.debug("Site: %s, Requesting: %d records", site, len(records))
         patient_history.extend(redcap.project[site].export_records(records=records, fields=fields))
@@ -179,6 +179,8 @@ def send_reminder(settings):
         # information for this patient.(Indicated by the email string 'key')
         for rc_id in val:
           try:
+            if hist_map[rc_id]['visit_date'] == '':
+              continue
             visit = datetime.strptime(hist_map[rc_id]['visit_date'],
                                       "%Y-%m-%d")
             if latest_record == None or\
@@ -218,6 +220,13 @@ def send_reminder(settings):
             log.critical(traceback.format_exc())
             pass
 
+        for site, records in site_rcid.iteritems():
+          log.debug("Update records with last email date - Site: %s, Requesting: %d records", site, len(records))
+          for record in records:
+            record['lstremndr_dt'] = datetime.today().date()
+          redcap.project[site].import_records(records)
+
+          log.debug("Patient email last date updated")
     
       # Delete invalid email Ids from redcap. A hashSet is handy for this operation
       # invalid_emails = set(invalid_emails)
