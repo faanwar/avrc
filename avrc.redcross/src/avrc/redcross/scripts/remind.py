@@ -220,13 +220,12 @@ def send_reminder(settings):
             log.critical(traceback.format_exc())
             pass
 
-        for site, records in site_rcid.iteritems():
-          log.debug("Update records with last email date - Site: %s, Requesting: %d records", site, len(records))
-          for record in records:
-            print 'record'
-            print record
-            record['lstremndr_dt'] = datetime.today().date().strftime('%m/%d/%Y')
-          redcap.project[site].import_records(records)
+        for record in patient_history:
+          log.debug("Update records with last email date")
+          print 'record'
+          print record
+          record['lstremndr_dt'] = datetime.today().date().strftime('%m/%d/%Y')
+        redcap.project[site].import_records(patient_history)
 
           log.debug("Patient email last date updated")
     
