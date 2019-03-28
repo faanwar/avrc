@@ -117,7 +117,8 @@ def send_reminder(settings):
           # to send email reminders. So continue to the next patient
           if site.startswith(tuple(rem_keys)) == False:
             continue
-
+          if patient['visit_date'] == '':
+            continue
           if patient['email1'] == '':
             # ignore patients for whom we don't have email IDs
             if patient['email2'] == '':
@@ -179,8 +180,7 @@ def send_reminder(settings):
         # information for this patient.(Indicated by the email string 'key')
         for rc_id in val:
           try:
-            if hist_map[rc_id]['visit_date'] == '':
-              continue
+            
             visit = datetime.strptime(hist_map[rc_id]['visit_date'],
                                       "%Y-%m-%d")
             if latest_record == None or\
@@ -292,8 +292,7 @@ def is_reminder_required(record, months_to_notify):
       boolean: True/False based on satisfying the condition to email 
   """
   try:
-    print 'record'
-    print record
+   
     if record['testing_reminder'] !=  u'1':
       # if the patient had opted out of reminders Don't bother further condtions
       return False, 0
