@@ -182,6 +182,7 @@ def send_reminder(settings):
             if hist_map[rc_id]['visit_date'] == '':
               skip = True
               continue
+            print 'visit date exists'
             visit = datetime.strptime(hist_map[rc_id]['visit_date'],
                                       "%Y-%m-%d")
             if latest_record == None or\
