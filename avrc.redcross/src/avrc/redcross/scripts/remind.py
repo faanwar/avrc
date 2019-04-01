@@ -176,9 +176,10 @@ def send_reminder(settings):
         latest_record  = None
         # At the end of the following loop, record will consists of the latest visit
         # information for this patient.(Indicated by the email string 'key')
+        skip = False
         for rc_id in val:
           try:
-            skip = False
+            
             if hist_map[rc_id]['visit_date'] == '':
               skip = True
               continue
