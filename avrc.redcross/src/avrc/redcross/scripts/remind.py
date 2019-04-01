@@ -182,7 +182,7 @@ def send_reminder(settings):
             
             if hist_map[rc_id]['visit_date'] == '':
               skip = True
-              continue
+              break
             print 'visit date exists'
             visit = datetime.strptime(hist_map[rc_id]['visit_date'],
                                       "%Y-%m-%d")
@@ -229,7 +229,8 @@ def send_reminder(settings):
       for record in patient_history:
         print 'record'
         print record
-        record['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
+        
+        record['lstremndr_dt'] = ''
         print 'update patient email date ' + record['rc_id']
       redcap.project[site].import_records(patient_history)
       print "patient email date process completed"
