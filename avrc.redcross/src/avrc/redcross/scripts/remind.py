@@ -196,6 +196,7 @@ def send_reminder(settings):
           continue
         notify, months = is_reminder_required(latest_record, months_to_notify)
         if notify == True:
+          print 'patient email process initiated ' + hash_names[key]['first_name']
           # We could send messages in bulk if it had a common body. But since the body is
           # unique for every recipient we have to go through the non-performant process
           # of sending one email at a time
@@ -225,13 +226,13 @@ def send_reminder(settings):
             log.critical(traceback.format_exc())
             pass
 
-        for record in patient_history:
-          print 'record'
-          print record
-          record['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
-        redcap.project[site].import_records(patient_history)
+      for record in patient_history:
+        print 'record'
+        print record
+        ecord['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
+      redcap.project[site].import_records(patient_history)
 
-        log.debug("Patient email last date updated")
+      log.debug("Patient email last date updated")
     
       # Delete invalid email Ids from redcap. A hashSet is handy for this operation
       # invalid_emails = set(invalid_emails)
