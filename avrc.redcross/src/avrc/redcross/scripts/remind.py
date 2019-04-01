@@ -230,7 +230,8 @@ def send_reminder(settings):
             log.critical(traceback.format_exc())
             pass
         match = next(d for d in patient_history if d['rc_id'] == latest_record['rc_id'])
-        print 'patient email date record ' + match
+        print 'patient email date record '
+        print match
         if match != '':
           match['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
           redcap.project[site].import_records(match)
