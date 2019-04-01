@@ -70,7 +70,7 @@ def send_reminder(settings):
     
 
     # Required Patient Fields
-    pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name', 'visit_date']
+    pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name']
     precords = {}
 
     for key in pat_keys:
@@ -116,8 +116,6 @@ def send_reminder(settings):
           # The testing site visited by this patient is not configured 
           # to send email reminders. So continue to the next patient
           if site.startswith(tuple(rem_keys)) == False:
-            continue
-          if patient['visit_date'] == '':
             continue
           if patient['email1'] == '':
             # ignore patients for whom we don't have email IDs
@@ -180,7 +178,10 @@ def send_reminder(settings):
         # information for this patient.(Indicated by the email string 'key')
         for rc_id in val:
           try:
-            
+            skip = False
+            if hist_map[rc_id]['visit_date'] == '':
+              skip = True
+              continue
             visit = datetime.strptime(hist_map[rc_id]['visit_date'],
                                       "%Y-%m-%d")
             if latest_record == None or\
@@ -189,6 +190,8 @@ def send_reminder(settings):
           except KeyError:
             log.critical(traceback.format_exc())
 
+        if skip == True:
+          continue
         notify, months = is_reminder_required(latest_record, months_to_notify)
         if notify == True:
           # We could send messages in bulk if it had a common body. But since the body is
