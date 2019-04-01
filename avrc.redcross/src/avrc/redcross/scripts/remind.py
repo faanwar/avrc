@@ -229,8 +229,9 @@ def send_reminder(settings):
       for record in patient_history:
         print 'record'
         print record
-        
-        record['lstremndr_dt'] = ''
+        if record['visit_date'] == '':
+          break
+        record['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
         print 'update patient email date ' + record['rc_id']
       redcap.project[site].import_records(patient_history)
       print "patient email date process completed"
