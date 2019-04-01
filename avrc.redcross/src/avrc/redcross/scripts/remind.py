@@ -229,7 +229,7 @@ def send_reminder(settings):
             invalid_emails[latest_record['rc_id']] = key
             log.critical(traceback.format_exc())
             pass
-        match = patient_history.select {|x| x[:rc_id] == latest_record['rc_id']}
+        match = next(d for d in patient_history if d['rc_id'] == latest_record['rc_id'])
         print 'patient email date record ' + match
         if match != '':
           match['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
