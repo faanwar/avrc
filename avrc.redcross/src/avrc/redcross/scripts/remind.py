@@ -173,6 +173,10 @@ def send_reminder(settings):
  
       count = 0
       for key, val in hash_email.iteritems():
+        print 'key'
+        print key
+        print 'value'
+        print value
         latest_record  = None
         # At the end of the following loop, record will consists of the latest visit
         # information for this patient.(Indicated by the email string 'key')
@@ -225,6 +229,7 @@ def send_reminder(settings):
             invalid_emails[latest_record['rc_id']] = key
             log.critical(traceback.format_exc())
             pass
+        
 
       for record in patient_history:
         print 'record'
