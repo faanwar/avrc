@@ -230,6 +230,7 @@ def send_reminder(settings):
         print 'record'
         print record
         record['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
+        print 'update patient email date ' + record['rc_id']
       redcap.project[site].import_records(patient_history)
 
       log.debug("Patient email last date updated")
