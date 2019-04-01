@@ -234,7 +234,7 @@ def send_reminder(settings):
         print match
         if match != '':
           match['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
-          redcap.project[site].import_records(match)
+          redcap.project[site].import_records(patient_history)
         print 'patient email date updated'
       
     
