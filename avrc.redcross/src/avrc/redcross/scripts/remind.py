@@ -229,18 +229,13 @@ def send_reminder(settings):
             invalid_emails[latest_record['rc_id']] = key
             log.critical(traceback.format_exc())
             pass
-        
-
-      for record in patient_history:
-        print 'record'
-        print record
-        if record['visit_date'] == '':
-          break
-        record['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
-        print 'update patient email date ' + record['rc_id']
-      redcap.project[site].import_records(patient_history)
-      print "patient email date process completed"
-      log.debug("Patient email last date updated")
+        match = patient_history.select {|x| x[:rc_id] == latest_record['rc_id']}
+        print 'patient email date record ' + match
+        if match != '':
+          match['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
+          redcap.project[site].import_records(match)
+        print 'patient email date updated'
+      
     
       # Delete invalid email Ids from redcap. A hashSet is handy for this operation
       # invalid_emails = set(invalid_emails)
