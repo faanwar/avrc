@@ -176,7 +176,7 @@ def send_reminder(settings):
         print 'key'
         print key
         print 'value'
-        print value
+        print val
         latest_record  = None
         # At the end of the following loop, record will consists of the latest visit
         # information for this patient.(Indicated by the email string 'key')
