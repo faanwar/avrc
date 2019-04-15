@@ -25,6 +25,7 @@ class RCProject:
       self.token = {}
       self.exp_date = rcsettings['exp_date']
       self.token['CTS'] = rcsettings['cap_key']['CTS']
+      self.token['Email'] = rcsettings['cap_key']['Email']
       for site in site_code:
         try:
           self.token[site] =rcsettings['cap_key'][site]
