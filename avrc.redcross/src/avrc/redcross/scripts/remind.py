@@ -67,7 +67,7 @@ def send_reminder(settings):
   
     # Connect to all the required projects in RedCAP    
     redcap = RCProject(keys, rcs)
-    get_receipients(redcap)
+    staff_emails = get_receipients(redcap)
 
     # Required Patient Fields
     pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name']
@@ -280,7 +280,7 @@ def send_reminder(settings):
         turbomail.send(turbomail.Message(
                         author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
                         organization = ["UCSD - Good to Go"],
-                        to = settings['notify.admin'].split(),
+                        to = staff_emails,
                         reply_to = settings["remind.email"],
                         subject = "Good to Go Email Reminders Statistics",
                         plain = text))
@@ -349,11 +349,10 @@ def companion_months(month=None):
 def get_receipients(redcap):
   email_list = []
   records = redcap.project['Email'].export_records()
-  print 'patient reminder receipients'
   for record in records:
     if record['et_mail_stats'] == '1':
       email_list.append(record['email'])
-  print email_list
+  return email_list
 
 def main():
   try:
