@@ -67,7 +67,7 @@ def send_reminder(settings):
   
     # Connect to all the required projects in RedCAP    
     redcap = RCProject(keys, rcs)
-    self.get_receipients(redcap)
+    get_receipients(redcap)
 
     # Required Patient Fields
     pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name']
@@ -346,7 +346,7 @@ def companion_months(month=None):
   else:
     return (4,8,12)
    
-def get_receipients(self, redcap):
+def get_receipients(redcap):
   records = redcap.project['Email'].export_records()
   print 'email list'
   print records
