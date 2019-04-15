@@ -348,8 +348,11 @@ def companion_months(month=None):
    
 def get_receipients(redcap):
   records = redcap.project['Email'].export_records()
-  print 'email list'
-  print records
+  print 'patient reminder receipients'
+  for record in records:
+    if record['et_mail_stats'] == '1':
+      print record
+
 def main():
   try:
     args = cli.parse_args()
