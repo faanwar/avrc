@@ -42,6 +42,9 @@ def main():
         
         sync_site_codes = settings.get('site.codes').split()
         ucsd_site_codes = settings.get('ucsd.site.codes').split()
+        emory_site_codes = settings.get('emory.site.codes').split()
+        gwu_site_codes = settings.get('gwu.site.codes').split()
+
         rcs = json.loads(open(settings['redcap_json'], 'r').read())
         redcap = RCProject(sync_site_codes, rcs)
         # Refresh results
@@ -60,13 +63,13 @@ def main():
                     continue
                 'clear'
                 if type_ == 'dhiv':
-                    notify = get_receipients(redcap, 'hiv_pos', site_code, ucsd_site_codes)
+                    notify = get_receipients(redcap, 'hiv_pos', site_code, ucsd_site_codes, emory_site_codes, gwu_site_codes)
                     t_type = 'HIV'
                 elif type_ == 'dhcv':
-                    notify = get_receipients(redcap, 'hcv_pos', site_code, ucsd_site_codes)
+                    notify = get_receipients(redcap, 'hcv_pos', site_code, ucsd_site_codes, emory_site_codes, gwu_site_codes)
                     t_type = 'HCV'
                 elif type_ == 'dhbv':
-                    notify = get_receipients(redcap, 'hbv_pos', site_code, ucsd_site_codes)
+                    notify = get_receipients(redcap, 'hbv_pos', site_code, ucsd_site_codes, emory_site_codes, gwu_site_codes)
                     t_type = 'HBV'
 
                 print notify
@@ -110,7 +113,7 @@ def main():
 
             if shouldNotify:
                 #notify = settings.get('notify.%s.sync' % code.lower()).split()
-                notify = get_receipients(redcap, 'date_missing', code, ucsd_site_codes)
+                notify = get_receipients(redcap, 'date_missing', code, ucsd_site_codes, emory_site_codes, gwu_site_codes)
                 # Notify appropriate people about missing draw dates and Red Cross results
                 turbomail.send(turbomail.Message(
                     to=notify,
@@ -162,18 +165,24 @@ def find_missing_results(days_till_notify, days_till_expiration, redcap, code):
 
     return missing_results
 
-def is_ucsd(site, ucsd_site_codes): 
-    print ucsd_site_codes
-    if site in ucsd_site_codes:
+def is_valid(site, site_codes): 
+    print site_codes
+    if site in site_codes:
         return True
     return False
 
-def get_receipients(redcap, result_type, site, ucsd_site_codes):
+def get_receipients(redcap, result_type, site, ucsd_site_codes, emory_site_codes, gwu_site_codes):
     email_list = []
     records = redcap.project['Email'].export_records()
     for record in records:
-        if is_ucsd(site, ucsd_site_codes) is True:
+        if is_valid(site, ucsd_site_codes) is True:
             if record[result_type] == '1' or record[result_type] == '0':
+                email_list.append(record['email'])
+        elif is_valid(site, emory_site_codes) is True:
+            if record[result_type] == '2' or record[result_type] == '0':
+                email_list.append(record['email'])
+        elif is_valid(site, gwu_site_codes) is True:
+            if record[result_type] == '3' or record[result_type] == '0':
                 email_list.append(record['email'])
     return email_list
 
