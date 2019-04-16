@@ -57,7 +57,7 @@ def main():
 
                 if not (pnt):
                     continue
-
+                'clear'
                 if type_ == 'dhiv':
                     notify = get_receipients(redcap, 'hiv_pos')
                     t_type = 'HIV'
