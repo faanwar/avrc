@@ -32,7 +32,6 @@ def main():
 
     try:	
         results = sync_redcap.get_cts_results(settings)
-        print 'a'
         if not args.dry:
             Session.add_all(results)
             Session.commit()
@@ -48,11 +47,9 @@ def main():
         for site_code in sync_site_codes:
 
             for type_ in models.TYPES:
-                notify = settings.get('notify.%s.%s' % (site_code.lower(), type_.lower()), '').split()
-
-                if not notify:
-                    continue
-
+                #notify = settings.get('notify.%s.%s' % (site_code.lower(), type_.lower()), '').split()
+                notify = []
+                
                 pnt = list(r for r in results if r.check(type_) is True and r.site_code == site_code)
                 neg = [r for r in results if r.check(type_) is False and r.site_code == site_code]
                 odd = [r for r in results if r.check(type_) is None and r.site_code == site_code]
@@ -61,11 +58,18 @@ def main():
                     continue
 
                 if type_ == 'dhiv':
+                    notify = get_receipients(redcap, 'hiv_pos')
                     t_type = 'HIV'
                 elif type_ == 'dhcv':
+                    notify = get_receipients(redcap, 'hcv_pos')
                     t_type = 'HCV'
                 elif type_ == 'dhbv':
+                    notify = get_receipients(redcap, 'hbv_pos')
                     t_type = 'HBV'
+
+                print notify
+                if not notify:
+                    continue
 
                 turbomail.send(turbomail.Message(
                     to=notify,
@@ -155,4 +159,12 @@ def find_missing_results(days_till_notify, days_till_expiration, redcap, code):
       pass
 
     return missing_results
+
+def get_receipients(redcap, result_type):
+    email_list = []
+    records = redcap.project['Email'].export_records()
+    for record in records:
+        if record[result_type] == '1':
+            email_list.append(record['email'])
+    return email_list
 
