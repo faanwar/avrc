@@ -177,7 +177,7 @@ def sync_sql_result(buckets, settings):
           rc_location = ''
           if redcap.project[key].is_longitudinal() == True:
             labeled_recs = redcap.project[key].export_records(raw_or_label='label')
-            print labeled_recs
+   
             fil_rec = list(x for x in labeled_recs if x['rc_id'] == record['rc_id'])[0]
             rc_location = fil_rec['test_site']
           else:
