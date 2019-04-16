@@ -45,11 +45,12 @@ def main():
         redcap = RCProject(sync_site_codes, rcs)
         # Refresh results
         for site_code in sync_site_codes:
-
+            print 'site code'
+            print site_code
             for type_ in models.TYPES:
                 #notify = settings.get('notify.%s.%s' % (site_code.lower(), type_.lower()), '').split()
                 notify = []
-                
+                print type_
                 pnt = list(r for r in results if r.check(type_) is True and r.site_code == site_code)
                 neg = [r for r in results if r.check(type_) is False and r.site_code == site_code]
                 odd = [r for r in results if r.check(type_) is None and r.site_code == site_code]
