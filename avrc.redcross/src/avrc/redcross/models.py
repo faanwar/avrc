@@ -59,7 +59,7 @@ Base = declarative.declarative_base()
 
 
 TYPES = frozenset(
-    'hbs aby rpr hiv hbc ht1 hcv cmv nat wnv abo cgs dhiv dhcv dhbv'.split())
+    'nat dhiv dhcv dhbv'.split())
 
 
 def check_pnt(code, confirm=None):
