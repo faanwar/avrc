@@ -109,8 +109,8 @@ def main():
                 shouldNotify = True
 
             if shouldNotify:
-                notify = settings.get('notify.%s.sync' % code.lower()).split()
-                
+                #notify = settings.get('notify.%s.sync' % code.lower()).split()
+                notify = get_receipients(redcap, 'date_missing', code, ucsd_site_codes)
                 # Notify appropriate people about missing draw dates and Red Cross results
                 turbomail.send(turbomail.Message(
                     to=notify,
