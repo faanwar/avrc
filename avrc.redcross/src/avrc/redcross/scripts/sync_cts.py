@@ -59,13 +59,13 @@ def main():
                     continue
                 'clear'
                 if type_ == 'dhiv':
-                    notify = get_receipients(redcap, 'hiv_pos')
+                    notify = get_receipients(redcap, 'hiv_pos', site_code)
                     t_type = 'HIV'
                 elif type_ == 'dhcv':
-                    notify = get_receipients(redcap, 'hcv_pos')
+                    notify = get_receipients(redcap, 'hcv_pos', site_code)
                     t_type = 'HCV'
                 elif type_ == 'dhbv':
-                    notify = get_receipients(redcap, 'hbv_pos')
+                    notify = get_receipients(redcap, 'hbv_pos', site_code)
                     t_type = 'HBV'
 
                 print notify
@@ -161,11 +161,19 @@ def find_missing_results(days_till_notify, days_till_expiration, redcap, code):
 
     return missing_results
 
-def get_receipients(redcap, result_type):
+def is_ucsd(site):
+    ucsd_site_codes = settings.get('ucsd.site.codes').split()
+    print ucsd_site_codes
+    if site in ucsd_site_codes:
+        return True
+    return False
+
+def get_receipients(redcap, result_type, site):
     email_list = []
     records = redcap.project['Email'].export_records()
     for record in records:
-        if record[result_type] == '1':
-            email_list.append(record['email'])
+        if is_ucsd(site) is True:
+            if record[result_type] == '1' or record[result_type] == '0':
+                email_list.append(record['email'])
     return email_list
 
