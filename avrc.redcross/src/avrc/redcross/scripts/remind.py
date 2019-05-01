@@ -305,6 +305,7 @@ def is_reminder_required(record, months_to_notify):
   """
   try:
     if ['lstremndr_dt'] == datetime.today().date().strftime('%Y/%m/%d'):
+      print 'already sent'
       return False, 0
     if record['testing_reminder'] !=  u'1':
       # if the patient had opted out of reminders Don't bother further condtions
