@@ -50,7 +50,7 @@
   <tr>
     <td>
     <br>
-At Good To Go, we offer the Total Test, which includes STD screening (syphilis, gonorrhea, chlamydia) and immediate PrEP to those who qualify (men who have sex with men, and/or trans females). We still offer the Early Test at other locations (see below).     </td>
+    At Good To Go, we offer the Total Test bundle to those who qualify (men who have sex with men, and/or trans females), which includes STD screening (syphilis, gonorrhea, chlamydia) and immediate PrEP. We still offer the Early Test at other locations (see below).      </td>
   </tr>
   <tr>
     <td>
