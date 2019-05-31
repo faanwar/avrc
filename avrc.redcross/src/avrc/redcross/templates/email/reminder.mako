@@ -44,7 +44,7 @@
   <tr>
     <td align="left">
     <br>
-      According to our records, it has been more than 3 months since you last tested (using the email ${email}) at UCSD's Good To Go Location. Do you think this might be a good time to schedule a repeat test? 
+      Our testing schedule is once every 3 months; due to funding limitations, we are unable to test people more frequently. According to our records, 3 months is approaching (or has already passed) since your last test (using the email ${email}) at UCSD's Good To Go Location. Do you think this might be a good time to schedule your next test?  
     </td>
   </tr>
   <tr>
