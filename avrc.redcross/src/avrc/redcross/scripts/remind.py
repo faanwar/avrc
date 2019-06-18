@@ -198,6 +198,8 @@ def send_reminder(settings):
 
         if skip == True:
           continue
+        print 'latest record'
+        print latest_record
         notify, months = is_reminder_required(latest_record, months_to_notify)
         if notify == True:
           print 'patient email process initiated ' + hash_names[key]['first_name']
