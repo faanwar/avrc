@@ -192,7 +192,7 @@ def send_reminder(settings):
                                       "%Y-%m-%d")
             if latest_record == None or\
                datetime.strptime(latest_record['visit_date'],"%Y-%m-%d") > visit:
-              print 'visit'
+              print 'compare dates'
               print visit
               print latest_record
               latest_record = hist_map[rc_id]
