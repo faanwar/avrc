@@ -190,13 +190,15 @@ def send_reminder(settings):
             print 'visit date exists'
             visit = datetime.strptime(hist_map[rc_id]['visit_date'],
                                       "%Y-%m-%d")
-            if latest_record == None or\
-               datetime.strptime(latest_record['visit_date'],"%Y-%m-%d") > visit:
-              print datetime.strptime(latest_record['visit_date'],"%Y-%m-%d")
-              print 'compare dates'
-              print visit
-              print latest_record
+            if latest_record == None:
               latest_record = hist_map[rc_id]
+            else:
+              latest_date= datetime.strptime(latest_record['visit_date'],"%Y-%m-%d") 
+              if latest_date > visit:
+                print 'compare dates'
+                print visit
+                print latest_date
+                latest_record = hist_map[rc_id]
           except KeyError:
             log.critical(traceback.format_exc())
 
