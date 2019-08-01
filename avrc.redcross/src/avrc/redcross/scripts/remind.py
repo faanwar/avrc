@@ -65,7 +65,7 @@ def send_email(template, values, subject, sender, receipients, ses_key_id, ses_k
             msg['From'] = sender
             msg['To'] = COMMASPACE.join(receipients)
 
-            msg.attach(MIMEText(html_content, 'html'))
+            msg.attach(MIMEText(html_content, 'plain'))
             client.send_raw_email(
                 Source=sender,
                 Destinations=receipients,
