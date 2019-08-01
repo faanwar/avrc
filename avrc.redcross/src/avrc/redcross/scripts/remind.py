@@ -276,22 +276,22 @@ def send_reminder(settings):
           pass
       """
       log.debug("Total Emails sent out today:%d", count)
-      print "data"
+      print 'data'
       print len(hash_email.keys())
       print count
       print invalid_emails_count
       stats = {
              'date': datetime.today().date(),
-             'patient_count': 19421,
-             'emails_sent': 2509,
-             'invalid_emails_count':17
+             'patient_count': len(hash_email.keys()),
+             'emails_sent': count,
+             'invalid_emails_count':invalid_emails_count
             }
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
         turbomail.send(turbomail.Message(
                         author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
                         organization = ["UCSD - Good to Go"],
-                        to = ['fakhra.anwer@gmail.com', 'faanwar@ucsd.edu'],
+                        to = staff_emails,
                         reply_to = settings["remind.email"],
                         subject = "Good to Go Email Reminders Statistics",
                         plain = text))
