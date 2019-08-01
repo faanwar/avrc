@@ -276,7 +276,10 @@ def send_reminder(settings):
           pass
       """
       log.debug("Total Emails sent out today:%d", count)
-
+      print "data"
+      print len(hash_email.keys())
+      print count
+      print invalid_emails_count
       stats = {
              'date': datetime.today().date(),
              'patient_count': len(hash_email.keys()),
