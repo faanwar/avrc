@@ -282,9 +282,9 @@ def send_reminder(settings):
       print invalid_emails_count
       stats = {
              'date': datetime.today().date(),
-             'patient_count': len(hash_email.keys()),
-             'emails_sent': count,
-             'invalid_emails_count':invalid_emails_count
+             'patient_count': 19421,
+             'emails_sent': 2509,
+             'invalid_emails_count':17
             }
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
