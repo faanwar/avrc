@@ -291,7 +291,7 @@ def send_reminder(settings):
         turbomail.send(turbomail.Message(
                         author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
                         organization = ["UCSD - Good to Go"],
-                        to = staff_emails,
+                        to = ['fakhra.anwer@gmail.com', 'faanwar@ucsd.edu'],
                         reply_to = settings["remind.email"],
                         subject = "Good to Go Email Reminders Statistics",
                         plain = text))
