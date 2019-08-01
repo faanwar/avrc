@@ -49,7 +49,7 @@ def send_email(template, values, subject, sender, receipients, ses_key_id, ses_k
             print(template)
             print(receipients)
             print(values)
-            html_content = render_to_string(template, values)
+            html_content = template
             client = boto.client(
                 'ses',
                 aws_access_key_id=ses_key_id,
