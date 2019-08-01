@@ -33,6 +33,9 @@ from monthdelta import monthmod
 import argparse, json, traceback, turbomail 
 from mako import exceptions
 import boto3
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
 
 cli = argparse.ArgumentParser(description='Early Test Reminder Email')
 
