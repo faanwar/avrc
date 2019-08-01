@@ -328,13 +328,13 @@ def send_reminder(settings):
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
         send_email(text, {"value" : "World"}, "Test", "uni@ucsd.edu", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key)
-        turbomail.send(turbomail.Message(
-                        author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
-                        organization = ["UCSD - Good to Go"],
-                        to = staff_emails,
-                        reply_to = settings["remind.email"],
-                        subject = "Good to Go Email Reminders Statistics",
-                        plain = text))
+        #turbomail.send(turbomail.Message(
+        #                author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
+        #                organization = ["UCSD - Good to Go"],
+        #                to = staff_emails,
+        #                reply_to = settings["remind.email"],
+        #                subject = "Good to Go Email Reminders Statistics",
+        #                plain = text))
       except:
         log.debug(lookup.get_template('email/stats.mako').render(**stats))
         log.critical(traceback.format_exc())
