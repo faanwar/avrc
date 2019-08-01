@@ -52,8 +52,8 @@ def send_email(template, values, subject, sender, receipients):
             html_content = render_to_string(template, values)
             client = boto.client(
                 'ses',
-                aws_access_key_id='AKIAIDYGCDNCKKPD6O5A',
-                aws_secret_access_key='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',
+                aws_access_key_id=,
+                aws_secret_access_key=,
                 region_name="us-west-2"
             )
             # Build an email
