@@ -280,12 +280,14 @@ def send_reminder(settings):
       print len(hash_email.keys())
       print count
       print invalid_emails_count
+      print staff_emails
       stats = {
              'date': datetime.today().date(),
              'patient_count': len(hash_email.keys()),
              'emails_sent': count,
              'invalid_emails_count':invalid_emails_count
             }
+      
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
         turbomail.send(turbomail.Message(
