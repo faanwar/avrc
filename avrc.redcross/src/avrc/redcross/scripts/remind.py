@@ -32,6 +32,8 @@ from datetime import datetime
 from monthdelta import monthmod
 import argparse, json, traceback, turbomail 
 from mako import exceptions
+import boto3
+
 cli = argparse.ArgumentParser(description='Early Test Reminder Email')
 
 cli.add_argument(
@@ -40,6 +42,36 @@ cli.add_argument(
     type=config.from_file,
     metavar='FILE',
     help='Configuration File')
+
+def send_email(template, values, subject, sender, receipients):
+        try:
+            COMMASPACE = ', '
+            print(template)
+            print(receipients)
+            print(values)
+            html_content = render_to_string(template, values)
+            client = boto3.client(
+                'ses',
+                aws_access_key_id='AKIAIDYGCDNCKKPD6O5A',
+                aws_secret_access_key='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',
+                region_name="us-west-2"
+            )
+            # Build an email
+            msg = MIMEMultipart()
+            msg['Subject'] = subject
+            msg['From'] = sender
+            msg['To'] = COMMASPACE.join(receipients)
+
+            msg.attach(MIMEText(html_content, 'html'))
+            client.send_raw_email(
+                Source=sender,
+                Destinations=receipients,
+                RawMessage={
+                    'Data': msg.as_string(),
+                }
+            )
+        except Exception as e: 
+            print(e)
 
 
 def send_reminder(settings):
@@ -287,7 +319,8 @@ def send_reminder(settings):
              'emails_sent': count,
              'invalid_emails_count':invalid_emails_count
             }
-      
+      template = "<html><head></head><body>HELLO {{ value }} </body></html>" 
+      send_email(template, {"value" : "World"}, "Test", "uni@ucsd.edu", ["fakhra.anwer@gmail.com"])
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
         turbomail.send(turbomail.Message(
