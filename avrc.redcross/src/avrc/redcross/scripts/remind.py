@@ -46,7 +46,7 @@ cli.add_argument(
     metavar='FILE',
     help='Configuration File')
 
-def send_email(template, values, subject, sender, receipients, ses_key_id, ses_key):
+def send_email(template, subject, sender, receipients, ses_key_id, ses_key, type_email):
         try:
             COMMASPACE = ', '
             print(template)
@@ -65,7 +65,7 @@ def send_email(template, values, subject, sender, receipients, ses_key_id, ses_k
             msg['From'] = sender
             msg['To'] = COMMASPACE.join(receipients)
 
-            msg.attach(MIMEText(html_content, 'plain'))
+            msg.attach(MIMEText(html_content, type_email))
             client.send_raw_email(
                 Source=sender,
                 Destinations=receipients,
@@ -322,12 +322,10 @@ def send_reminder(settings):
              'patient_count': len(hash_email.keys()),
              'emails_sent': count,
              'invalid_emails_count':invalid_emails_count
-            }
-      template = "<html><head></head><body>HELLO {{ value }} </body></html>" 
-      
+            }      
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
-        send_email(text, {"value" : "World"}, "Test", "uni@ucsd.edu", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key)
+        send_email(text, "Good to Go Email Reminders Statistics", settings["remind.email"], ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "plain")
         #turbomail.send(turbomail.Message(
         #                author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
         #                organization = ["UCSD - Good to Go"],
