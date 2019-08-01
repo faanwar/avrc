@@ -51,7 +51,6 @@ def send_email(template, subject, sender, receipients, ses_key_id, ses_key, type
             COMMASPACE = ', '
             print(template)
             print(receipients)
-            print(values)
             html_content = template
             client = boto3.client(
                 'ses',
