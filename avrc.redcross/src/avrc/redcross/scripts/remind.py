@@ -324,9 +324,10 @@ def send_reminder(settings):
              'invalid_emails_count':invalid_emails_count
             }
       template = "<html><head></head><body>HELLO {{ value }} </body></html>" 
-      send_email(template, {"value" : "World"}, "Test", "uni@ucsd.edu", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key)
+      
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
+        send_email(text, {"value" : "World"}, "Test", "uni@ucsd.edu", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key)
         turbomail.send(turbomail.Message(
                         author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
                         organization = ["UCSD - Good to Go"],
