@@ -32,7 +32,7 @@ from datetime import datetime
 from monthdelta import monthmod
 import argparse, json, traceback, turbomail 
 from mako import exceptions
-import boto
+import boto3
 
 cli = argparse.ArgumentParser(description='Early Test Reminder Email')
 
@@ -50,7 +50,7 @@ def send_email(template, values, subject, sender, receipients, ses_key_id, ses_k
             print(receipients)
             print(values)
             html_content = template
-            client = boto.client(
+            client = boto3.client(
                 'ses',
                 aws_access_key_id=ses_key_id,
                 aws_secret_access_key=ses_key,
