@@ -43,7 +43,7 @@ cli.add_argument(
     metavar='FILE',
     help='Configuration File')
 
-def send_email(template, values, subject, sender, receipients):
+def send_email(template, values, subject, sender, receipients, ses_key_id, ses_key):
         try:
             COMMASPACE = ', '
             print(template)
@@ -52,8 +52,8 @@ def send_email(template, values, subject, sender, receipients):
             html_content = render_to_string(template, values)
             client = boto.client(
                 'ses',
-                aws_access_key_id=,
-                aws_secret_access_key=,
+                aws_access_key_id=ses_key_id,
+                aws_secret_access_key=ses_key,
                 region_name="us-west-2"
             )
             # Build an email
@@ -85,7 +85,8 @@ def send_reminder(settings):
   """
   try:
     log.info("Early Test Email Alerts are about to be sent")
-    
+    ses_key_id = settings['ses_key_id']
+    ses_key = settings['ses_key']
     rcs = json.loads(open(settings['redcap_json'], 'r').read())
     
     # Read from the configuration files    
@@ -320,7 +321,7 @@ def send_reminder(settings):
              'invalid_emails_count':invalid_emails_count
             }
       template = "<html><head></head><body>HELLO {{ value }} </body></html>" 
-      send_email(template, {"value" : "World"}, "Test", "uni@ucsd.edu", ["fakhra.anwer@gmail.com"])
+      send_email(template, {"value" : "World"}, "Test", "uni@ucsd.edu", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key)
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
         turbomail.send(turbomail.Message(
