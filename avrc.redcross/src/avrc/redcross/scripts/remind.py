@@ -324,7 +324,7 @@ def send_reminder(settings):
             }      
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
-        send_email(text, "Good to Go Email Reminders Statistics", settings["remind.email"], ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "plain")
+        send_email(text, "Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "plain")
         #turbomail.send(turbomail.Message(
         #                author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
         #                organization = ["UCSD - Good to Go"],
