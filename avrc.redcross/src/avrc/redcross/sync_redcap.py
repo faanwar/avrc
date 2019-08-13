@@ -11,6 +11,7 @@ import csv
 
 def get_cts_results(settings):
     sites = settings.get('site.codes').split()
+    pk_sites = settings.get('pk_site').split()
     rcs = json.loads(open(settings['redcap_json'],'r').read())
 
     redcap = RCProject(sites, rcs)
@@ -21,7 +22,7 @@ def get_cts_results(settings):
         # Syncing draw dates
         rc_id = str(result.site_code) + str(result.reference_number)
         draw = []
-        if redcap.project[result.site_code].is_longitudinal() == True:
+        if redcap.project[result.site_code].is_longitudinal() == True or result.site_code in pk_sites:
             value = redcap.project[result.site_code].export_records( raw_or_label="label")
             print rc_id
             print value[0]
