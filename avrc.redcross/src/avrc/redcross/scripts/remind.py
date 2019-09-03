@@ -519,6 +519,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
       for record in erecords:
         patient_count = patient_count +1
         notify, months = is_reminder_required_etc(record, months_to_notify)
+        print(record)
         if notify == True and record['email'] != '':
           print 'patient email process email registry initiated ' + record['first_name']
           
@@ -574,7 +575,7 @@ def is_reminder_required_screening(record, months_to_notify):
       return False, 0
     else: 
       current_date = datetime.today() 
-      visit_date = datetime.strptime(record['consent_date'],"%Y-%m-%d")
+      visit_date = datetime.strptime(record['consent_date'],"%m-%d-%YYYY")
       
       month, days = monthmod(visit_date, current_date)
       # Now, if record has a visit date that falls in to you notification slab,
