@@ -102,11 +102,11 @@ def send_reminder(settings):
   
     # Connect to all the required projects in RedCAP    
     redcap = RCProject(keys, rcs)
-    staff_emails = get_receipients(redcap)
-
+    staff_emails = get_receipients(redcap, '1')
+    staff_emails_other = get_receipients(redcap, '2')
     #send other email reminders
-    send_reminder_single(ses_key_id, ses_key, settings, staff_emails, months_to_notify)
-    send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_notify)
+    send_reminder_single(ses_key_id, ses_key, settings, staff_emails_other, months_to_notify)
+    send_reminder_etc(ses_key_id, ses_key, settings, staff_emails_other, months_to_notify)
 
     # Required Patient Fields
     pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name']
@@ -321,8 +321,9 @@ def send_reminder(settings):
             }      
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
-        send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "plain")
-      
+        #send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
+        send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ['fakhra.anwer@gmail.com'], ses_key_id, ses_key, "plain")
+
       except:
         log.debug(lookup.get_template('email/stats.mako').render(**stats))
         log.critical(traceback.format_exc())
@@ -387,11 +388,11 @@ def companion_months(month=None):
   else:
     return (4,8,12)
    
-def get_receipients(redcap):
+def get_receipients(redcap, code):
   email_list = []
   records = redcap.project['Email'].export_records()
   for record in records:
-    if record['et_mail_stats'] == '1':
+    if record['et_mail_stats'] == code:
       email_list.append(record['email'])
   return email_list
 
@@ -405,8 +406,9 @@ def send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_
         }      
   try:
     text = lookup.get_template('email/stats.mako').render(**stats)
-    send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "plain")
-  
+    #send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
+    send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ['fakhra.anwer@gmail.com'], ses_key_id, ses_key, "plain")
+
   except:
     log.debug(lookup.get_template('email/stats.mako').render(**stats))
     log.critical(traceback.format_exc())
