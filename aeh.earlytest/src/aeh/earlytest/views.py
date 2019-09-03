@@ -96,10 +96,10 @@ def unsubscribe_view(request, default_active='', template='templates/master.pt')
           substatus = 200        
           
         else:
-          message = "Our records indicate " + email + " is not subscribed to receive any emails. Please contact leadtheway@ucsd.edu if you need assistance."
+          message = "Our records indicate " + email + " is not subscribed to receive any emails. Please contact goodtogo@ucsd.edu if you need assistance."
           substatus = 200
       else:
-        message = "Test ID Unknown. Please contact leadtheway@ucsd.edu if you need assistance."
+        message = "Test ID Unknown. Please contact goodtogo@ucsd.edu if you need assistance."
       
 
   except:
