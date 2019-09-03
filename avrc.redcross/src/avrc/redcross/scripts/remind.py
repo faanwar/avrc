@@ -430,7 +430,7 @@ def send_reminder_single(ses_key_id, ses_key, settings, staff_emails, months_to_
       emails_sent = 0
       patient_count = 0
       arecords = redcap.project[key].export_records()
-      for record in arecords
+      for record in arecords:
         patient_count = patient_count +1
         notify, months = is_reminder_required(record, months_to_notify)
         if notify == True and record['email1'] != '':
@@ -481,7 +481,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
       emails_sent = 0
       patient_count = 0
       arecords = redcap.project[key].export_records(fields=a_fields)
-      for record in arecords
+      for record in arecords:
         patient_count = patient_count+1
         notify, months = is_reminder_required_screening(record, months_to_notify)
         if notify == True and record['email'] != '':
@@ -509,7 +509,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
       emails_sent = 0
       patient_count = 0
       erecords = redcap.project[key].export_records(fields=e_fields)
-      for record in erecords
+      for record in erecords:
         patient_count = patient_count +1
         notify, months = is_reminder_required_etc(record, months_to_notify)
         if notify == True and record['email'] != '':
