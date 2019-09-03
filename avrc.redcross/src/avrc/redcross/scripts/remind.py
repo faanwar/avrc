@@ -104,6 +104,10 @@ def send_reminder(settings):
     redcap = RCProject(keys, rcs)
     staff_emails = get_receipients(redcap)
 
+    #send other email reminders
+    send_reminder_single(ses_key_id, ses_key, settings, staff_emails, months_to_notify)
+    send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_notify)
+
     # Required Patient Fields
     pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name']
     precords = {}
@@ -256,16 +260,9 @@ def send_reminder(settings):
                              'email'            : key
                             }
           try:
-            turbomail.send(turbomail.Message(
-                          author="UCSD - Good to Go<" + settings["remind.email"] + ">",
-                          organization=["UCSD - Good to Go"],
-                          bcc=[key],
-                          reply_to=settings["remind.email"],
-                          subject="UCSD Early Test - Good to Go reminders",
-                          rich = lookup.get_template('email/reminder.mako').render(**template_input),
-                          headers =  {'list-unsubscribe': "<" + template_input['unsubscribe_url'] 
-                                                               + ">,<mailto:" + settings["remind.email"] +">"},
-                          plain = "this is a reminder email to complete early test at " + settings['ltw_url']))
+            text = lookup.get_template('email/reminder.mako').render(**template_input)
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", key, ses_key_id, ses_key, "plain")
+        
             count = count + 1
             match = next(d for d in patient_history if d['rc_id'] == latest_record['rc_id'])
             print 'patient email date record '
@@ -324,14 +321,8 @@ def send_reminder(settings):
             }      
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
-        send_email(text, "Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "plain")
-        #turbomail.send(turbomail.Message(
-        #                author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
-        #                organization = ["UCSD - Good to Go"],
-        #                to = staff_emails,
-        #                reply_to = settings["remind.email"],
-        #                subject = "Good to Go Email Reminders Statistics",
-        #                plain = text))
+        send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "plain")
+      
       except:
         log.debug(lookup.get_template('email/stats.mako').render(**stats))
         log.critical(traceback.format_exc())
@@ -403,6 +394,192 @@ def get_receipients(redcap):
     if record['et_mail_stats'] == '1':
       email_list.append(record['email'])
   return email_list
+
+def send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_emails_count, staff_emails, ses_key_id, ses_key):
+  log.debug("Total Emails sent out today:%d", key)
+  stats = {
+          'date': datetime.today().date(),
+          'patient_count': patient_count,
+          'emails_sent': emails_sent,
+          'invalid_emails_count':invalid_emails_count
+        }      
+  try:
+    text = lookup.get_template('email/stats.mako').render(**stats)
+    send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "plain")
+  
+  except:
+    log.debug(lookup.get_template('email/stats.mako').render(**stats))
+    log.critical(traceback.format_exc())
+
+def send_reminder_single(ses_key_id, ses_key, settings, staff_emails, months_to_notify):
+  try:
+    
+    log.info("Early Test Single Email Alerts are about to be sent")
+   
+    rcs = json.loads(open(settings['redcap_json'], 'r').read())
+    
+    keys = settings['single_email.code'].split()
+
+    redcap = RCProject(keys, rcs)
+
+    fields = ['rc_id','visit_date','rapid1', 'rapid2', 'testing_reminder','dhiv', 'first_name', 'last_name', 'email1', 'phone1']
+    for key in keys:
+      invalid_emails_count = 0
+      emails_sent = 0
+      patient_count = 0
+      arecords = redcap.project[key].export_records(fields=fields)
+      for record in arecords
+        patient_count = patient_count +1
+        notify, months = is_reminder_required(record, months_to_notify)
+        if notify == True and record['email1'] != '':
+          print 'patient email process single email initiated ' + record['first_name']
+          
+          template_input = { 'username'         : record['first_name'],
+                              'visit_date'       : record['visit_date'],
+                              'ltw_url'          : settings['ltw_url'],
+                              'phone'            : settings['phone1'],
+                              'email'            : record['email1']
+                            }
+          try:
+            text = lookup.get_template('email/reminder_etc.mako').render(**template_input)
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", record['email1'], ses_key_id, ses_key, "plain")
+            emails_sent = emails_sent +1
+          except:
+            invalid_emails_count = invalid_emails_count +1
+            log.critical(traceback.format_exc())
+            pass
+      send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_emails_count, staff_emails, ses_key_id, ses_key)
+  except:
+    #Ignore if we don't have the user information for the rcid
+    log.critical(traceback.format_exc())
+  
+  return False, 0
+
+def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_notify):
+  try:
+    log.info("Early Test ETC Email Alerts are about to be sent")
+   
+    rcs = json.loads(open(settings['redcap_json'], 'r').read())
+    
+    a_keys = settings['avrc_email.code'].split()
+    e_keys = settings['etc_email.code'].split()
+    # Connect to all the required etc projects in RedCAP    
+    redcap = RCProject(keys, rcs)
+
+
+    # Required Patient Fields
+    a_fields = ['consent_date', 'other_phone','email','current_hiv', 'fname', 'lname', 'testing_reminder']
+    e_fields = ['collect_date', 'phone', 'email', 'first_name', 'last_name']
+    arecords = {}
+    erecords = {}
+
+    #AVRC Screening Registry  
+    for key in a_keys:
+      invalid_emails_count = 0
+      emails_sent = 0
+      patient_count = 0
+      arecords = redcap.project[key].export_records(fields=a_fields)
+      for record in arecords
+        patient_count = patient_count+1
+        notify, months = is_reminder_required_screening(record, months_to_notify)
+        if notify == True and record['email'] != '':
+          print 'patient email process avrc screening registry initiated ' + record['fname']
+          
+          template_input = { 'username'         : record['fname'],
+                              'visit_date'       : record['consent_date'],
+                              'ltw_url'          : settings['ltw_url'],
+                              'phone'            : settings['phone'],
+                              'email'            : record['email']
+                            }
+          try:
+            text = lookup.get_template('email/reminder_etc.mako').render(**template_input)
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", record['email'], ses_key_id, ses_key, "plain")
+            emails_sent = emails_sent +1
+          except:
+            invalid_emails_count = invalid_emails_count +1
+            log.critical(traceback.format_exc())
+            pass
+      send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_emails_count, staff_emails, ses_key_id, ses_key)
+
+    #Email Registry
+    for key in e_keys:
+      invalid_emails_count = 0
+      emails_sent = 0
+      patient_count = 0
+      erecords = redcap.project[key].export_records(fields=e_fields)
+      for record in erecords
+        patient_count = patient_count +1
+        notify, months = is_reminder_required_etc(record, months_to_notify)
+        if notify == True and record['email'] != '':
+          print 'patient email process email registry initiated ' + record['first_name']
+          
+          template_input = { 'username'         : record['first_name'],
+                              'visit_date'       : record['collect_date'],
+                              'ltw_url'          : settings['ltw_url'],
+                              'phone'            : settings['phone'],
+                              'email'            : record['email']
+                            }
+          try:
+            text = lookup.get_template('email/reminder_etc.mako').render(**template_input)
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", record['email'], ses_key_id, ses_key, "plain")
+            emails_sent = emails_sent +1
+          except:
+            invalid_emails_count = invalid_emails_count +1
+            log.critical(traceback.format_exc())
+            pass
+      send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_emails_count, staff_emails, ses_key_id, ses_key)
+
+  except:
+    #Ignore if we don't have the user information for the rcid
+    log.critical(traceback.format_exc())
+  
+  return False, 0
+
+def is_reminder_required_etc(record, months_to_notify):
+
+  try:
+    current_date = datetime.today() 
+    visit_date = datetime.strptime(record['collect_date'],"%Y-%m-%d")
+    
+    month, days = monthmod(visit_date, current_date)
+    # Now, if record has a visit date that falls in to you notification slab,
+    # Then this email Id should be notified
+    if month.months >= months_to_notify:
+      if visit_date.month in companion_months(current_date.month):
+        return True, month.months
+
+  except:
+    #Ignore if we don't have the user information for the rcid
+    log.critical(traceback.format_exc())
+  
+  return False, 0
+
+def is_reminder_required_screening(record, months_to_notify):
+
+  try:
+    if record['testing_reminder'] !=  u'1':
+      return False, 0
+    elif (record['current_hiv'] is u'1':
+      return False, 0
+    else: 
+      current_date = datetime.today() 
+      visit_date = datetime.strptime(record['consent_date'],"%Y-%m-%d")
+      
+      month, days = monthmod(visit_date, current_date)
+      # Now, if record has a visit date that falls in to you notification slab,
+      # Then this email Id should be notified
+      if month.months >= months_to_notify:
+        if visit_date.month in companion_months(current_date.month):
+          return True, month.months
+
+  except:
+    #Ignore if we don't have the user information for the rcid
+    log.critical(traceback.format_exc())
+  
+  return False, 0
+
+
+
 
 def main():
   try:
