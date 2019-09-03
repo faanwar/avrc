@@ -51,7 +51,6 @@ cli.add_argument(
 def send_email(template, subject, sender, receipients, ses_key_id, ses_key, type_email):
         try:
             COMMASPACE = ', '
-            print(template)
             print(receipients)
             html_content = template
             client = boto3.client(
@@ -326,7 +325,7 @@ def send_reminder(settings):
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
         #send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
-        send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ['fakhra.anwer@gmail.com'], ses_key_id, ses_key, "plain")
+        send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
 
       except:
         log.debug(lookup.get_template('email/stats.mako').render(**stats))
@@ -401,7 +400,7 @@ def get_receipients(redcap, code):
   return email_list
 
 def send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_emails_count, staff_emails, ses_key_id, ses_key):
-  log.debug("Total Emails sent out today:%d", key)
+  log.debug("Total Emails sent out today: " + key)
   stats = {
           'date': datetime.today().date(),
           'patient_count': patient_count,
@@ -411,7 +410,7 @@ def send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_
   try:
     text = lookup.get_template('email/stats.mako').render(**stats)
     #send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
-    send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", ['fakhra.anwer@gmail.com'], ses_key_id, ses_key, "plain")
+    send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
 
   except:
     log.debug(lookup.get_template('email/stats.mako').render(**stats))
