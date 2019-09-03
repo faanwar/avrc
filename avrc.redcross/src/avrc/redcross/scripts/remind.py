@@ -561,7 +561,7 @@ def is_reminder_required_screening(record, months_to_notify):
   try:
     if record['testing_reminder'] !=  u'1':
       return False, 0
-    elif (record['current_hiv'] is u'1':
+    elif record['current_hiv'] is u'1':
       return False, 0
     else: 
       current_date = datetime.today() 
