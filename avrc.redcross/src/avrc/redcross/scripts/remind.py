@@ -439,7 +439,7 @@ def send_reminder_single(ses_key_id, ses_key, settings, staff_emails, months_to_
           template_input = { 'username'         : record['first_name'],
                               'visit_date'       : record['visit_date'],
                               'ltw_url'          : settings['ltw_url'],
-                              'phone'            : settings['phone1'],
+                              'phone'            : settings['phone'],
                               'email'            : record['email1']
                             }
           try:
