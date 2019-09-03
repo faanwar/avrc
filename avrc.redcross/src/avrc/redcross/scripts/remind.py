@@ -534,7 +534,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
             p_email = []
             p_email.append(record['email'])
             text = lookup.get_template('email/reminder_etc.mako').render(**template_input)
-            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "plain")
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "html")
             emails_sent = emails_sent +1
           except:
             invalid_emails_count = invalid_emails_count +1
