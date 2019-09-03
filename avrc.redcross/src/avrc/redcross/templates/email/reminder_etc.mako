@@ -103,12 +103,7 @@
 </table>
     </td
   </tr>
- <tr>
-    <td>
-      <br>
-      If you do not want to receive these reminder emails, please click on this link to <a href=${unsubscribe_url}>unsubscribe</a>.
-    </td>
-  </tr>
+
   <tr>
     <td>
       <br>Thanks

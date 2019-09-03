@@ -46,34 +46,7 @@ cli.add_argument(
     metavar='FILE',
     help='Configuration File')
 
-def send_email_html(template, subject, sender, receipients, ses_key_id, ses_key, type_email):
-        try:
-            COMMASPACE = ', '
-            print(template)
-            print(receipients)
-            html_content = template
-            client = boto3.client(
-                'ses',
-                aws_access_key_id=ses_key_id,
-                aws_secret_access_key=ses_key,
-                region_name="us-west-2"
-            )
-            # Build an email
-            msg = MIMEMultipart()
-            msg['Subject'] = subject
-            msg['From'] = sender
-            msg['To'] = COMMASPACE.join(receipients)
 
-            msg.attach(MIMEText(html_content, type_email))
-            client.send_raw_email(
-                Source=sender,
-                Destinations=receipients,
-                RawMessage={
-                    'Data': msg.as_string(),
-                }
-            )
-        except Exception as e: 
-            print(e)
 
 def send_email(template, subject, sender, receipients, ses_key_id, ses_key, type_email):
         try:
@@ -477,7 +450,7 @@ def send_reminder_single(ses_key_id, ses_key, settings, staff_emails, months_to_
             p_email = []
             p_email.append(record['email1'])
             text = lookup.get_template('email/reminder_etc.mako').render(**template_input)
-            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "plain")
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "html")
             emails_sent = emails_sent +1
           except:
             invalid_emails_count = invalid_emails_count +1
@@ -530,7 +503,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
             p_email = []
             p_email.append(record['email'])
             text = lookup.get_template('email/reminder_etc.mako').render(**template_input)
-            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "plain")
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "html")
             emails_sent = emails_sent +1
           except:
             invalid_emails_count = invalid_emails_count +1
