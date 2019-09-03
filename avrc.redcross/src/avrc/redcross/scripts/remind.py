@@ -471,8 +471,8 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
     a_keys = settings['avrc_email.code'].split()
     e_keys = settings['etc_email.code'].split()
     # Connect to all the required etc projects in RedCAP    
-    redcap = RCProject(keys, rcs)
-
+    a_redcap = RCProject(a_keys, rcs)
+    e_redcap = RCProject(e_keys, rcs)
 
     # Required Patient Fields
     a_fields = ['consent_date', 'other_phone','email','current_hiv', 'fname', 'lname', 'testing_reminder']
@@ -485,7 +485,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
       invalid_emails_count = 0
       emails_sent = 0
       patient_count = 0
-      arecords = redcap.project[key].export_records(fields=a_fields)
+      arecords = a_redcap.project[key].export_records(fields=a_fields)
       for record in arecords:
         patient_count = patient_count+1
         notify, months = is_reminder_required_screening(record, months_to_notify)
@@ -515,7 +515,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
       invalid_emails_count = 0
       emails_sent = 0
       patient_count = 0
-      erecords = redcap.project[key].export_records(fields=e_fields)
+      erecords = e_redcap.project[key].export_records(fields=e_fields)
       for record in erecords:
         patient_count = patient_count +1
         notify, months = is_reminder_required_etc(record, months_to_notify)
