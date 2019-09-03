@@ -261,7 +261,7 @@ def send_reminder(settings):
                             }
           try:
             text = lookup.get_template('email/reminder.mako').render(**template_input)
-            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", key, ses_key_id, ses_key, "plain")
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", [key], ses_key_id, ses_key, "plain")
         
             count = count + 1
             match = next(d for d in patient_history if d['rc_id'] == latest_record['rc_id'])
