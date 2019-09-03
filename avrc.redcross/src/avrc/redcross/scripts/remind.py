@@ -575,7 +575,7 @@ def is_reminder_required_screening(record, months_to_notify):
       return False, 0
     else: 
       current_date = datetime.today() 
-      visit_date = datetime.strptime(record['consent_date'],"%m-%d-%YYYY")
+      visit_date = datetime.strptime(record['consent_date'],"%Y-%m-%d")
       
       month, days = monthmod(visit_date, current_date)
       # Now, if record has a visit date that falls in to you notification slab,
