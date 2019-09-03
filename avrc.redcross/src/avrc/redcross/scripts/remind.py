@@ -392,7 +392,7 @@ def get_receipients(redcap, code):
   email_list = []
   records = redcap.project['Email'].export_records()
   for record in records:
-    if record['et_mail_stats'] == code:
+    if record['et_mail_stats'] == code or record['et_mail_stats'] == '3':
       email_list.append(record['email'])
   return email_list
 
