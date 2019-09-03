@@ -46,6 +46,35 @@ cli.add_argument(
     metavar='FILE',
     help='Configuration File')
 
+def send_email_html(template, subject, sender, receipients, ses_key_id, ses_key, type_email):
+        try:
+            COMMASPACE = ', '
+            print(template)
+            print(receipients)
+            html_content = template
+            client = boto3.client(
+                'ses',
+                aws_access_key_id=ses_key_id,
+                aws_secret_access_key=ses_key,
+                region_name="us-west-2"
+            )
+            # Build an email
+            msg = MIMEMultipart()
+            msg['Subject'] = subject
+            msg['From'] = sender
+            msg['To'] = COMMASPACE.join(receipients)
+
+            msg.attach(MIMEText(html_content, type_email))
+            client.send_raw_email(
+                Source=sender,
+                Destinations=receipients,
+                RawMessage={
+                    'Data': msg.as_string(),
+                }
+            )
+        except Exception as e: 
+            print(e)
+
 def send_email(template, subject, sender, receipients, ses_key_id, ses_key, type_email):
         try:
             COMMASPACE = ', '
@@ -263,7 +292,7 @@ def send_reminder(settings):
             p_email = []
             p_email.append(key)
             text = lookup.get_template('email/reminder.mako').render(**template_input)
-            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "plain")
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "html")
         
             count = count + 1
             match = next(d for d in patient_history if d['rc_id'] == latest_record['rc_id'])
