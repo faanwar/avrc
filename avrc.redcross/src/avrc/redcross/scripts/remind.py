@@ -490,7 +490,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
         patient_count = patient_count+1
         notify, months = is_reminder_required_screening(record, months_to_notify)
         if notify == True and record['email'] != '':
-          print 'patient email process avrc screening registry initiated ' + record['fname']
+          print 'patient email process avrc screening registry initiated ' 
           
           template_input = { 'username'         : record['fname'],
                               'visit_date'       : record['consent_date'],
@@ -521,7 +521,7 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
         notify, months = is_reminder_required_etc(record, months_to_notify)
         print(record)
         if notify == True and record['email'] != '':
-          print 'patient email process email registry initiated ' + record['first_name']
+          print 'patient email process email registry initiated ' 
           
           template_input = { 'username'         : record['first_name'],
                               'visit_date'       : record['collect_date'],
