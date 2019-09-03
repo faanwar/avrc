@@ -400,6 +400,10 @@ def get_receipients(redcap, code):
   return email_list
 
 def send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_emails_count, staff_emails, ses_key_id, ses_key):
+  if key == 'ASR':
+    key = "AVRC Screening Registry"
+  elif key == 'ER':
+    key = "Email Registry"
   log.debug("Total Emails sent out today: " + key)
   stats = {
           'date': datetime.today().date(),
