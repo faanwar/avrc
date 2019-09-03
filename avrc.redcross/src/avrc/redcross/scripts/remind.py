@@ -486,10 +486,10 @@ def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_not
       emails_sent = 0
       patient_count = 0
       arecords = a_redcap.project[key].export_records(fields=a_fields)
+      print(arecords)
       for record in arecords:
         patient_count = patient_count+1
         notify, months = is_reminder_required_screening(record, months_to_notify)
-        print(record)
         if notify == True and record['email'] != '':
           print 'patient email process avrc screening registry initiated ' 
           
