@@ -44,13 +44,13 @@
   <tr>
     <td align="left">
     <br>
-      Our testing schedule is once every 3 months; due to funding limitations, we are unable to test people more frequently. According to our records, 3 months is approaching (or has already passed) since your last test (using the email ${email}) at UCSD's Good to Go Location. Do you think this might be a good time to schedule your next test?  
+    Would now be a good time to schedule testing at Good to Go? Our testing schedule is once every 3 months (due to funding limitations, we are unable to test people more frequently). 
     </td>
   </tr>
   <tr>
     <td>
-    <br>
-    At Good to Go, we offer the Total Test bundle to those who qualify (HIV status unknown or negative (at last test) and trans female or a man* who has sex with men* (*sex on birth cert.), which includes STD screening (syphilis, gonorrhea, chlamydia) and immediate PrEP. We still offer the Early Test at other locations (see below). 
+    <br>  
+  From our standpoint, you are 'Good To Go' when you know your status(es), are treated for STIs, on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy! 
     </td>
   </tr>
   <tr>
@@ -109,6 +109,10 @@
     <td>
       <br>
       If you do not want to receive these reminder emails, please click on this link to <a href=${unsubscribe_url}>unsubscribe</a>.
+    </td>
+    <td> 
+    <br>
+    Please, do not reply to this email as this mailbox is unmonitored. If you have any questions, contact us at goodtogo@ucsd.edu.
     </td>
   </tr>
   <tr>

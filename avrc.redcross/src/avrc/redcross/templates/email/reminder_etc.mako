@@ -44,17 +44,18 @@
   <tr>
     <td align="left">
     <br>
-        According to our records, 3 months is approaching (or has already passed) since you last tested with us at UCSD's AntiViral Research Center (AVRC) HQ (using the email  ${email}). Do you think this might be a good time to schedule your next test? Our testing schedule is once every 3 months; due to funding limitations, we are unable to test people more frequently.     </td>
+    Would now be a good time to schedule testing at Good to Go? Our testing schedule is once every 3 months (due to funding limitations, we are unable to test people more frequently). 
+    </td>
   </tr>
   <tr>
     <td>
     <br>
-    For those that qualify, (men who have sex with men, and/or trans females), we offer the Total Test at our Good To Go (AVRC UP) location. The Total Test bundle includes STD screening (syphilis, gonorrhea, chlamydia) and immediate PrEP. We still offer the Early Test at other locations (see below). </td>
+    At Good To Go, we offer the Total Test bundle to those who qualify (a person assigned male at birth having sex with others assigned male at birth), which includes HIV & STD (syphilis, gonorrhea, chlamydia) screenings and immediate PrEP. We still offer the Early Test at other locations (see below).     </td>
   </tr>
   <tr>
     <td>
     <br/>
-    From our standpoint, you are 'Good To Go' when you know your status(es), are treated for STDs, on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy! 
+    From our standpoint, you are 'Good To Go' when you know your status(es), are treated for STIs, on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy! 
     </td>
   </tr>
   <tr>
@@ -103,7 +104,12 @@
 </table>
     </td
   </tr>
-
+  <tr>
+   <td> 
+    <br>
+    Please, do not reply to this email as this mailbox is unmonitored. If you have any questions, contact us at goodtogo@ucsd.edu.
+    </td>
+  </tr>
   <tr>
     <td>
       <br>Thanks
