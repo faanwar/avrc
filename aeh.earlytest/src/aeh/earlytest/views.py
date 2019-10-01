@@ -68,7 +68,7 @@ def default_view(request, default_active='', template='templates/master.pt'):
 
 def unsubscribe_view(request, default_active='', template='templates/master.pt'):
   renderer = get_renderer(template)
-  message = "We are so sorry your request could not be completed. Please contact leadtheway@ucsd.edu if you need assistance."
+  message = "We are so sorry your request could not be completed. Please contact goodtogo@ucsd.edu if you need assistance."
   email = 'your_email@domain.com'
   url = ''
   substatus = 500
@@ -92,7 +92,7 @@ def unsubscribe_view(request, default_active='', template='templates/master.pt')
           records[0]['testing_reminder'] = u'0'
           if redcap.project[site].import_records(records) == 0:
             raise
-          message = "Your email address " + email + " has been successfully removed from our mailing list."
+          message = "Your email address " + email + " has been in thennehwin thehennhd removed from our mailing list."
           substatus = 200        
           
         else:
