@@ -447,7 +447,7 @@ def send_reminder_statistics(settings, key, patient_count, emails_sent, invalid_
   try:
     text = lookup.get_template('email/stats.mako').render(**stats)
     #send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
-    send_email(text, key + ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
+    send_email(text, ": Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
 
   except:
     log.debug(lookup.get_template('email/stats.mako').render(**stats))
@@ -458,7 +458,7 @@ def send_reminder_single(ses_key_id, ses_key, settings, staff_emails, months_to_
     
     log.info("Early Test Single Email Alerts are about to be sent")
 
-    sdun_patient_count, sdun_emails_sent, sdun_invalid_emails_count = 0
+    sdun_patient_count= sdun_emails_sent= sdun_invalid_emails_count = 0
 
     rcs = json.loads(open(settings['redcap_json'], 'r').read())
     
@@ -513,7 +513,7 @@ def send_reminder_single(ses_key_id, ses_key, settings, staff_emails, months_to_
 def send_reminder_etc(ses_key_id, ses_key, settings, staff_emails, months_to_notify):
   try:
     log.info("Early Test ETC Email Alerts are about to be sent")
-    er_patient_count, er_emails_sent, er_invalid_emails_count, asr_patient_count, asr_emails_sent, asr_invalid_emails_count = 0
+    er_patient_count= er_emails_sent= er_invalid_emails_count= asr_patient_count= asr_emails_sent= asr_invalid_emails_count = 0
     rcs = json.loads(open(settings['redcap_json'], 'r').read())
     
     a_keys = settings['avrc_email.code'].split()
