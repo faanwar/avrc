@@ -262,20 +262,20 @@ def send_reminder(settings):
                              'email'            : key
                             }
           try:
-            turbomail.send(turbomail.Message(
-                          author="UCSD - Good to Go<" + settings["remind.email"] + ">",
-                          organization=["UCSD - Good to Go"],
-                          bcc=[key],
-                          reply_to=settings["remind.email"],
-                          subject="UCSD Early Test - Good to Go reminders",
-                          rich = lookup.get_template('email/reminder.mako').render(**template_input),
-                          headers =  {'list-unsubscribe': "<" + template_input['unsubscribe_url'] 
-                                                               + ">,<mailto:" + settings["remind.email"] +">"},
-                          plain = "this is a reminder email to complete early test at " + settings['ltw_url']))
+            #turbomail.send(turbomail.Message(
+            #              author="UCSD - Good to Go<" + settings["remind.email"] + ">",
+            #              organization=["UCSD - Good to Go"],
+            #              bcc=[key],
+            #              reply_to=settings["remind.email"],
+            #              subject="UCSD Early Test - Good to Go reminders",
+            #              rich = lookup.get_template('email/reminder.mako').render(**template_input),
+            #              headers =  {'list-unsubscribe': "<" + template_input['unsubscribe_url'] 
+            #                                                   + ">,<mailto:" + settings["remind.email"] +">"},
+            #              plain = "this is a reminder email to complete early test at " + settings['ltw_url']))
             p_email = []
             p_email.append(key)
-            #text = lookup.get_template('email/reminder.mako').render(**template_input)
-            #send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "html")
+            text = lookup.get_template('email/reminder.mako').render(**template_input)
+            send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "html")
         
             count = count + 1
             match = next(d for d in patient_history if d['rc_id'] == latest_record['rc_id'])
@@ -344,16 +344,16 @@ def send_reminder(settings):
             }      
       try:
         text = lookup.get_template('email/stats.mako').render(**stats)
-        turbomail.send(turbomail.Message(
-                        author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
-                        organization = ["UCSD - Good to Go"],
-                        to = staff_emails,
-                        reply_to = settings["remind.email"],
-                        subject = "Good to Go Email Reminders Statistics",
-                        plain = text))
+        #turbomail.send(turbomail.Message(
+        #                author = "UCSD - Good to Go<" + settings["remind.email"] + ">",
+        #                organization = ["UCSD - Good to Go"],
+        #                to = staff_emails,
+        #                reply_to = settings["remind.email"],
+        #                subject = "Good to Go Email Reminders Statistics",
+        #                plain = text))
         
         #send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
-        #send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
+        send_email(text, "SDET: Good to Go Email Reminders Statistics", "UCSD - Good to Go<" + settings["remind.email"] + ">", staff_emails, ses_key_id, ses_key, "plain")
 
       except:
         log.debug(lookup.get_template('email/stats.mako').render(**stats))
