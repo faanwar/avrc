@@ -30,7 +30,7 @@ pyramid-mako==1.0.2
 pyramid-rewrite==0.2
 pyramid-tm==0.12
 python-editor==0.3
-python-gnupg==0.3.7
+python-gnupg==0.4.4
 python-ldap==2.4.20
 pytz==2015.4
 repoze.lru==0.6
