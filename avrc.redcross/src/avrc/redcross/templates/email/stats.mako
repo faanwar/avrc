@@ -26,14 +26,51 @@
 ## ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 ## POSSIBILITY OF SUCH DAMAGE.
 
+
 -------------------------------------------------------------
 Email Reminders Statistics sent on ${date}
 -------------------------------------------------------------
 
-Total Number of Unique Patients with Proper Email  = ${patient_count}
+-------------------------------------------------------------
+SDET
+-------------------------------------------------------------
 
-Total Number of Patients who received Email today  = ${emails_sent}
+Total Number of Unique Patients with Proper Email  = ${sdet_patient_count}
 
-Total Number of Invalid Emails                     = ${invalid_emails_count}
+Total Number of Patients who received Email today  = ${sdet_emails_sent}
+
+Total Number of Invalid Emails                     = ${sdet_invalid_emails_count}
+
+-------------------------------------------------------------
+SDUN
+-------------------------------------------------------------
+
+Total Number of Unique Patients with Proper Email  = ${sdun_patient_count}
+
+Total Number of Patients who received Email today  = ${sdun_emails_sent}
+
+Total Number of Invalid Emails                     = ${sdun_invalid_emails_count}
+
+-------------------------------------------------------------
+AVRC Screening Registry
+-------------------------------------------------------------
+
+Total Number of Unique Patients with Proper Email  = ${asr_patient_count}
+
+Total Number of Patients who received Email today  = ${asr_emails_sent}
+
+Total Number of Invalid Emails                     = ${asr_invalid_emails_count}
+
+
+-------------------------------------------------------------
+Email Registry
+-------------------------------------------------------------
+
+Total Number of Unique Patients with Proper Email  = ${er_patient_count}
+
+Total Number of Patients who received Email today  = ${er_emails_sent}
+
+Total Number of Invalid Emails                     = ${er_invalid_emails_count}
+
 -----------------------------------------------------------------------
 

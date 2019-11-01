@@ -45,6 +45,7 @@
     <td align="left">
     <br>
     Would now be a good time to schedule testing at Good to Go? Our testing schedule is once every 3 months (due to funding limitations, we are unable to test people more frequently). 
+
     </td>
   </tr>
   <tr>
@@ -55,7 +56,8 @@
   <tr>
     <td>
     <br/>
-    From our standpoint, you are 'Good To Go' when you know your status(es), are treated for STIs, on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy! 
+    From our standpoint, you are 'Good to Go' when you know your status(es), are treated for STDs, are on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy! 
+
     </td>
   </tr>
   <tr>
@@ -72,8 +74,7 @@
             619-543-9340 <br/>
             3830 Park Boulevard, San Diego, CA 92103 <br/>
             (Corner of University Avenue and Park Boulevard)</br>
-            Monday - Friday: Noon - 8:00pm <br/>
-            Saturday: 10:00am - 4:00pm <br/>
+             Hours: Please visit our website <br/>
 
           </td>
         </tr>
@@ -87,8 +88,8 @@
             AVRC Headquarters (HQ): <br/>
             619-543-8080 <br/>
             220 Dickinson Street, Suite A, San Diego, CA 92103. <br/>
-            Monday - Thursday: 09:00am - 3:00pm, <br/>
-            Friday: 09:00am - noon <br/>
+            Monday - Thursday: 8:00am - 3:00pm, <br/>
+            Friday: 9:00am - 2:00pm <br/>
 
           </td>
         </tr>
