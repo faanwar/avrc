@@ -34,7 +34,7 @@ python-gnupg==0.3.7
 python-ldap==2.4.20
 pytz==2015.4
 repoze.lru==0.6
-requests==2.7.0
+requests==2.20.0
 semantic-version==2.3.1
 six==1.9.0
 SQLAlchemy==1.0.8
