@@ -111,7 +111,7 @@ def send_reminder(settings):
     er_patient_count, er_emails_sent, er_invalid_emails_count, asr_patient_count, asr_emails_sent, asr_invalid_emails_count  = send_reminder_etc(ses_key_id, ses_key, settings, staff_emails_other, months_to_notify)
 
     # Required Patient Fields
-    pfields = ['rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name']
+    pfields = ['et_pid','rc_id', 'phone1','phone2','email1','email2', 'first_name', 'last_name']
     precords = {}
 
     for key in pat_keys:
@@ -152,12 +152,12 @@ def send_reminder(settings):
         try:
 
           # Extract Site information
-          site = patient['rc_id'].upper()         
+          #site = patient['rc_id'].upper()         
 
           # The testing site visited by this patient is not configured 
           # to send email reminders. So continue to the next patient
-          if site.startswith(tuple(rem_keys)) == False:
-            continue
+          #if site.startswith(tuple(rem_keys)) == False:
+            #continue
           if patient['email1'] == '':
             # ignore patients for whom we don't have email IDs
             if patient['email2'] == '':
@@ -168,15 +168,15 @@ def send_reminder(settings):
               patient['email2'] = ''
               to_update.append(patient)
           
-          if patient['email1'] in hash_email:
-            hash_email[patient['email1']].append(patient['rc_id'])
+          if patient['et_pid'] in hash_email:
+            continue
           else:
-            hash_email[patient['email1']] = [patient['rc_id']]
-            hash_names[patient['email1']] = { 'first_name' : patient['first_name'],
+            hash_email[patient['et_pid']] = [patient['email1']]
+            hash_names[patient['et_pid']] = { 'first_name' : patient['first_name'],
                                               'last_name' : patient['last_name'] 
                                             }
 
-          site_rcid[patient['rc_id'][:-5]].append(patient['rc_id'])
+          #site_rcid[patient['rc_id'][:-5]].append(patient['rc_id'])
         except KeyError as e:
           log.critical(traceback.format_exc())
           pass
@@ -199,11 +199,11 @@ def send_reminder(settings):
       patient_history = []
 
       # We need the following fields to decide if we need to send emails for this patient
-      fields = ['rc_id','visit_date','rapid1', 'rapid2', 'testing_reminder','dhiv', 'lstremndr_dt']
-      for site, records in site_rcid.iteritems():
-        log.debug("Site: %s, Requesting: %d records", site, len(records))
-        patient_history.extend(redcap.project[site].export_records(records=records, fields=fields))
-
+      fields = ['et_pid','rc_id','visit_date','rapid1', 'rapid2', 'testing_reminder','dhiv', 'lstremndr_dt']
+      #for site, records in hash_email.iteritems():
+      log.debug("Site: %s, Requesting: %d records", site, len(records))
+      patient_history.extend(redcap.project['SDET'].export_records(records=records, fields=fields))
+      patient_history.extend(redcap.project['76C'].export_records(records=records, fields=fields))
       log.debug("Total Patient history to Process:%d", len(patient_history))
 
       # Patient history modified data structure for convenience
@@ -222,17 +222,17 @@ def send_reminder(settings):
         # At the end of the following loop, record will consists of the latest visit
         # information for this patient.(Indicated by the email string 'key')
         skip = False
-        for rc_id in val:
+        for rc_id, visit_val in hist_map.iteritems():
           try:
-            
-            if hist_map[rc_id]['visit_date'] == '':
-              skip = True
-              break
+            if visit_val['et_pid'] != key:
+              continue
+            if visit_val['visit_date'] == '':
+              continue
             print 'visit date exists'
-            visit = datetime.strptime(hist_map[rc_id]['visit_date'],
+            visit = datetime.strptime(visit_val['visit_date'],
                                       "%Y-%m-%d")
             if latest_record == None:
-              latest_record = hist_map[rc_id]
+              latest_record = visit_val
             else:
               latest_date= datetime.strptime(latest_record['visit_date'],"%Y-%m-%d") 
               if latest_date < visit:
@@ -243,8 +243,7 @@ def send_reminder(settings):
           except KeyError:
             log.critical(traceback.format_exc())
 
-        if skip == True:
-          continue
+
         print 'latest record'
         print latest_record
         notify, months = is_reminder_required(latest_record, months_to_notify)
@@ -257,9 +256,9 @@ def send_reminder(settings):
                              'months'           : months,
                              'visit_date'       : latest_record['visit_date'],
                              'ltw_url'          : settings['ltw_url'],
-                             'unsubscribe_url'  : settings['unsubscribe_url'] + '?email='+ key +"&rc_id=" + latest_record['rc_id'] + "&unsubscribe.submitted=Unsubscribe",
+                             'unsubscribe_url'  : settings['unsubscribe_url'] + '?email='+ val +"&rc_id=" + latest_record['rc_id'] + "&unsubscribe.submitted=Unsubscribe",
                              'phone'            : settings['phone'],
-                             'email'            : key
+                             'email'            : val
                             }
           try:
             #turbomail.send(turbomail.Message(
@@ -273,7 +272,7 @@ def send_reminder(settings):
             #                                                   + ">,<mailto:" + settings["remind.email"] +">"},
             #              plain = "this is a reminder email to complete early test at " + settings['ltw_url']))
             p_email = []
-            p_email.append(key)
+            p_email.append(val)
             text = lookup.get_template('email/reminder.mako').render(**template_input)
             send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "html")
         
@@ -285,7 +284,7 @@ def send_reminder(settings):
               match['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
               
           except:
-            invalid_emails[latest_record['rc_id']] = key
+            invalid_emails[latest_record['et_pid']] = val
             log.critical(traceback.format_exc())
             pass
         
