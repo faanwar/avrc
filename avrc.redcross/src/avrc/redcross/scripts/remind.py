@@ -237,7 +237,7 @@ def send_reminder(settings):
               latest_record = visit_val
             else:
               latest_date= datetime.strptime(latest_record['visit_date'],"%Y-%m-%d") 
-              if latest_date < visit:
+              if latest_date <= visit:
                 print 'compare dates'
                 print visit
                 print latest_date
