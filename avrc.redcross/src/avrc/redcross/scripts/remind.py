@@ -222,6 +222,10 @@ def send_reminder(settings):
         # information for this patient.(Indicated by the email string 'key')
         skip = False
         for rc_id, visit_val in hist_map.iteritems():
+          print 'rcid'
+          print rc_id 
+          print 'visit'
+          print visit_val
           try:
             if visit_val['et_pid'] != key:
               continue
@@ -373,7 +377,7 @@ def is_reminder_required(record, months_to_notify):
       boolean: True/False based on satisfying the condition to email 
   """
   try:
-    if ['lstremndr_dt'] == datetime.today().date().strftime('%Y/%m/%d'):
+    if record['lstremndr_dt'] == datetime.today().date().strftime('%Y/%m/%d'):
       print 'already sent'
       return False, 0
     if record['testing_reminder'] !=  u'1':
