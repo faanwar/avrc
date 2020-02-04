@@ -203,7 +203,7 @@ def send_reminder(settings):
       for site, records in hash_email.iteritems():
         print 'site'
         print site
-        patient_history.extend(redcap.project['SDET'].export_records(records=site, fields=fields))
+        patient_history.extend(redcap.project['SDET'].export_records(fields=fields))
         #patient_history.extend(redcap.project['76C'].export_records(records=site, fields=fields))
       log.debug("Total Patient history to Process:%d", len(patient_history))
 
