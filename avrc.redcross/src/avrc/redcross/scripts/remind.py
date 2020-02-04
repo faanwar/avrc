@@ -260,9 +260,9 @@ def send_reminder(settings):
                              'months'           : months,
                              'visit_date'       : latest_record['visit_date'],
                              'ltw_url'          : settings['ltw_url'],
-                             'unsubscribe_url'  : settings['unsubscribe_url'] + '?email='+ val +"&rc_id=" + latest_record['rc_id'] + "&unsubscribe.submitted=Unsubscribe",
+                             'unsubscribe_url'  : settings['unsubscribe_url'] + '?email='+ val[0] +"&rc_id=" + latest_record['rc_id'] + "&unsubscribe.submitted=Unsubscribe",
                              'phone'            : settings['phone'],
-                             'email'            : val
+                             'email'            : val[0]
                             }
           try:
             #turbomail.send(turbomail.Message(
@@ -276,7 +276,7 @@ def send_reminder(settings):
             #                                                   + ">,<mailto:" + settings["remind.email"] +">"},
             #              plain = "this is a reminder email to complete early test at " + settings['ltw_url']))
             p_email = []
-            p_email.append(val)
+            p_email.append(val[0])
             text = lookup.get_template('email/reminder.mako').render(**template_input)
             send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", p_email, ses_key_id, ses_key, "html")
         
@@ -288,7 +288,7 @@ def send_reminder(settings):
               match['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
               
           except:
-            invalid_emails[latest_record['et_pid']] = val
+            invalid_emails[latest_record['et_pid']] = val[0]
             log.critical(traceback.format_exc())
             pass
         
