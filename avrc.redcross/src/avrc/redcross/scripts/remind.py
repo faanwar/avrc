@@ -201,16 +201,12 @@ def send_reminder(settings):
       # We need the following fields to decide if we need to send emails for this patient
       fields = ['et_pid','rc_id','visit_date','rapid1', 'rapid2', 'testing_reminder','dhiv', 'lstremndr_dt']
       for site, records in hash_email.iteritems():
-        print 'site'
-        print site
         patient_history.extend(redcap.project['SDET'].export_records(fields=fields))
         #patient_history.extend(redcap.project['76C'].export_records(records=site, fields=fields))
       log.debug("Total Patient history to Process:%d", len(patient_history))
 
       # Patient history modified data structure for convenience
       hist_map = {}
-      print 'patient history'
-      print patient_history
       for history in patient_history:
         hist_map[history['rc_id']] = history
  
@@ -225,16 +221,16 @@ def send_reminder(settings):
         # information for this patient.(Indicated by the email string 'key')
         skip = False
         for rc_id, visit_val in hist_map.iteritems():
-          print 'rcid'
-          print rc_id 
-          print 'visit'
-          print visit_val
           try:
             if visit_val['et_pid'] != key:
               continue
             if visit_val['visit_date'] == '':
               continue
             print 'visit date exists'
+            print 'rcid'
+            print rc_id 
+            print 'visit'
+            print visit_val
             visit = datetime.strptime(visit_val['visit_date'],
                                       "%Y-%m-%d")
             if latest_record == None:
