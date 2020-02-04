@@ -207,7 +207,8 @@ def send_reminder(settings):
 
       # Patient history modified data structure for convenience
       hist_map = {}
-
+      print 'patient history'
+      print patient_history
       for history in patient_history:
         hist_map[history['rc_id']] = history
  
