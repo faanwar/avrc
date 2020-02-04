@@ -202,7 +202,7 @@ def send_reminder(settings):
       fields = ['et_pid','rc_id','visit_date','rapid1', 'rapid2', 'testing_reminder','dhiv', 'lstremndr_dt']
       for site, records in hash_email.iteritems():
         patient_history.extend(redcap.project['SDET'].export_records(fields=fields))
-        #patient_history.extend(redcap.project['76C'].export_records(records=site, fields=fields))
+        patient_history.extend(redcap.project['76C'].export_records(records=site, fields=fields))
       log.debug("Total Patient history to Process:%d", len(patient_history))
 
       # Patient history modified data structure for convenience
