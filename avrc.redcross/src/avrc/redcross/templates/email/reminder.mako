@@ -44,27 +44,16 @@
   <tr>
     <td align="left">
     <br>
-    Would now be a good time to schedule testing at Good to Go? Our testing schedule is once every 3 months (due to funding limitations, we are unable to test people more frequently). 
+    Due to the current COVID-19 crisis, no elective HIV or STD testing is being performed at any of our test sites. Routine reminders will be resent when testing has re-opened and we encourage everyone to frequently check the website for updates. We apologize for the inconvenience but want to ensure the safety of staff and participants. Thank you for understanding and stay safe!
     </td>
   </tr>
-  <tr>
-    <td>
-    <br>  
-  At Good To Go, we offer the Total Test bundle to those who qualify (a person assigned male at birth having sex with others assigned male at birth), which includes HIV & STD (syphilis, gonorrhea, chlamydia) screenings and immediate PrEP. We still offer the Early Test at other locations (see below). 
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <br/>
-    From our standpoint, you are 'Good to Go' when you know your status(es), are treated for STDs, are on PrEP and have a sexual health plan in place. If that's all good, you're good to go, and you can get right back to getting busy! 
-    </td>
-  </tr>
+
   <tr>
     <td>
     <br>
  
        <table width="100%" border="0" cellspacing="100%" cellpadding="0" padding="10px">
-       <tr><b>HIV / STD / PrEP (Total Test) </b></tr>
+
        <tr>
           <td>
           <br>
@@ -73,33 +62,13 @@
             619-543-9340 <br/>
             3830 Park Boulevard, San Diego, CA 92103 <br/>
             (Corner of University Avenue and Park Boulevard)</br>
-            Hours: Please visit our website</br>
+
 
           </td>
         </tr>
 
-       <br />
-
-        <tr>
-          <td>
-          <br>
-            <b>HIV Testing Only (Early Test)</b> <br/>
-            AVRC Headquarters (HQ): <br/>
-            619-543-8080 <br/>
-            220 Dickinson Street, Suite A, San Diego, CA 92103. <br/>
-            Monday - Thursday: 8:00am - 3:00pm, <br/>
-            Friday: 9:00am - 2:00pm <br/>
-
-          </td>
-        </tr>
-        <tr>
-          <td>
-          <br>
-            The San Diego LGBT Community Center:<br /> 619-692-2077 <br/>
-            3909 Centre Street, San Diego, CA 92103. <br/>
-
-          </td>
-        </tr>
+   
+   
         
 </table>
     </td
