@@ -27,6 +27,8 @@ class RCProject:
       self.token['CTS'] = rcsettings['cap_key']['CTS']
       self.token['Email'] = rcsettings['cap_key']['Email']
       for site in site_code:
+        print 'site'
+        print site
         try:
           self.token[site] =rcsettings['cap_key'][site]
         except KeyError:
