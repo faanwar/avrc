@@ -27,8 +27,6 @@ class RCProject:
       self.token['CTS'] = rcsettings['cap_key']['CTS']
       self.token['Email'] = rcsettings['cap_key']['Email']
       for site in site_code:
-        print 'site'
-        print site
         try:
           self.token[site] =rcsettings['cap_key'][site]
         except KeyError:
@@ -44,6 +42,8 @@ class RCProject:
                 raise exc.RedCAPTokenExpired(exp_date)
             # There can be multiple project that have our data
             for site, tok in self.token.iteritems():
+              print 'site'
+              print site
               self.project[site] = Project(self.cap_url, tok, verify_ssl=True)
               log.info('Project connected to: %s data' % site)
         except:
