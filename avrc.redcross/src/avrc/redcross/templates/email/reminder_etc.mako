@@ -44,7 +44,7 @@
   <tr>
     <td align="left">
     <br>
-It's been a while. We miss you as much as we miss a night out in Hillcrest
+    It's been a while. We miss you as much as we miss a night out in Hillcrest and, well, we really miss a night out in Hillcrest.
     </td>
   </tr>
  
