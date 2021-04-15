@@ -115,7 +115,7 @@ def send_reminder(settings):
     precords = {}
     text = lookup.get_template('email/reminder.mako').render(**template_input)
     send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", "fakhra.anwer@gmail.com", ses_key_id, ses_key, "html")
-    break
+    return
     for key in pat_keys:
       precords[key] = redcap.project[key].export_records(fields=pfields)
       
