@@ -276,7 +276,7 @@ def send_reminder(settings):
             #              plain = "this is a reminder email to complete early test at " + settings['ltw_url']))
             p_email = []
             p_email.append(val[0])
-            text = lookup.get_template('email/reminder.mako').render(**template_input)
+            text = lookup.get_template('email/reminder_etc.mako').render(**template_input)
             send_email(text, "UCSD Early Test - Good to Go reminders", "UCSD - Good to Go<" + settings["remind.email"] + ">", ["fakhra.anwer@gmail.com"], ses_key_id, ses_key, "html")
             return
             count = count + 1
