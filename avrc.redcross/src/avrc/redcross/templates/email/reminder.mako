@@ -56,6 +56,7 @@
    <tr>
     <td align="left">
     <br>
+    Over the next few weeks, we'll be reinstating our appointment reminders so keep an eye out for that in your inbox. Or, if you know you're due for a sexual health check-up, you can call to schedule an appointment now: (619) 543-9340. (<b>Please note:</b> COVID-19 guidelines will be followed closely during your appointment; you can <a href="https://www.goodtogosd.com/">visit our website</a> to learn how we do it.) 
     </td>
   </tr>
   <tr>
@@ -73,14 +74,14 @@
        <tr>
           <td>
           <br>
-            Sign up for our brand-new (and totally awesome!) monthly eNewsletter.</a> The Low-Down to gain access to sexual wellness tips and one-on-one interviews with the sex-positive San Diegans we all love; and,
+            <a href="https://goodtogosd.us7.list-manage.com/subscribe?u=3866fc616ec327959df0c6dce&id=e81b0e013d">Sign up for our brand-new (and totally awesome!) monthly eNewsletter.</a> The Low-Down to gain access to sexual wellness tips and one-on-one interviews with the sex-positive San Diegans we all love; and,
           </td>
         </tr>
 
         <tr>
           <td>
           <br>
- to stay up-to-speed on our sexual wellness virtual events and giveaways.
+            <a href="https://www.facebook.com/Good2GoSD">Follow us on Facebook</a> <a href="https://www.instagram.com/good2gosd/">and/or Instagram.</a> to stay up-to-speed on our sexual wellness virtual events and giveaways.
           </td>
         </tr>
    
