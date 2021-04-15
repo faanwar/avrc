@@ -99,12 +99,12 @@
   </tr>
   <tr>
     <td>
-      <br>Thanks
+      <br>See you soon!
     </td>
   </tr>
   <tr>
     <td>
-      The Good To Go Team
+      Your Friends at Good to Go
     </td>
   </tr>
 </table>
