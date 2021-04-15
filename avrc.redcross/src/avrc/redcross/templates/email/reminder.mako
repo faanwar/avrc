@@ -28,7 +28,7 @@
 ## POSSIBILITY OF SUCH DAMAGE.
 
 ## Email Body
-### -*- coding: utf-8 -*-
+### -*- coding: utf-16 -*-
 <html>
 <head>
   <title> Early Test Reminder </title>
