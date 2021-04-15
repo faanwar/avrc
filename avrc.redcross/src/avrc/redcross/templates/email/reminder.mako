@@ -44,10 +44,27 @@
   <tr>
     <td align="left">
     <br>
-    Due to the current COVID-19 crisis, no elective HIV or STD testing is being performed at any of our test sites. Routine reminders will be resent when testing has re-opened and we encourage everyone to frequently check the website for updates. We apologize for the inconvenience but want to ensure the safety of staff and participants. Thank you for understanding and stay safe!
+    It’s been a while. We miss you as much as we miss a night out in Hillcrest – and, well, we really miss a night out in Hillcrest.  
     </td>
   </tr>
-
+  <tr>
+    <td align="left">
+    <br>
+    While the pandemic forced Good to Go to adjust its services and availability this past year, we are thrilled to share that we are ramping up appointments again. We’d love to see you.  
+    </td>
+  </tr>
+   <tr>
+    <td align="left">
+    <br>
+    Over the next few weeks, we’ll be reinstating our appointment reminders so keep an eye out for that in your inbox. Or, if you know you’re due for a sexual health check-up, you can call to schedule an appointment now: (619) 543-9340. (<b>Please note:</b> COVID-19 guidelines will be followed closely during your appointment; you can <a href="https://www.goodtogosd.com/">visit our website</a> to learn how we do it.) 
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    <br>
+    Until then, we encourage you to connect with Good to Go online:
+    </td>
+  </tr>
   <tr>
     <td>
     <br>
@@ -57,40 +74,30 @@
        <tr>
           <td>
           <br>
-            Good To Go: <br/>
-            www.goodtogosd.com <br/>
-            619-543-9340 <br/>
-            3830 Park Boulevard, San Diego, CA 92103 <br/>
-            (Corner of University Avenue and Park Boulevard)</br>
-
-
+            <a href="https://goodtogosd.us7.list-manage.com/subscribe?u=3866fc616ec327959df0c6dce&id=e81b0e013d">Sign up for our brand-new (and totally awesome!) monthly eNewsletter.</a> The Low-Down to gain access to sexual wellness tips and one-on-one interviews with the sex-positive San Diegans we all love; and,
           </td>
         </tr>
 
-   
+        <tr>
+          <td>
+          <br>
+            <a href="https://www.facebook.com/Good2GoSD">Follow us on Facebook</a> <a href="https://www.instagram.com/good2gosd/">and/or Instagram.</a> to stay up-to-speed on our sexual wellness virtual events and giveaways.
+          </td>
+        </tr>
    
         
 </table>
     </td
   </tr>
- <tr>
+ 
+  <tr>
     <td>
-      <br>
-      If you do not want to receive these reminder emails, please click on this link to <a href=${unsubscribe_url}>unsubscribe</a>.
-    </td>
-    <td> 
-    <br>
-    Please, do not reply to this email as this mailbox is unmonitored. If you have any questions, contact us at goodtogo@ucsd.edu.
+      <br>See you soon! 
     </td>
   </tr>
   <tr>
     <td>
-      <br>Thanks
-    </td>
-  </tr>
-  <tr>
-    <td>
-      The Good To Go Team
+      – Your Friends at Good to Go 
     </td>
   </tr>
 </table>
