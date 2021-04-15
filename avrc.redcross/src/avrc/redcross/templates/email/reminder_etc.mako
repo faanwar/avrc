@@ -47,16 +47,17 @@
     It's been a while. We miss you as much as we miss a night out in Hillcrest - and, well, we really miss a night out in Hillcrest.
     </td>
   </tr>
-   <tr>
-    <td align="left">
-    <br>
-    Over the next few weeks, we'll be reinstating our appointment reminders so keep an eye out for that in your inbox. Or, if you know you're due for a sexual health check-up, you can call to schedule an appointment now: (619) 543-9340. (<b>Please note:</b> COVID-19 guidelines will be followed closely during your appointment; you can <a href="https://www.goodtogosd.com/">visit our website</a> to learn how we do it.) 
-    </td>
-  </tr>
+  
  <tr>
     <td align="left">
     <br>
     While the pandemic forced Good to Go to adjust its services and availability this past year, we are thrilled to share that we are ramping up appointments again. We'd love to see you.  
+    </td>
+  </tr>
+   <tr>
+    <td align="left">
+    <br>
+    Over the next few weeks, we'll be reinstating our appointment reminders so keep an eye out for that in your inbox. Or, if you know you're due for a sexual health check-up, you can call to schedule an appointment now: (619) 543-9340. (<b>Please note:</b> COVID-19 guidelines will be followed closely during your appointment; you can <a href="https://www.goodtogosd.com/">visit our website</a> to learn how we do it.) 
     </td>
   </tr>
   <tr>
