@@ -47,7 +47,12 @@
     It's been a while. We miss you as much as we miss a night out in Hillcrest - and, well, we really miss a night out in Hillcrest.
     </td>
   </tr>
- 
+ <tr>
+    <td align="left">
+    <br>
+    While the pandemic forced Good to Go to adjust its services and availability this past year, we are thrilled to share that we are ramping up appointments again. We'd love to see you.  
+    </td>
+  </tr>
   <tr>
     <td>
     <br>
