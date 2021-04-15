@@ -44,7 +44,7 @@
   <tr>
     <td align="left">
     <br>
-Due to the current COVID-19 crisis, no elective HIV or STD testing is being performed at any of our test sites. Routine reminders will be resent when testing has re-opened and we encourage everyone to frequently check the website for updates. We apologize for the inconvenience but want to ensure the safety of staff and participants. Thank you for understanding and stay safe!
+It's been a while. We miss you as much as we miss a night out in Hillcrest
     </td>
   </tr>
  
