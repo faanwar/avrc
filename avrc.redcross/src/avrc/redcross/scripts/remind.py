@@ -287,6 +287,7 @@ def send_reminder(settings):
               #match['lstremndr_dt'] = datetime.today().date().strftime('%Y/%m/%d')
               
           except:
+            return
             invalid_emails[latest_record['et_pid']] = val[0]
             log.critical(traceback.format_exc())
             pass
