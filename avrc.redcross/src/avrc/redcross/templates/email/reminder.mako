@@ -79,7 +79,7 @@
  <tr>
     <td>
     <br>
-    <b>Where to find us:  </b><br>
+    <b>Where to find us:  </b><br><br>
        <table width="100%" border="0" cellspacing="100%" cellpadding="0" padding="10px">
 
        <tr>
