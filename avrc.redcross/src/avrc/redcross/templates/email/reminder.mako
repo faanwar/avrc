@@ -60,7 +60,7 @@
     <br> <br>
    We observe COVID-19 precautions per the CDC's direction for healthcare settings. A brief symptom screening will be conducted upon your arrival at Good to Go, and a mask will be required throughout your appointment. (If you forget your mask, don't sweat it! We have disposable masks on-hand - just let us know.) 
    <br>
-   <i><b>*Please note:</b> CDC regulations change regularly; <a href="https://goodtogosd.us7.list-manage.com/subscribe?u=3866fc616ec327959df0c6dce&id=e81b0e013d">stay tuned to our monthly eNewsletter</a>, <a href="https://www.facebook.com/Good2GoSD">Facebook</a> or <a href="https://www.instagram.com/good2gosd/">Instagram</a> for updates on screening and masking guidelines at our clinic.</i>
+   <br><i><b>*Please note:</b> CDC regulations change regularly; <a href="https://goodtogosd.us7.list-manage.com/subscribe?u=3866fc616ec327959df0c6dce&id=e81b0e013d">stay tuned to our monthly eNewsletter</a>, <a href="https://www.facebook.com/Good2GoSD">Facebook</a> or <a href="https://www.instagram.com/good2gosd/">Instagram</a> for updates on screening and masking guidelines at our clinic.</i>
     </td>
   </tr>
    <tr>
@@ -84,15 +84,20 @@
 
        <tr>
           <td>
-          <br>
             Good to Go San Diego
           </td>
+        </tr>
+        <tr>
           <td>
             3830 Park Blvd. San Diego, CA 92103 (On the corner of University and Park) 
           </td>
+           </tr>
+           <tr>
           <td>
             Front Desk: (619) 543-9340
           </td>
+           </tr>
+           <tr>
           <td>
             Email: goodtogo@ucsd.edu
           </td>
