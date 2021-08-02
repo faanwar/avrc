@@ -44,46 +44,57 @@
   <tr>
     <td align="left">
     <br>
-    It's been a while. We miss you as much as we miss a night out in Hillcrest - and, well, we really miss a night out in Hillcrest.
+    Thanks for taking an important step in your sexual health. We look forward to seeing you at Good to Go soon. 
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left">
+    <br>
+    <b> In preparation for your appointment, here are a few things you should know: </b>
     </td>
   </tr>
   
  <tr>
     <td align="left">
-    <br>
-    While the pandemic forced Good to Go to adjust its services and availability this past year, we are thrilled to share that we are ramping up appointments again. We'd love to see you.  
+    <br> <br>
+   We observe COVID-19 precautions per the CDC's direction for healthcare settings. A brief symptom screening will be conducted upon your arrival at Good to Go, and a mask will be required throughout your appointment. (If you forget your mask, don't sweat it! We have disposable masks on-hand - just let us know.) 
+   <br>
+   <i><b>*Please note:</b> CDC regulations change regularly; <a href="https://goodtogosd.us7.list-manage.com/subscribe?u=3866fc616ec327959df0c6dce&id=e81b0e013d">stay tuned to our monthly eNewsletter</a>, <a href="https://www.facebook.com/Good2GoSD">Facebook</a> or <a href="https://www.instagram.com/good2gosd/">Instagram</a> for updates on screening and masking guidelines at our clinic.</i>
     </td>
   </tr>
    <tr>
     <td align="left">
     <br>
-    Over the next few weeks, we'll be reinstating our appointment reminders so keep an eye out for that in your inbox. Or, if you know you're due for a sexual health check-up, you can call to schedule an appointment now: (619) 543-9340. (<b>Please note:</b> COVID-19 guidelines will be followed closely during your appointment; you can <a href="https://www.goodtogosd.com/">visit our website</a> to learn how we do it.) 
+   We recently launched an online guide to help you prepare for your upcoming appointment in 3 easy steps. In it, we answer questions like "Do STI tests hurt?" (spoiler: they don't) and "How quickly will I get my STI results?" (spoiler: fast) - <a href="https://www.goodtogosd.com/what-to-expect-from-sti-testing">check it out here</a>. (Still have questions? We got you - just give us a call at 619-543-9340.)
     </td>
   </tr>
    <tr>
     <td align="left">
     <br>
-    Until then, we encourage you to connect with Good to Go online:
+    Due to limited funding this year, we will be shifting Good to Go's services to focus on highly affected groups who lack access to STI and HIV education and testing, are under-insured, and do not take PrEP. Please check <a href="https://www.goodtogosd.com/">our website</a> regularly for eligibility updates to learn how this might impact you in the future. 
     </td>
   </tr>
 
  <tr>
     <td>
     <br>
- 
+    <b>Where to find us:  </b><br>
        <table width="100%" border="0" cellspacing="100%" cellpadding="0" padding="10px">
 
        <tr>
           <td>
           <br>
-            <a href="https://goodtogosd.us7.list-manage.com/subscribe?u=3866fc616ec327959df0c6dce&id=e81b0e013d">Sign up for our brand-new (and totally awesome!) monthly eNewsletter.</a> The Low-Down to gain access to sexual wellness tips and one-on-one interviews with the sex-positive San Diegans we all love; and,
+            Good to Go San Diego
           </td>
-        </tr>
-
-        <tr>
           <td>
-          <br>
-            <a href="https://www.facebook.com/Good2GoSD">Follow us on Facebook</a> <a href="https://www.instagram.com/good2gosd/">and/or Instagram.</a> to stay up-to-speed on our sexual wellness virtual events and giveaways.
+            3830 Park Blvd. San Diego, CA 92103 (On the corner of University and Park) 
+          </td>
+          <td>
+            Front Desk: (619) 543-9340
+          </td>
+          <td>
+            Email: goodtogo@ucsd.edu
           </td>
         </tr>
    
@@ -104,7 +115,7 @@
   </tr>
   <tr>
     <td>
-      Your Friends at Good to Go
+      - The Good to Go Team
     </td>
   </tr>
 </table>
