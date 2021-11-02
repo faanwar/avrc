@@ -58,21 +58,19 @@
  <tr>
     <td align="left">
     <br> <br>
-   We observe COVID-19 precautions per the CDC's direction for healthcare settings. A brief symptom screening will be conducted upon your arrival at Good to Go, and a mask will be required throughout your appointment. (If you forget your mask, don't sweat it! We have disposable masks on-hand - just let us know.) 
-   <br>
-   <br><i><b>*Please note:</b> CDC regulations change regularly; <a href="https://goodtogosd.us7.list-manage.com/subscribe?u=3866fc616ec327959df0c6dce&id=e81b0e013d">stay tuned to our monthly eNewsletter</a>, <a href="https://www.facebook.com/Good2GoSD">Facebook</a> or <a href="https://www.instagram.com/good2gosd/">Instagram</a> for updates on screening and masking guidelines at our clinic.</i>
+   We observe COVID-19 precautions per the CDC's direction for healthcare settings. A brief symptom screening will be conducted upon your arrival at Good to Go, and a mask will be required throughout your appointment. (If you forget your mask, don't sweat it! We have disposable masks on-hand - just let us know.) <b>Please note:</b> CDC regulations change regularly; <a href="https://goodtogosd.us7.list-manage.com/subscribe?u=3866fc616ec327959df0c6dce&id=e81b0e013d">stay tuned to our monthly eNewsletter</a>, <a href="https://www.facebook.com/Good2GoSD">Facebook</a> or <a href="https://www.instagram.com/good2gosd/">Instagram</a> for updates on screening and masking guidelines at our clinic.
     </td>
   </tr>
    <tr>
     <td align="left">
     <br>
-   We recently launched an online guide to help you prepare for your upcoming appointment in 3 easy steps. In it, we answer questions like "Do STI tests hurt?" (spoiler: they don't) and "How quickly will I get my STI results?" (spoiler: fast) - <a href="https://www.goodtogosd.com/what-to-expect-from-sti-testing">check it out here</a>. (Still have questions? We got you - just give us a call at 619-543-9340.)
+    As of October 2021, Good to Go offers pooled STI testing for gonorrhea and chlamydia, as opposed to single-site testing. This means that urine tests and body site swabs conducted during your sexual health check-up will be combined and tested all at once to check for infection. You might be wondering: what's the difference between pooled versus single-site testing? Here it is: if you test positive for gonorrhea or chlamydia, your results will not indicate the location of your infection. That's it, nothing else changes. We understand this update can make sharing your STI results a little challenging. That's why, we offer Partner Services to anonymously notify your partners of any positive results. All you have to do is ask your Good to Go STI treatment coordinator to connect you with Partner Services and they'll take care of the rest. Curious why we made this change? Read about <a href="https://www.goodtogosd.com/">our testing approach</a> on our website to learn how pooled testing helps our community. 
     </td>
   </tr>
    <tr>
     <td align="left">
     <br>
-    Due to limited funding this year, we will be shifting Good to Go's services to focus on highly affected groups who lack access to STI and HIV education and testing, are under-insured, and do not take PrEP. Please check <a href="https://www.goodtogosd.com/">our website</a> regularly for eligibility updates to learn how this might impact you in the future. 
+    Not sure what to expect at a sexual health check-up? Read a complete play-by-play of what you can expect from the second you walk into Good to Go's doors in our free online guide. We answer commonly asked questions like "Do STI tests hurt?" (spoiler: they don't) and "How quickly will I get my STI results?" (spoiler: fast) - <a href="https://www.goodtogosd.com/what-to-expect-from-sti-testing">check it out here</a>. Still have questions? We got you! Give us a call at 619-543-9340 to speak directly with one of our testers. 
     </td>
   </tr>
 
@@ -94,7 +92,7 @@
            </tr>
            <tr>
           <td>
-            Front Desk: (619) 543-9340
+            Phone Number (clinic front desk): (619) 543-9340
           </td>
            </tr>
            <tr>
