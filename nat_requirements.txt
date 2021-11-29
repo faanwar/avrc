@@ -31,7 +31,7 @@ pyramid-rewrite==0.2
 pyramid-tm==0.12
 python-editor==0.3
 python-gnupg==0.3.7
-python-ldap==2.4.20
+python-ldap==3.4.0
 pytz==2015.4
 repoze.lru==0.6
 requests==2.7.0
